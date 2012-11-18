@@ -601,3 +601,763 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/artifacts" for 127.0.0.1 at 2012-11-18 11:46:18 +0100
+Connecting to database specified by database.yml
+Processing by ArtifactsController#index as HTML
+  [1m[36mArtifact Load (47868.8ms)[0m  [1mSELECT "artifacts".* FROM "artifacts" [0m
+Completed   in 49550ms
+
+
+Started GET "/artifacts/show/2140257" for 127.0.0.1 at 2012-11-18 11:51:25 +0100
+Connecting to database specified by database.yml
+
+ActionController::RoutingError (No route matches [GET] "/artifacts/show/2140257"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.6ms)
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 11:51:38 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[36mArtifact Load (421.0ms)[0m  [1mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1[0m  [["id", "2140257"]]
+Completed 500 Internal Server Error in 1667ms
+
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Artifact::Log'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Artifact.inheritance_column to use another column for that information.):
+  app/controllers/artifacts_controller.rb:16:in `show'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.4ms)
+
+
+Started GET "/artifact/show/2140257" for 127.0.0.1 at 2012-11-18 11:51:46 +0100
+
+ActionController::RoutingError (No route matches [GET] "/artifact/show/2140257"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 11:53:11 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[35mArtifact Load (178.8ms)[0m  SELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1  [["id", "2140257"]]
+Completed 500 Internal Server Error in 181ms
+
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Artifact::Log'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Artifact.inheritance_column to use another column for that information.):
+  app/controllers/artifacts_controller.rb:16:in `show'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started GET "/artifacts/1" for 127.0.0.1 at 2012-11-18 11:53:15 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArtifact Load (181.5ms)[0m  [1mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 183ms
+
+ActiveRecord::RecordNotFound (Couldn't find Artifact with id=1):
+  app/controllers/artifacts_controller.rb:16:in `show'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 11:53:26 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[35mArtifact Load (179.1ms)[0m  SELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1  [["id", "2140257"]]
+Completed 500 Internal Server Error in 182ms
+
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Artifact::Log'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Artifact.inheritance_column to use another column for that information.):
+  app/controllers/artifacts_controller.rb:16:in `show'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/events/1" for 127.0.0.1 at 2012-11-18 11:59:01 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (360.0ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered events/show.html.erb within layouts/application (1.6ms)
+Compiled artifacts.css  (37ms)  (pid 14176)
+Compiled broadcasts.css  (2ms)  (pid 14176)
+Compiled events.css  (1ms)  (pid 14176)
+Compiled scaffolds.css  (17ms)  (pid 14176)
+Compiled application.css  (169ms)  (pid 14176)
+Compiled jquery.js  (5ms)  (pid 14176)
+Compiled jquery_ujs.js  (0ms)  (pid 14176)
+Compiled artifacts.js  (903ms)  (pid 14176)
+Compiled broadcasts.js  (62ms)  (pid 14176)
+Compiled events.js  (67ms)  (pid 14176)
+Compiled application.js  (1209ms)  (pid 14176)
+Completed 200 OK in 2568ms (Views: 1653.8ms | ActiveRecord: 898.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 11:59:03 +0100
+Served asset /application.css - 200 OK (26ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 11:59:04 +0100
+Served asset /artifacts.css - 200 OK (7ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 11:59:04 +0100
+Served asset /broadcasts.css - 200 OK (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 11:59:04 +0100
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 11:59:04 +0100
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 11:59:04 +0100
+Served asset /events.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 11:59:05 +0100
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 11:59:05 +0100
+Served asset /artifacts.js - 200 OK (1ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 11:59:05 +0100
+Served asset /broadcasts.js - 200 OK (2ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 11:59:05 +0100
+Served asset /events.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 11:59:05 +0100
+Served asset /application.js - 200 OK (6ms)
+
+
+Started GET "/events/10" for 127.0.0.1 at 2012-11-18 12:02:36 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mEvent Load (178.5ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1  [["id", "10"]]
+  Rendered events/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 328ms (Views: 147.6ms | ActiveRecord: 178.5ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 12:02:36 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 12:02:36 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 12:02:37 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 12:02:37 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/events/" for 127.0.0.1 at 2012-11-18 12:02:42 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (2027.0ms)[0m  [1mSELECT "events".* FROM "events" [0m
+  [1m[35mEXPLAIN (280.7ms)[0m  EXPLAIN SELECT "events".* FROM "events" 
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (27994.4ms)
+Completed 200 OK in 31723ms (Views: 28052.0ms | ActiveRecord: 2307.8ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 12:03:14 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 12:03:14 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 12:03:15 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 12:03:15 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-18 12:03:30 +0100
+Served asset /rails.png - 200 OK (27ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/events/1" for 127.0.0.1 at 2012-11-18 12:09:24 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (181.9ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered events/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 836ms (Views: 7.8ms | ActiveRecord: 817.2ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 12:09:25 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 12:09:25 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 12:09:26 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 12:09:26 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/events/" for 127.0.0.1 at 2012-11-18 12:09:43 +0100
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (2680.6ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mEXPLAIN (180.9ms)[0m  [1mEXPLAIN SELECT "events".* FROM "events" [0m
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (26825.6ms)
+Completed 200 OK in 30928ms (Views: 26842.1ms | ActiveRecord: 2861.5ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 12:10:14 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 12:10:14 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 12:10:14 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 12:10:15 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/artifacts/1" for 127.0.0.1 at 2012-11-18 15:06:43 +0100
+
+PG::Error (SSL SYSCALL error: EOF detected
+):
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:297:in `exec'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:297:in `dealloc'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:281:in `block in clear'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:280:in `each_value'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:280:in `clear'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:342:in `clear_cache!'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:355:in `reconnect!'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract_adapter.rb:219:in `verify!'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:327:in `block in checkout_and_verify'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:403:in `_run__361130472202820893__checkout__1483545160930534583__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_checkout_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `checkout_and_verify'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:247:in `block (2 levels) in checkout'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:236:in `loop'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:236:in `block in checkout'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:233:in `checkout'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:96:in `block in connection'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:95:in `connection'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:404:in `retrieve_connection'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_specification.rb:170:in `retrieve_connection'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_specification.rb:144:in `connection'
+  activerecord (3.2.8) lib/active_record/model_schema.rb:308:in `clear_cache!'
+  activerecord (3.2.8) lib/active_record/railtie.rb:97:in `block (2 levels) in <class:Railtie>'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:440:in `_run__3962831395023833096__prepare__1483545160930534583__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_prepare_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:74:in `prepare!'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (57.7ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.5ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (257.5ms)
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 15:06:57 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[35mArtifact Load (686.0ms)[0m  SELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1  [["id", "2140257"]]
+Completed 500 Internal Server Error in 2056ms
+
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Artifact::Log'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Artifact.inheritance_column to use another column for that information.):
+  app/controllers/artifacts_controller.rb:16:in `show'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.2ms)
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 15:11:50 +0100
+DEPRECATION WARNING: Calling set_inheritance_column is deprecated. Please use `self.inheritance_column = 'the_name'` instead. (called from <class:Artifact> at /Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/models/artifact.rb:4)
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[36mArtifact Load (367.4ms)[0m  [1mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1[0m  [["id", "2140257"]]
+  [1m[35mEXPLAIN (376.9ms)[0m  EXPLAIN SELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1  [["id", "2140257"]]
+EXPLAIN for: SELECT  "artifacts".* FROM "artifacts"  WHERE "artifacts"."id" = $1 LIMIT 1 [["id", "2140257"]]
+                                       QUERY PLAN
+----------------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.18 rows=1 width=547)
+   ->  Index Scan using artifacts_pkey on artifacts  (cost=0.00..4.18 rows=1 width=547)
+         Index Cond: (id = 2140257)
+(3 rows)
+
+  Rendered artifacts/show.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 2332ms (Views: 255.8ms | ActiveRecord: 1739.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 15:11:56 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 15:11:57 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 15:11:57 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 15:11:57 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 15:11:58 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 15:11:58 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 15:11:58 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 15:11:58 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 15:11:59 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 15:11:59 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 15:11:59 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 15:15:01 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[36mArtifact Load (179.8ms)[0m  [1mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1[0m  [["id", "2140257"]]
+  Rendered artifacts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 327ms (Views: 146.1ms | ActiveRecord: 179.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:02 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:02 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:03 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:03 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:03 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:04 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:04 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:04 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:04 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:05 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:05 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 15:15:46 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[35mArtifact Load (525.4ms)[0m  SELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1  [["id", "2140257"]]
+  [1m[36mEXPLAIN (248.9ms)[0m  [1mEXPLAIN SELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1[0m  [["id", "2140257"]]
+EXPLAIN for: SELECT  "artifacts".* FROM "artifacts"  WHERE "artifacts"."id" = $1 LIMIT 1 [["id", "2140257"]]
+                                       QUERY PLAN
+----------------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.18 rows=1 width=547)
+   ->  Index Scan using artifacts_pkey on artifacts  (cost=0.00..4.18 rows=1 width=547)
+         Index Cond: (id = 2140257)
+(3 rows)
+
+  Rendered artifacts/show.html.erb within layouts/application (83.9ms)
+Completed 200 OK in 1500ms (Views: 723.1ms | ActiveRecord: 774.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:48 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:49 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:49 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:49 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:50 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 15:15:50 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:50 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:51 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:51 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:51 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 15:15:52 +0100
+Served asset /application.js - 304 Not Modified (12ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/builds/3137" for 127.0.0.1 at 2012-11-18 15:37:21 +0100
+Processing by BuildsController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[35mBuild Load (359.9ms)[0m  SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "3137"]]
+  [1m[36mEXPLAIN (421.3ms)[0m  [1mEXPLAIN SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+EXPLAIN for: SELECT  "builds".* FROM "builds"  WHERE "builds"."id" = $1 LIMIT 1 [["id", "3137"]]
+                                    QUERY PLAN
+-----------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.09 rows=1 width=1386)
+   ->  Index Scan using builds_pkey on builds  (cost=0.00..4.09 rows=1 width=1386)
+         Index Cond: (id = 3137::bigint)
+(3 rows)
+
+  Rendered builds/show.html.erb within layouts/application (200.3ms)
+Compiled builds.css  (153ms)  (pid 14176)
+Compiled application.css  (458ms)  (pid 14176)
+Compiled builds.js  (474ms)  (pid 14176)
+Compiled application.js  (577ms)  (pid 14176)
+Completed 200 OK in 4007ms (Views: 2520.3ms | ActiveRecord: 1329.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 15:37:26 +0100
+Served asset /application.css - 304 Not Modified (21ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 15:37:26 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 15:37:27 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 15:37:27 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 15:37:27 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 15:37:27 +0100
+Served asset /builds.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 15:37:27 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 15:37:27 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 15:37:28 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 15:37:28 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 15:37:28 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 15:37:28 +0100
+Served asset /builds.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 15:37:29 +0100
+Served asset /application.js - 304 Not Modified (34ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 16:03:35 +0100
+DEPRECATION WARNING: Calling set_inheritance_column is deprecated. Please use `self.inheritance_column = 'the_name'` instead. (called from <class:Artifact> at /Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/models/artifact.rb:4)
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[35mArtifact Load (179.4ms)[0m  SELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1  [["id", "2140257"]]
+  Rendered artifacts/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 935ms (Views: 103.8ms | ActiveRecord: 816.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 16:03:36 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 16:03:36 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 16:03:37 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 16:03:37 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 16:03:37 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 16:03:37 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 16:03:38 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 16:03:38 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 16:03:38 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 16:03:38 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 16:03:39 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 16:03:39 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 16:03:39 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/artifacts/2140257" for 127.0.0.1 at 2012-11-18 16:05:04 +0100
+Processing by ArtifactsController#show as HTML
+  Parameters: {"id"=>"2140257"}
+  [1m[36mArtifact Load (191.4ms)[0m  [1mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."id" = $1 LIMIT 1[0m  [["id", "2140257"]]
+  Rendered artifacts/show.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 285ms (Views: 91.8ms | ActiveRecord: 191.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 16:05:05 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 16:05:05 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 16:05:06 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 16:05:06 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 16:05:06 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 16:05:06 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 16:05:06 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 16:05:07 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 16:05:07 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 16:05:07 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 16:05:07 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 16:05:08 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 16:05:08 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/artifacts" for 127.0.0.1 at 2012-11-18 16:05:21 +0100
+Processing by ArtifactsController#index as HTML
+Connecting to database specified by database.yml

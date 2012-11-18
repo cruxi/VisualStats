@@ -1,0 +1,47 @@
+<h1>Listing commits</h1>
+
+<table>
+  <tr>
+    <th>Repository</th>
+    <th>Commit</th>
+    <th>Ref</th>
+    <th>Branch</th>
+    <th>Message</th>
+    <th>Compare url</th>
+    <th>Committed at</th>
+    <th>Committer name</th>
+    <th>Committer email</th>
+    <th>Author name</th>
+    <th>Author email</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @commits.each do |commit| %>
+  <tr>
+    <td><%= commit.repository_id %></td>
+    <td><%= commit.commit %></td>
+    <td><%= commit.ref %></td>
+    <td><%= commit.branch %></td>
+    <td><%= commit.message %></td>
+    <td><%= commit.compare_url %></td>
+    <td><%= commit.committed_at %></td>
+    <td><%= commit.committer_name %></td>
+    <td><%= commit.committer_email %></td>
+    <td><%= commit.author_name %></td>
+    <td><%= commit.author_email %></td>
+    <td><%= commit.created_at %></td>
+    <td><%= commit.updated_at %></td>
+    <td><%= link_to 'Show', commit %></td>
+    <td><%= link_to 'Edit', edit_commit_path(commit) %></td>
+    <td><%= link_to 'Destroy', commit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Commit', new_commit_path %>

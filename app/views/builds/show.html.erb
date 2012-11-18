@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @build.id %>
+</p>
+
+<p>
+  <b>Repository:</b>
+  <%= @build.repository_id %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @build.number %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @build.status %>
+</p>
+
+<p>
+  <b>Started at:</b>
+  <%= @build.started_at %>
+</p>
+
+<p>
+  <b>Finished at:</b>
+  <%= @build.finished_at %>
+</p>
+
+<p>
+  <b>Agent:</b>
+  <%= @build.agent %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @build.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @build.updated_at %>
+</p>
+
+<p>
+  <b>Config:</b>
+  <%= @build.config %>
+</p>
+
+<p>
+  <b>Commit:</b>
+  <%= @build.commit_id %>
+</p>
+
+<p>
+  <b>Request:</b>
+  <%= @build.request_id %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @build.state %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @build.language %>
+</p>
+
+<p>
+  <b>Archived at:</b>
+  <%= @build.archived_at %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @build.duration %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @build.owner_id %>
+</p>
+
+<p>
+  <b>Owner type:</b>
+  <%= @build.owner_type %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%= @build.result %>
+</p>
+
+<p>
+  <b>Previous result:</b>
+  <%= @build.previous_result %>
+</p>
+
+<p>
+  <b>Event type:</b>
+  <%= @build.event_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_build_path(@build) %> |
+<%= link_to 'Back', builds_path %>

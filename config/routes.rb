@@ -1,4 +1,14 @@
 VisualStats::Application.routes.draw do
+  resources :commits
+
+  resources :builds
+
+  resources :events
+
+  resources :broadcasts
+
+  resources :artifacts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

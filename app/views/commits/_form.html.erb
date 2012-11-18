@@ -1,0 +1,69 @@
+<%= form_for(@commit) do |f| %>
+  <% if @commit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@commit.errors.count, "error") %> prohibited this commit from being saved:</h2>
+
+      <ul>
+      <% @commit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :repository_id %><br />
+    <%= f.number_field :repository_id %>
+  </div>
+  <div class="field">
+    <%= f.label :commit %><br />
+    <%= f.text_field :commit %>
+  </div>
+  <div class="field">
+    <%= f.label :ref %><br />
+    <%= f.text_field :ref %>
+  </div>
+  <div class="field">
+    <%= f.label :branch %><br />
+    <%= f.text_field :branch %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
+  </div>
+  <div class="field">
+    <%= f.label :compare_url %><br />
+    <%= f.text_field :compare_url %>
+  </div>
+  <div class="field">
+    <%= f.label :committed_at %><br />
+    <%= f.datetime_select :committed_at %>
+  </div>
+  <div class="field">
+    <%= f.label :committer_name %><br />
+    <%= f.text_field :committer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :committer_email %><br />
+    <%= f.text_field :committer_email %>
+  </div>
+  <div class="field">
+    <%= f.label :author_name %><br />
+    <%= f.text_field :author_name %>
+  </div>
+  <div class="field">
+    <%= f.label :author_email %><br />
+    <%= f.text_field :author_email %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_at %><br />
+    <%= f.datetime_select :updated_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

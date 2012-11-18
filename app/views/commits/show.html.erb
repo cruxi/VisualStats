@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Repository:</b>
+  <%= @commit.repository_id %>
+</p>
+
+<p>
+  <b>Commit:</b>
+  <%= @commit.commit %>
+</p>
+
+<p>
+  <b>Ref:</b>
+  <%= @commit.ref %>
+</p>
+
+<p>
+  <b>Branch:</b>
+  <%= @commit.branch %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @commit.message %>
+</p>
+
+<p>
+  <b>Compare url:</b>
+  <%= @commit.compare_url %>
+</p>
+
+<p>
+  <b>Committed at:</b>
+  <%= @commit.committed_at %>
+</p>
+
+<p>
+  <b>Committer name:</b>
+  <%= @commit.committer_name %>
+</p>
+
+<p>
+  <b>Committer email:</b>
+  <%= @commit.committer_email %>
+</p>
+
+<p>
+  <b>Author name:</b>
+  <%= @commit.author_name %>
+</p>
+
+<p>
+  <b>Author email:</b>
+  <%= @commit.author_email %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @commit.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @commit.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_commit_path(@commit) %> |
+<%= link_to 'Back', commits_path %>

@@ -1,0 +1,101 @@
+<%= form_for(@build) do |f| %>
+  <% if @build.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@build.errors.count, "error") %> prohibited this build from being saved:</h2>
+
+      <ul>
+      <% @build.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.number_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :repository_id %><br />
+    <%= f.number_field :repository_id %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :started_at %><br />
+    <%= f.datetime_select :started_at %>
+  </div>
+  <div class="field">
+    <%= f.label :finished_at %><br />
+    <%= f.datetime_select :finished_at %>
+  </div>
+  <div class="field">
+    <%= f.label :agent %><br />
+    <%= f.text_field :agent %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_at %><br />
+    <%= f.datetime_select :updated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :config %><br />
+    <%= f.text_area :config %>
+  </div>
+  <div class="field">
+    <%= f.label :commit_id %><br />
+    <%= f.number_field :commit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :request_id %><br />
+    <%= f.number_field :request_id %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :archived_at %><br />
+    <%= f.datetime_select :archived_at %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.number_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_id %><br />
+    <%= f.number_field :owner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_type %><br />
+    <%= f.text_field :owner_type %>
+  </div>
+  <div class="field">
+    <%= f.label :result %><br />
+    <%= f.number_field :result %>
+  </div>
+  <div class="field">
+    <%= f.label :previous_result %><br />
+    <%= f.number_field :previous_result %>
+  </div>
+  <div class="field">
+    <%= f.label :event_type %><br />
+    <%= f.text_field :event_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
