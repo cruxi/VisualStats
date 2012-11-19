@@ -4,7 +4,7 @@ class Repository < ActiveRecord::Base
   has_many :builds
   has_many :events
 
-
-  self.per_page = 1000
+  #Limit the rows to be shown on one page
+  self.per_page = 10
 
 end

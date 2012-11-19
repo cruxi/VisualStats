@@ -11,3 +11,25 @@
  *= require_self
  *= require_tree .
  */
+
+* {
+	margin: 0;
+}
+
+body{
+	border:	none;	
+	padding: 10px;
+}
+
+h1{
+	font-size: 2em !important;
+}
+
+a:hover{
+	background-color: transparent !important;
+	text-decoration: none !important;
+}
+
+a {
+	color: #00868B !important;
+}
