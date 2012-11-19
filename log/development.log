@@ -1361,3 +1361,2242 @@ Served asset /application.js - 304 Not Modified (0ms)
 Started GET "/artifacts" for 127.0.0.1 at 2012-11-18 16:05:21 +0100
 Processing by ArtifactsController#index as HTML
 Connecting to database specified by database.yml
+  [1m[35mArtifact Load (2942981.2ms)[0m  SELECT "artifacts".* FROM "artifacts" 
+Completed   in 2943131ms
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-18 16:55:20 +0100
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (15ms)
+
+
+Started GET "/builds/3137" for 127.0.0.1 at 2012-11-18 16:55:29 +0100
+Processing by BuildsController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[36mBuild Load (1777.2ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  [1m[35mEXPLAIN (493.0ms)[0m  EXPLAIN SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "3137"]]
+EXPLAIN for: SELECT  "builds".* FROM "builds"  WHERE "builds"."id" = $1 LIMIT 1 [["id", "3137"]]
+                                    QUERY PLAN
+-----------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.09 rows=1 width=1386)
+   ->  Index Scan using builds_pkey on builds  (cost=0.00..4.09 rows=1 width=1386)
+         Index Cond: (id = 3137::bigint)
+(3 rows)
+
+  Rendered builds/show.html.erb within layouts/application (48.1ms)
+Compiled commits.css  (36ms)  (pid 16077)
+Compiled application.css  (63ms)  (pid 16077)
+Compiled commits.js  (560ms)  (pid 16077)
+Compiled application.js  (616ms)  (pid 16077)
+Completed 200 OK in 7362ms (Views: 1361.7ms | ActiveRecord: 6398.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 16:55:38 +0100
+Served asset /application.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 16:55:38 +0100
+Served asset /commits.css - 200 OK (1ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:39 +0100
+Served asset /commits.js - 200 OK (1ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 16:55:39 +0100
+Served asset /builds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 16:55:40 +0100
+Served asset /artifacts.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 16:55:40 +0100
+Served asset /events.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:40 +0100
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 16:55:40 +0100
+Served asset /broadcasts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 16:55:41 +0100
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:41 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:42 +0100
+Served asset /broadcasts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:43 +0100
+Served asset /artifacts.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:45 +0100
+Served asset /builds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:46 +0100
+Served asset /events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 16:55:47 +0100
+Served asset /application.js - 304 Not Modified (49ms)
+
+
+Started GET "/builds/3137/commits" for 127.0.0.1 at 2012-11-18 16:55:53 +0100
+
+ActionController::RoutingError (No route matches [GET] "/builds/3137/commits"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/commits/3138/builds" for 127.0.0.1 at 2012-11-18 17:01:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/commits/3138/builds"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+Connecting to database specified by database.yml
+  [1m[36m (184.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (180.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateEvents (20121118110834)
+  [1m[35m (178.7ms)[0m  BEGIN
+  [1m[36m (185.1ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "source_id" integer, "source_type" character varying(255), "repository_id" integer, "event" character varying(255), "data" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+PG::Error: ERROR:  relation "events" already exists
+: CREATE TABLE "events" ("id" serial primary key, "source_id" integer, "source_type" character varying(255), "repository_id" integer, "event" character varying(255), "data" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (181.3ms)[0m  ROLLBACK
+
+
+Started GET "/builds/3137/commits" for 127.0.0.1 at 2012-11-18 17:12:28 +0100
+Connecting to database specified by database.yml
+
+ActionController::RoutingError (No route matches [GET] "/builds/3137/commits"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.1ms)
+
+
+Started GET "/commits/3138" for 127.0.0.1 at 2012-11-18 17:12:46 +0100
+Processing by CommitsController#show as HTML
+  Parameters: {"id"=>"3138"}
+  [1m[36mCommit Load (508.8ms)[0m  [1mSELECT "commits".* FROM "commits" WHERE "commits"."id" = $1 LIMIT 1[0m  [["id", "3138"]]
+  [1m[35mEXPLAIN (364.1ms)[0m  EXPLAIN SELECT "commits".* FROM "commits" WHERE "commits"."id" = $1 LIMIT 1  [["id", "3138"]]
+EXPLAIN for: SELECT  "commits".* FROM "commits"  WHERE "commits"."id" = $1 LIMIT 1 [["id", "3138"]]
+                                     QUERY PLAN
+------------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.10 rows=1 width=295)
+   ->  Index Scan using commits_pkey on commits  (cost=0.00..4.10 rows=1 width=295)
+         Index Cond: (id = 3138)
+(3 rows)
+
+  Rendered commits/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 2423ms (Views: 165.0ms | ActiveRecord: 2406.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 17:12:48 +0100
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 17:12:49 +0100
+Served asset /artifacts.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 17:12:49 +0100
+Served asset /broadcasts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 17:12:49 +0100
+Served asset /events.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 17:12:49 +0100
+Served asset /commits.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 17:12:49 +0100
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 17:12:50 +0100
+Served asset /builds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:50 +0100
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:50 +0100
+Served asset /artifacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:50 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:50 +0100
+Served asset /broadcasts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:51 +0100
+Served asset /builds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:51 +0100
+Served asset /commits.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:51 +0100
+Served asset /events.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 17:12:52 +0100
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/commits/3138/builds" for 127.0.0.1 at 2012-11-18 17:12:56 +0100
+
+ActionController::RoutingError (No route matches [GET] "/commits/3138/builds"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/repositories/7/builds" for 127.0.0.1 at 2012-11-18 17:34:12 +0100
+Connecting to database specified by database.yml
+Processing by BuildsController#index as HTML
+  Parameters: {"repository_id"=>"7"}
+  [1m[36mBuild Load (32857.4ms)[0m  [1mSELECT "builds".* FROM "builds" [0m
+Completed   in 34065ms
+
+
+Started GET "/repositories/7" for 127.0.0.1 at 2012-11-18 17:35:07 +0100
+Connecting to database specified by database.yml
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRepository Load (363.3ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "7"]]
+  Rendered repositories/show.html.erb within layouts/application (4.5ms)
+Compiled repositories.css  (6ms)  (pid 16306)
+Compiled application.css  (19ms)  (pid 16306)
+Compiled repositories.js  (154ms)  (pid 16306)
+Compiled application.js  (166ms)  (pid 16306)
+Completed 200 OK in 2025ms (Views: 488.1ms | ActiveRecord: 1661.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:14 +0100
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:14 +0100
+Served asset /artifacts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:14 +0100
+Served asset /broadcasts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:15 +0100
+Served asset /builds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:15 +0100
+Served asset /commits.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:15 +0100
+Served asset /events.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:16 +0100
+Served asset /repositories.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:16 +0100
+Served asset /jquery.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 17:35:16 +0100
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:16 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:17 +0100
+Served asset /builds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:17 +0100
+Served asset /artifacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:17 +0100
+Served asset /broadcasts.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:17 +0100
+Served asset /commits.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:18 +0100
+Served asset /events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:18 +0100
+Served asset /repositories.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 17:35:19 +0100
+Served asset /application.js - 304 Not Modified (31ms)
+
+
+Started GET "/repositories/7/builds" for 127.0.0.1 at 2012-11-18 17:35:24 +0100
+Processing by BuildsController#index as HTML
+  Parameters: {"repository_id"=>"7"}
+  [1m[35mBuild Load (277071.6ms)[0m  SELECT "builds".* FROM "builds" 
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-18 17:59:46 +0100
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (20ms)
+
+
+Started GET "/repositories/7" for 127.0.0.1 at 2012-11-18 17:59:59 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRepository Load (364.1ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "7"]]
+  Rendered repositories/show.html.erb within layouts/application (41.3ms)
+Completed 200 OK in 2010ms (Views: 460.6ms | ActiveRecord: 1653.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:02 +0100
+Served asset /application.css - 200 OK (18ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:02 +0100
+Served asset /broadcasts.css - 200 OK (3ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:02 +0100
+Served asset /builds.css - 200 OK (13ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:02 +0100
+Served asset /artifacts.css - 200 OK (3ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:03 +0100
+Served asset /commits.css - 200 OK (362ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:03 +0100
+Served asset /events.css - 200 OK (2ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:03 +0100
+Served asset /repositories.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 18:00:04 +0100
+Served asset /scaffolds.css - 200 OK (104ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:04 +0100
+Served asset /jquery.js - 200 OK (178ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:04 +0100
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:04 +0100
+Served asset /artifacts.js - 200 OK (1ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:05 +0100
+Served asset /broadcasts.js - 200 OK (187ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:05 +0100
+Served asset /builds.js - 200 OK (9ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:05 +0100
+Served asset /commits.js - 200 OK (11ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:05 +0100
+Served asset /repositories.js - 200 OK (3ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:06 +0100
+Served asset /events.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 18:00:06 +0100
+Served asset /application.js - 200 OK (11ms)
+
+
+Started GET "/repositories/7/builds" for 127.0.0.1 at 2012-11-18 18:00:11 +0100
+Processing by BuildsController#index as HTML
+  Parameters: {"repository_id"=>"7"}
+  [1m[35mBuild Load (90086.7ms)[0m  SELECT "builds".* FROM "builds" 
+Completed   in 90687ms
+
+
+Started GET "/builds/3137" for 127.0.0.1 at 2012-11-18 18:02:10 +0100
+Connecting to database specified by database.yml
+Processing by BuildsController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[36mBuild Load (596.4ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  [1m[35mEXPLAIN (843.8ms)[0m  EXPLAIN SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "3137"]]
+EXPLAIN for: SELECT  "builds".* FROM "builds"  WHERE "builds"."id" = $1 LIMIT 1 [["id", "3137"]]
+                                    QUERY PLAN
+-----------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.09 rows=1 width=1386)
+   ->  Index Scan using builds_pkey on builds  (cost=0.00..4.09 rows=1 width=1386)
+         Index Cond: (id = 3137::bigint)
+(3 rows)
+
+  Rendered builds/show.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 3100ms (Views: 461.2ms | ActiveRecord: 2745.8ms)
+
+
+Started GET "/builds/3137" for 127.0.0.1 at 2012-11-18 18:02:38 +0100
+Processing by BuildsController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[36mBuild Load (182.2ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  Rendered builds/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 205ms (Views: 22.0ms | ActiveRecord: 182.2ms)
+
+
+Started GET "/builds/3137/commits" for 127.0.0.1 at 2012-11-18 18:02:46 +0100
+
+ActionController::RoutingError (No route matches [GET] "/builds/3137/commits"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/builds/3137/commits" for 127.0.0.1 at 2012-11-18 18:04:57 +0100
+Connecting to database specified by database.yml
+Processing by CommitsController#index as HTML
+  Parameters: {"build_id"=>"3137"}
+  [1m[36mCommit Load (78129.9ms)[0m  [1mSELECT "commits".* FROM "commits" [0m
+Completed   in 79875ms
+
+
+Started GET "/repositories/7/builds/9860" for 127.0.0.1 at 2012-11-18 18:06:49 +0100
+Connecting to database specified by database.yml
+Processing by BuildsController#show as HTML
+  Parameters: {"repository_id"=>"7", "id"=>"9860"}
+  [1m[36mBuild Load (487.2ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "9860"]]
+  [1m[35mEXPLAIN (478.1ms)[0m  EXPLAIN SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "9860"]]
+EXPLAIN for: SELECT  "builds".* FROM "builds"  WHERE "builds"."id" = $1 LIMIT 1 [["id", "9860"]]
+                                    QUERY PLAN
+-----------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.09 rows=1 width=1386)
+   ->  Index Scan using builds_pkey on builds  (cost=0.00..4.09 rows=1 width=1386)
+         Index Cond: (id = 9860::bigint)
+(3 rows)
+
+  Rendered builds/show.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 2874ms (Views: 336.9ms | ActiveRecord: 2758.1ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 18:06:57 +0100
+Served asset /repositories.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 18:06:57 +0100
+Served asset /repositories.js - 304 Not Modified (1ms)
+
+
+Started GET "/repositories/7" for 127.0.0.1 at 2012-11-18 18:07:30 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRepository Load (365.7ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "7"]]
+  Rendered repositories/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 1041ms (Views: 90.1ms | ActiveRecord: 907.2ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 18:07:31 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 18:07:31 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories/7/builds" for 127.0.0.1 at 2012-11-18 18:07:38 +0100
+Processing by BuildsController#index as HTML
+  Parameters: {"repository_id"=>"7"}
+  [1m[35mBuild Load (287302.6ms)[0m  SELECT "builds".* FROM "builds" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-18 22:22:53 +0100
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (74ms)
+
+
+Started GET "/repositories/3137" for 127.0.0.1 at 2012-11-18 22:23:15 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[36mRepository Load (463.2ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  Rendered repositories/show.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 2111ms (Views: 387.0ms | ActiveRecord: 1869.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:17 +0100
+Served asset /application.css - 200 OK (12ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:18 +0100
+Served asset /broadcasts.css - 200 OK (3ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:18 +0100
+Served asset /builds.css - 200 OK (2ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:18 +0100
+Served asset /artifacts.css - 200 OK (2ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:18 +0100
+Served asset /commits.css - 200 OK (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:18 +0100
+Served asset /events.css - 200 OK (1ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:19 +0100
+Served asset /repositories.css - 200 OK (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 22:23:19 +0100
+Served asset /scaffolds.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:19 +0100
+Served asset /jquery.js - 200 OK (69ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:19 +0100
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:19 +0100
+Served asset /artifacts.js - 200 OK (16ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:20 +0100
+Served asset /broadcasts.js - 200 OK (5ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:20 +0100
+Served asset /builds.js - 200 OK (1ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:20 +0100
+Served asset /commits.js - 200 OK (1ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:20 +0100
+Served asset /repositories.js - 200 OK (2ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:20 +0100
+Served asset /events.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 22:23:20 +0100
+Served asset /application.js - 200 OK (11ms)
+
+
+Started GET "/repositories/3137/builds/260626" for 127.0.0.1 at 2012-11-18 22:24:39 +0100
+Processing by BuildsController#show as HTML
+  Parameters: {"repository_id"=>"3137", "id"=>"260626"}
+  [1m[35mBuild Load (371.3ms)[0m  SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "260626"]]
+  Rendered builds/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 949ms (Views: 10.7ms | ActiveRecord: 915.9ms)
+
+
+Started GET "/repositories/3137/builds/" for 127.0.0.1 at 2012-11-18 22:24:45 +0100
+Processing by BuildsController#index as HTML
+  Parameters: {"repository_id"=>"3137"}
+  [1m[36mBuild Load (80385.2ms)[0m  [1mSELECT "builds".* FROM "builds" [0m
+Completed   in 80386ms
+
+
+Started GET "/builds/260626/repositories" for 127.0.0.1 at 2012-11-18 22:26:13 +0100
+Connecting to database specified by database.yml
+
+ActionController::RoutingError (No route matches [GET] "/builds/260626/repositories"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.9ms)
+
+
+Started GET "/builds/260626" for 127.0.0.1 at 2012-11-18 22:29:23 +0100
+Processing by BuildsController#show as HTML
+  Parameters: {"id"=>"260626"}
+  [1m[36mBuild Load (366.6ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "260626"]]
+  Rendered builds/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 1667ms (Views: 62.2ms | ActiveRecord: 1734.2ms)
+
+
+Started GET "/repositories/3137" for 127.0.0.1 at 2012-11-18 22:30:41 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[35mRepository Load (817.5ms)[0m  SELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1  [["id", "3137"]]
+  [1m[36mEXPLAIN (846.7ms)[0m  [1mEXPLAIN SELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+EXPLAIN for: SELECT  "repositories".* FROM "repositories"  WHERE "repositories"."id" = $1 LIMIT 1 [["id", "3137"]]
+                                          QUERY PLAN
+----------------------------------------------------------------------------------------------
+ Limit  (cost=0.00..4.10 rows=1 width=730)
+   ->  Index Scan using repositories_pkey on repositories  (cost=0.00..4.10 rows=1 width=730)
+         Index Cond: (id = 3137)
+(3 rows)
+
+  Rendered repositories/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 3119ms (Views: 14.0ms | ActiveRecord: 3083.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/repositories/3137" for 127.0.0.1 at 2012-11-18 22:42:52 +0100
+Connecting to database specified by database.yml
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[36mRepository Load (362.6ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  Rendered repositories/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 1710ms (Views: 141.1ms | ActiveRecord: 1709.7ms)
+
+
+Started GET "/repositories/3137/events" for 127.0.0.1 at 2012-11-18 22:43:04 +0100
+
+ActionController::RoutingError (No route matches [GET] "/repositories/3137/events"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/repositories/3137/events" for 127.0.0.1 at 2012-11-18 22:43:28 +0100
+Processing by EventsController#index as HTML
+  Parameters: {"repository_id"=>"3137"}
+  [1m[35mEvent Load (2457.2ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mEXPLAIN (179.3ms)[0m  [1mEXPLAIN SELECT "events".* FROM "events" [0m
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (27077.5ms)
+Completed 200 OK in 31819ms (Views: 27171.8ms | ActiveRecord: 3176.4ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:01 +0100
+Served asset /artifacts.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:01 +0100
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:01 +0100
+Served asset /broadcasts.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:01 +0100
+Served asset /builds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:01 +0100
+Served asset /commits.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:01 +0100
+Served asset /events.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:02 +0100
+Served asset /repositories.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:02 +0100
+Served asset /artifacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 22:44:02 +0100
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:02 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:02 +0100
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:03 +0100
+Served asset /broadcasts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:03 +0100
+Served asset /builds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:03 +0100
+Served asset /events.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:03 +0100
+Served asset /commits.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:03 +0100
+Served asset /repositories.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 22:44:04 +0100
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/repositories/7312/" for 127.0.0.1 at 2012-11-18 22:47:37 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7312"}
+  [1m[35mRepository Load (202.6ms)[0m  SELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1  [["id", "7312"]]
+  Rendered repositories/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 991ms (Views: 10.1ms | ActiveRecord: 956.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:39 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:39 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:39 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:40 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:40 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:41 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:41 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 22:47:41 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:42 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:42 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:42 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:42 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:42 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:43 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:43 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:43 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 22:47:43 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories/7312/events" for 127.0.0.1 at 2012-11-18 22:47:46 +0100
+Processing by EventsController#index as HTML
+  Parameters: {"repository_id"=>"7312"}
+  [1m[36mEvent Load (4466.0ms)[0m  [1mSELECT "events".* FROM "events" [0m
+  [1m[35mEXPLAIN (182.5ms)[0m  EXPLAIN SELECT "events".* FROM "events" 
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (24080.0ms)
+Completed 200 OK in 29972ms (Views: 24096.8ms | ActiveRecord: 4648.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:17 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:17 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:17 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:18 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:18 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:18 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:18 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:18 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:19 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:19 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:19 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 22:48:19 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:19 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:20 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:20 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:20 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 22:48:21 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/repository/7312/events" for 127.0.0.1 at 2012-11-18 22:49:09 +0100
+
+ActionController::RoutingError (No route matches [GET] "/repository/7312/events"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/repositories/7312/events" for 127.0.0.1 at 2012-11-18 22:54:08 +0100
+Processing by EventsController#index as HTML
+  Parameters: {"repository_id"=>"7312"}
+  [1m[36mEvent Load (2705.1ms)[0m  [1mSELECT "events".* FROM "events" [0m
+  [1m[35mEXPLAIN (181.1ms)[0m  EXPLAIN SELECT "events".* FROM "events" 
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (24642.0ms)
+Completed 200 OK in 28764ms (Views: 24658.6ms | ActiveRecord: 2886.2ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:38 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:38 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:38 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:38 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:39 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:39 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:39 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 22:54:39 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:39 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:39 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:40 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:40 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:40 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:40 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:40 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:41 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 22:54:41 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/events/8" for 127.0.0.1 at 2012-11-18 22:59:47 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEvent Load (376.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+  Rendered events/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 460ms (Views: 81.7ms | ActiveRecord: 376.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:48 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:49 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:49 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:49 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:49 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:49 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:50 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 22:59:50 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:50 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:50 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:50 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:50 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:51 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:51 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:51 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:51 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 22:59:51 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories/7312/" for 127.0.0.1 at 2012-11-18 23:04:06 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7312"}
+  [1m[35mRepository Load (182.5ms)[0m  SELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1  [["id", "7312"]]
+  Rendered repositories/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 197ms (Views: 12.4ms | ActiveRecord: 182.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:07 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:07 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:07 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:07 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:07 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:08 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:08 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:04:08 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:08 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:08 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:09 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:09 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:09 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:09 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:09 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:10 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:04:10 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories/7312/" for 127.0.0.1 at 2012-11-18 23:08:16 +0100
+Connecting to database specified by database.yml
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7312"}
+  [1m[36mRepository Load (364.6ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "7312"]]
+  Rendered repositories/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 1729ms (Views: 138.6ms | ActiveRecord: 1712.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:21 +0100
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:21 +0100
+Served asset /broadcasts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:21 +0100
+Served asset /commits.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:22 +0100
+Served asset /artifacts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:22 +0100
+Served asset /builds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:22 +0100
+Served asset /events.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:22 +0100
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:08:22 +0100
+Served asset /repositories.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:23 +0100
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:23 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:23 +0100
+Served asset /artifacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:23 +0100
+Served asset /broadcasts.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:23 +0100
+Served asset /builds.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:23 +0100
+Served asset /commits.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:24 +0100
+Served asset /events.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:24 +0100
+Served asset /repositories.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:08:24 +0100
+Served asset /application.js - 304 Not Modified (28ms)
+
+
+Started GET "/repositories/7312/events" for 127.0.0.1 at 2012-11-18 23:08:28 +0100
+Processing by EventsController#index as HTML
+  Parameters: {"repository_id"=>"7312"}
+  [1m[35mEvent Load (2741.2ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mEXPLAIN (182.9ms)[0m  [1mEXPLAIN SELECT "events".* FROM "events" [0m
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (26703.9ms)
+Completed 200 OK in 32060ms (Views: 26792.5ms | ActiveRecord: 4022.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:01 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:01 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:02 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:02 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:02 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:03 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:03 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:09:03 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:04 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:04 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:05 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:05 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:05 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:06 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:06 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:06 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:09:07 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositorys/7312/events" for 127.0.0.1 at 2012-11-18 23:27:53 +0100
+
+ActionController::RoutingError (No route matches [GET] "/repositorys/7312/events"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/repositories/7312/events/7312" for 127.0.0.1 at 2012-11-18 23:28:16 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"repository_id"=>"7312", "id"=>"7312"}
+  [1m[35mEvent Load (377.0ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1  [["id", "7312"]]
+  Rendered events/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 452ms (Views: 73.1ms | ActiveRecord: 377.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:17 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:18 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:18 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:18 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:18 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:18 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:19 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:28:19 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:19 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:19 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:19 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:19 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:20 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:20 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:20 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:20 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:28:20 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories/7312" for 127.0.0.1 at 2012-11-18 23:33:25 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7312"}
+  [1m[36mRepository Load (182.6ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "7312"]]
+  Rendered repositories/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 197ms (Views: 13.0ms | ActiveRecord: 182.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:26 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:26 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:26 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:26 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:27 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:27 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:27 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:27 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:28 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:28 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:28 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:28 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:28 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:28 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:29 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:29 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:29 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2012-11-18 23:33:42 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mEvent Load (181.0ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1  [["id", "2"]]
+  Rendered events/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 192ms (Views: 10.2ms | ActiveRecord: 181.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:42 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:43 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:43 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:43 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:43 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:43 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:44 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:33:44 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:44 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:44 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:44 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:44 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:45 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:45 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:45 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:45 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:33:45 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/repositories/3137" for 127.0.0.1 at 2012-11-18 23:38:45 +0100
+Connecting to database specified by database.yml
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[36mRepository Load (365.2ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  Rendered repositories/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 1828ms (Views: 145.1ms | ActiveRecord: 1808.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:51 +0100
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:51 +0100
+Served asset /artifacts.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:51 +0100
+Served asset /builds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:51 +0100
+Served asset /commits.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:51 +0100
+Served asset /events.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:52 +0100
+Served asset /broadcasts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:52 +0100
+Served asset /repositories.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:38:52 +0100
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:52 +0100
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:52 +0100
+Served asset /artifacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:53 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:53 +0100
+Served asset /broadcasts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:53 +0100
+Served asset /builds.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:53 +0100
+Served asset /commits.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:53 +0100
+Served asset /events.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:54 +0100
+Served asset /repositories.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:38:54 +0100
+Served asset /application.js - 304 Not Modified (26ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/repositories/7312/" for 127.0.0.1 at 2012-11-18 23:49:24 +0100
+Connecting to database specified by database.yml
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7312"}
+  [1m[36mRepository Load (360.9ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "7312"]]
+  Rendered repositories/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1589ms (Views: 65.1ms | ActiveRecord: 1647.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:29 +0100
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:30 +0100
+Served asset /broadcasts.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:30 +0100
+Served asset /artifacts.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:30 +0100
+Served asset /events.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:30 +0100
+Served asset /builds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:30 +0100
+Served asset /commits.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:31 +0100
+Served asset /repositories.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:49:31 +0100
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:31 +0100
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:31 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:31 +0100
+Served asset /artifacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:32 +0100
+Served asset /broadcasts.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:32 +0100
+Served asset /builds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:32 +0100
+Served asset /commits.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:32 +0100
+Served asset /events.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:32 +0100
+Served asset /repositories.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:49:32 +0100
+Served asset /application.js - 304 Not Modified (26ms)
+
+
+Started GET "/events/8" for 127.0.0.1 at 2012-11-18 23:50:08 +0100
+
+SyntaxError (/Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/models/event.rb:2: syntax error, unexpected ','
+..._accessible :data, :event, id:, :repository_id, :source_id, ...
+...                               ^):
+  app/controllers/events_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (21.9ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (77.3ms)
+
+
+Started GET "/events/8" for 127.0.0.1 at 2012-11-18 23:51:41 +0100
+Connecting to database specified by database.yml
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEvent Load (361.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+  Rendered events/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 1597ms (Views: 67.1ms | ActiveRecord: 1663.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:46 +0100
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:46 +0100
+Served asset /artifacts.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:46 +0100
+Served asset /events.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:46 +0100
+Served asset /commits.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:46 +0100
+Served asset /builds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:46 +0100
+Served asset /broadcasts.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:47 +0100
+Served asset /repositories.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:51:47 +0100
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:47 +0100
+Served asset /jquery.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:47 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:47 +0100
+Served asset /artifacts.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:48 +0100
+Served asset /builds.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:48 +0100
+Served asset /broadcasts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:48 +0100
+Served asset /commits.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:48 +0100
+Served asset /events.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:48 +0100
+Served asset /repositories.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:51:49 +0100
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/repositories/7312/events" for 127.0.0.1 at 2012-11-18 23:52:20 +0100
+Processing by EventsController#index as HTML
+  Parameters: {"repository_id"=>"7312"}
+  [1m[35mEvent Load (2006.4ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mEXPLAIN (182.5ms)[0m  [1mEXPLAIN SELECT "events".* FROM "events" [0m
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (27316.7ms)
+Completed 200 OK in 30990ms (Views: 27396.1ms | ActiveRecord: 2189.0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:52 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:52 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:52 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:52 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:53 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:53 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:53 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:53 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-18 23:52:53 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:53 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:54 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:54 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:54 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:54 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:54 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:55 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-18 23:52:55 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories/7312/" for 127.0.0.1 at 2012-11-19 11:53:51 +0100
+
+PG::Error (SSL SYSCALL error: EOF detected
+):
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:297:in `exec'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:297:in `dealloc'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:281:in `block in clear'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:280:in `each_value'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:280:in `clear'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:342:in `clear_cache!'
+  activerecord (3.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:355:in `reconnect!'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract_adapter.rb:219:in `verify!'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:327:in `block in checkout_and_verify'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:403:in `_run__656865440373659816__checkout__117475719787899671__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_checkout_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `checkout_and_verify'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:247:in `block (2 levels) in checkout'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:236:in `loop'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:236:in `block in checkout'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:233:in `checkout'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:96:in `block in connection'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:95:in `connection'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:404:in `retrieve_connection'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_specification.rb:170:in `retrieve_connection'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_specification.rb:144:in `connection'
+  activerecord (3.2.8) lib/active_record/model_schema.rb:308:in `clear_cache!'
+  activerecord (3.2.8) lib/active_record/railtie.rb:97:in `block (2 levels) in <class:Railtie>'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:440:in `_run__420900037648407945__prepare__117475719787899671__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_prepare_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:74:in `prepare!'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.0ms)
+
+
+Started GET "/repositories/7312/" for 127.0.0.1 at 2012-11-19 11:54:26 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7312"}
+  [1m[35mRepository Load (215.8ms)[0m  SELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1  [["id", "7312"]]
+  Rendered repositories/show.html.erb within layouts/application (103.2ms)
+Completed 200 OK in 1540ms (Views: 190.8ms | ActiveRecord: 1846.8ms)
+
+
+Started GET "/repositories/7312/" for 127.0.0.1 at 2012-11-19 11:54:31 +0100
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7312"}
+  [1m[36mRepository Load (130.6ms)[0m  [1mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = $1 LIMIT 1[0m  [["id", "7312"]]
+  Rendered repositories/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 140ms (Views: 8.0ms | ActiveRecord: 130.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:31 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:31 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:31 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:31 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:31 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:31 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:32 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:33 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:33 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-19 11:54:33 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories/7312/events" for 127.0.0.1 at 2012-11-19 11:55:07 +0100
+Processing by EventsController#index as HTML
+  Parameters: {"repository_id"=>"7312"}
+  [1m[35mEvent Load (4389.1ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mEXPLAIN (2945.2ms)[0m  [1mEXPLAIN SELECT "events".* FROM "events" [0m
+EXPLAIN for: SELECT "events".* FROM "events" 
+                         QUERY PLAN
+-------------------------------------------------------------
+ Seq Scan on events  (cost=0.00..470.55 rows=30850 width=67)
+(1 row)
+
+  Rendered events/index.html.erb within layouts/application (24789.7ms)
+Completed 200 OK in 33773ms (Views: 24963.3ms | ActiveRecord: 7665.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-19 11:55:41 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:42 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-19 11:55:44 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml

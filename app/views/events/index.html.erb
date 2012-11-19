@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Id</th>
     <th>Source</th>
     <th>Source type</th>
     <th>Repository</th>
@@ -14,6 +15,7 @@
 
 <% @events.each do |event| %>
   <tr>
+    <td><%= event.id %></td>
     <td><%= event.source_id %></td>
     <td><%= event.source_type %></td>
     <td><%= event.repository_id %></td>

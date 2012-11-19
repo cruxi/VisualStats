@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @repository.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @repository.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @repository.url %>
+</p>
+
+<p>
+  <b>Last duration:</b>
+  <%= @repository.last_duration %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @repository.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @repository.updated_at %>
+</p>
+
+<p>
+  <b>Last build:</b>
+  <%= @repository.last_build_id %>
+</p>
+
+<p>
+  <b>Last build number:</b>
+  <%= @repository.last_build_number %>
+</p>
+
+<p>
+  <b>Last build status:</b>
+  <%= @repository.last_build_status %>
+</p>
+
+<p>
+  <b>Last build started at:</b>
+  <%= @repository.last_build_started_at %>
+</p>
+
+<p>
+  <b>Last build finished at:</b>
+  <%= @repository.last_build_finished_at %>
+</p>
+
+<p>
+  <b>Owner name:</b>
+  <%= @repository.owner_name %>
+</p>
+
+<p>
+  <b>Owner email:</b>
+  <%= @repository.owner_email %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @repository.active %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @repository.description %>
+</p>
+
+<p>
+  <b>Last build language:</b>
+  <%= @repository.last_build_language %>
+</p>
+
+<p>
+  <b>Last build duration:</b>
+  <%= @repository.last_build_duration %>
+</p>
+
+<p>
+  <b>Private:</b>
+  <%= @repository.private %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @repository.owner_id %>
+</p>
+
+<p>
+  <b>Owner type:</b>
+  <%= @repository.owner_type %>
+</p>
+
+<p>
+  <b>Last build result:</b>
+  <%= @repository.last_build_result %>
+</p>
+
+
+<%= link_to 'Edit', edit_repository_path(@repository) %> |
+<%= link_to 'Back', repositories_path %>

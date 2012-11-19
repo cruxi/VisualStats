@@ -1,5 +1,13 @@
 VisualStats::Application.routes.draw do
-  resources :commits
+    
+  resources :repositories do
+    resources :builds
+    resources :events
+  end
+
+  resources :commits do
+    resources :builds
+  end
 
   resources :builds
 
