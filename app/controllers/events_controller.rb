@@ -2,7 +2,9 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+   # @events = Event.all
+    @repository = Repository.find(params[:repository_id])
+    @events = @repository.events.all
 
     respond_to do |format|
       format.html # index.html.erb

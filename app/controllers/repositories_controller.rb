@@ -2,7 +2,7 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   # GET /repositories.json
   def index
-    @repositories = Repository.all
+    @repositories = Repository.find(:all, :limit => 100)
 
     respond_to do |format|
       format.html # index.html.erb

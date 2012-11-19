@@ -1,31 +1,22 @@
 <h1>Listing builds</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Id</th>
     <th>Repository</th>
     <th>Number</th>
     <th>Status</th>
-    <th>Started at</th>
-    <th>Finished at</th>
-    <th>Agent</th>
-    <th>Created at</th>
-    <th>Updated at</th>
     <th>Config</th>
     <th>Commit</th>
     <th>Request</th>
     <th>State</th>
-    <th>Language</th>
-    <th>Archived at</th>
     <th>Duration</th>
     <th>Owner</th>
-    <th>Owner type</th>
     <th>Result</th>
     <th>Previous result</th>
-    <th>Event type</th>
     <th></th>
-    <th></th>
-    <th></th>
+    <!-- <th></th>
+    <th></th> -->
   </tr>
 
 <% @builds.each do |build| %>
@@ -34,26 +25,17 @@
     <td><%= build.repository_id %></td>
     <td><%= build.number %></td>
     <td><%= build.status %></td>
-    <td><%= build.started_at %></td>
-    <td><%= build.finished_at %></td>
-    <td><%= build.agent %></td>
-    <td><%= build.created_at %></td>
-    <td><%= build.updated_at %></td>
     <td><%= build.config %></td>
     <td><%= build.commit_id %></td>
     <td><%= build.request_id %></td>
     <td><%= build.state %></td>
-    <td><%= build.language %></td>
-    <td><%= build.archived_at %></td>
     <td><%= build.duration %></td>
     <td><%= build.owner_id %></td>
-    <td><%= build.owner_type %></td>
     <td><%= build.result %></td>
     <td><%= build.previous_result %></td>
-    <td><%= build.event_type %></td>
     <td><%= link_to 'Show', build %></td>
-    <td><%= link_to 'Edit', edit_build_path(build) %></td>
-    <td><%= link_to 'Destroy', build, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <!--<td><%= link_to 'Edit', edit_build_path(build) %></td>
+    <td><%= link_to 'Destroy', build, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
   </tr>
 <% end %>
 </table>

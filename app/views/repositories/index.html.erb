@@ -1,31 +1,19 @@
 <h1>Listing repositories</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Id</th>
     <th>Name</th>
     <th>Url</th>
-    <th>Last duration</th>
-    <th>Created at</th>
-    <th>Updated at</th>
+    <th>Owner name</th>
     <th>Last build</th>
     <th>Last build number</th>
     <th>Last build status</th>
-    <th>Last build started at</th>
-    <th>Last build finished at</th>
-    <th>Owner name</th>
-    <th>Owner email</th>
-    <th>Active</th>
-    <th>Description</th>
-    <th>Last build language</th>
-    <th>Last build duration</th>
-    <th>Private</th>
-    <th>Owner</th>
-    <th>Owner type</th>
     <th>Last build result</th>
     <th></th>
     <th></th>
-    <th></th>
+    <!--  <th></th> -->
+    <!-- <th></th> -->
   </tr>
 
 <% @repositories.each do |repository| %>
@@ -33,27 +21,16 @@
     <td><%= repository.id %></td>
     <td><%= repository.name %></td>
     <td><%= repository.url %></td>
-    <td><%= repository.last_duration %></td>
-    <td><%= repository.created_at %></td>
-    <td><%= repository.updated_at %></td>
+    <td><%= repository.owner_name %></td>
     <td><%= repository.last_build_id %></td>
     <td><%= repository.last_build_number %></td>
     <td><%= repository.last_build_status %></td>
-    <td><%= repository.last_build_started_at %></td>
-    <td><%= repository.last_build_finished_at %></td>
-    <td><%= repository.owner_name %></td>
-    <td><%= repository.owner_email %></td>
-    <td><%= repository.active %></td>
-    <td><%= repository.description %></td>
-    <td><%= repository.last_build_language %></td>
-    <td><%= repository.last_build_duration %></td>
-    <td><%= repository.private %></td>
-    <td><%= repository.owner_id %></td>
-    <td><%= repository.owner_type %></td>
     <td><%= repository.last_build_result %></td>
-    <td><%= link_to 'Show', repository %></td>
-    <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
-    <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show Repo', repository %></td>
+    <td><%= link_to 'Show Builds', repository_builds_path(repository) %></td>
+
+    <!--  <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
+    <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
   </tr>
 <% end %>
 </table>

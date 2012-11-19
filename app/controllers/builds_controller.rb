@@ -2,7 +2,8 @@ class BuildsController < ApplicationController
   # GET /builds
   # GET /builds.json
   def index
-    @builds = Build.all
+    @repository = Repository.find(params[:repository_id])
+    @builds = @repository.builds.all
 
     respond_to do |format|
       format.html # index.html.erb
