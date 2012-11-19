@@ -3,4 +3,8 @@ class Repository < ActiveRecord::Base
 
   has_many :builds
   has_many :events
+
+
+  self.per_page = 1000
+
 end

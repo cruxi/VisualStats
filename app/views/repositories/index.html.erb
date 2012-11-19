@@ -1,6 +1,6 @@
 <h1>Listing repositories</h1>
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered table-hover">
   <tr>
     <th>Id</th>
     <th>Name</th>
@@ -10,8 +10,8 @@
     <th>Last build number</th>
     <th>Last build status</th>
     <th>Last build result</th>
-    <th></th>
-    <th></th>
+    <th>Show</th>
+    <th>Show</th>
     <!--  <th></th> -->
     <!-- <th></th> -->
   </tr>
@@ -26,8 +26,8 @@
     <td><%= repository.last_build_number %></td>
     <td><%= repository.last_build_status %></td>
     <td><%= repository.last_build_result %></td>
-    <td><%= link_to 'Show Repo', repository %></td>
-    <td><%= link_to 'Show Builds', repository_builds_path(repository) %></td>
+    <td><%= link_to 'Repository', repository %></td>
+    <td><%= link_to 'Last Builds', repository_builds_path(repository) %></td>
 
     <!--  <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
     <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
@@ -36,5 +36,7 @@
 </table>
 
 <br />
+
+<%= will_paginate @repositories %>
 
 <%= link_to 'New Repository', new_repository_path %>
