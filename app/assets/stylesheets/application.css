@@ -33,3 +33,14 @@ a:hover{
 a {
 	color: #00868B !important;
 }
+
+.content{
+	width:100%;
+	margin:10px;
+	text-align:justify;
+
+}
+
+.startContent{
+	text-align:center;
+}

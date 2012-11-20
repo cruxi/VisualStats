@@ -21989,3 +21989,2350 @@ Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
 
 Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 22:28:39 +0100
 Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/repositories" for 127.0.0.1 at 2012-11-20 22:44:39 +0100
+Processing by RepositoriesController#index as HTML
+  [1m[36mRepository Load (207.2ms)[0m  [1mSELECT "repositories".* FROM "repositories" LIMIT 10 OFFSET 0[0m
+  [1m[35mEXPLAIN (185.9ms)[0m  EXPLAIN SELECT "repositories".* FROM "repositories" LIMIT 10 OFFSET 0
+EXPLAIN for: SELECT  "repositories".* FROM "repositories"  LIMIT 10 OFFSET 0
+                                 QUERY PLAN
+----------------------------------------------------------------------------
+ Limit  (cost=0.00..0.27 rows=10 width=730)
+   ->  Seq Scan on repositories  (cost=0.00..8359.08 rows=306692 width=730)
+(2 rows)
+
+  [1m[36m (309.7ms)[0m  [1mSELECT COUNT(*) FROM "repositories" [0m
+  Rendered repositories/index.html.erb within layouts/application (1356.0ms)
+Completed 200 OK in 1372ms (Views: 61.1ms | ActiveRecord: 1309.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:41 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:41 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:41 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:42 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:42 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:42 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:42 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:43 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:43 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 22:44:43 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/repositories" for 127.0.0.1 at 2012-11-20 22:45:22 +0100
+Processing by RepositoriesController#index as HTML
+  [1m[35mRepository Load (202.2ms)[0m  SELECT "repositories".* FROM "repositories" LIMIT 10 OFFSET 0
+  [1m[36m (251.6ms)[0m  [1mSELECT COUNT(*) FROM "repositories" [0m
+  Rendered repositories/index.html.erb within layouts/application (473.5ms)
+Completed 500 Internal Server Error in 547ms
+
+ActionView::Template::Error (undefined local variable or method `starts_path' for #<#<Class:0x000001050f3c68>:0x00000100c4a2b0>):
+    15: 	  <div class="navbar-inner">
+    16: 
+    17: 	    	<!-- Be sure to leave the brand out there if you want it shown -->
+    18: 				<%= link_to 'VisualStats', starts_path, :class => 'brand' %>	 
+    19: 	 			<ul class="nav">
+    20:  				 <li><%= link_to 'Repositories', repositories_path %></li>
+    21:  				 <li><%= link_to 'Builds', builds_path %></li>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___101817561372203403_2153936820'
+  app/controllers/repositories_controller.rb:7:in `index'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.5ms)
+Connecting to database specified by database.yml
+  [1m[36m (211.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mPK and serial sequence (185.6ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"artifacts"'::regclass
+
+  [1m[36m (235.2ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'artifacts'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35mColumns for index index_artifacts_on_type_and_job_id on artifacts (185.1ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675304
+ AND a.attnum IN (4,3)
+
+  [1m[36mPK and serial sequence (204.0ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"broadcasts"'::regclass
+[0m
+  [1m[35m (216.7ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'broadcasts'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mPK and serial sequence (234.8ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"builds"'::regclass
+[0m
+  [1m[35m (183.6ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'builds'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_builds_on_finished_at on builds (217.8ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675322
+ AND a.attnum IN (6)
+[0m
+  [1m[35mColumns for index index_builds_on_repository_id_and_event_type on builds (181.1ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675322
+ AND a.attnum IN (2,21)
+
+  [1m[36mColumns for index index_builds_on_repository_id_and_state on builds (181.1ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675322
+ AND a.attnum IN (2,13)
+[0m
+  [1m[35mPK and serial sequence (238.9ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"commits"'::regclass
+
+  [1m[36m (222.7ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'commits'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35mColumns for index index_commits_on_branch on commits (223.2ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675331
+ AND a.attnum IN (5)
+
+  [1m[36mColumns for index index_commits_on_commit on commits (180.3ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675331
+ AND a.attnum IN (3)
+[0m
+  [1m[35mPK and serial sequence (243.3ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"events"'::regclass
+
+  [1m[36m (226.8ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'events'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35mPK and serial sequence (185.8ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"jobs"'::regclass
+
+  [1m[36m (231.5ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'jobs'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35mColumns for index index_jobs_on_created_at on jobs (213.8ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675347
+ AND a.attnum IN (16)
+
+  [1m[36mColumns for index index_jobs_on_queue_and_state on jobs (225.3ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675347
+ AND a.attnum IN (6,8)
+[0m
+  [1m[35mColumns for index index_jobs_on_repository_id on jobs (256.1ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675347
+ AND a.attnum IN (2)
+
+  [1m[36mColumns for index index_jobs_on_state_owner_type_owner_id on jobs (231.9ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675347
+ AND a.attnum IN (8,21,22)
+[0m
+  [1m[35mColumns for index index_jobs_on_type_and_owner_id_and_owner_type on jobs (193.2ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675347
+ AND a.attnum IN (7,4,5)
+
+  [1m[36mPK and serial sequence (182.8ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"memberships"'::regclass
+[0m
+  [1m[35m (202.1ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'memberships'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mPK and serial sequence (196.0ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"organizations"'::regclass
+[0m
+  [1m[35m (212.7ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'organizations'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mPK and serial sequence (235.8ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"permissions"'::regclass
+[0m
+  [1m[35m (225.6ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'permissions'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_permissions_on_repository_id on permissions (252.5ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675369
+ AND a.attnum IN (3)
+[0m
+  [1m[35mColumns for index index_permissions_on_user_id on permissions (234.3ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675369
+ AND a.attnum IN (2)
+
+  [1m[36mPK and serial sequence (268.5ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"repositories"'::regclass
+[0m
+  [1m[35m (254.6ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'repositories'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_repositories_on_last_build_started_at on repositories (290.0ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675377
+ AND a.attnum IN (10)
+[0m
+  [1m[35mColumns for index index_repositories_on_owner_name_and_name on repositories (238.2ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675377
+ AND a.attnum IN (12,2)
+
+  [1m[36mPK and serial sequence (185.2ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"requests"'::regclass
+[0m
+  [1m[35m (203.6ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'requests'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_requests_on_head_commit on requests (189.0ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675386
+ AND a.attnum IN (18)
+[0m
+  [1m[35mPK and serial sequence (194.6ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"ssl_keys"'::regclass
+
+  [1m[36m (427.6ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'ssl_keys'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35mColumns for index index_ssl_key_on_repository_id on ssl_keys (420.1ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675397
+ AND a.attnum IN (2)
+
+  [1m[36mPK and serial sequence (496.4ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"tokens"'::regclass
+[0m
+  [1m[35m (304.3ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'tokens'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mPK and serial sequence (208.9ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"urls"'::regclass
+[0m
+  [1m[35m (210.4ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'urls'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mPK and serial sequence (181.8ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"users"'::regclass
+[0m
+  [1m[35m (180.7ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'users'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_users_on_github_id on users (193.5ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675420
+ AND a.attnum IN (8)
+[0m
+  [1m[35mColumns for index index_users_on_github_oauth_token on users (180.6ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675420
+ AND a.attnum IN (9)
+
+  [1m[36mColumns for index index_users_on_login on users (217.8ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675420
+ AND a.attnum IN (3)
+[0m
+  [1m[35mPK and serial sequence (205.0ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"workers"'::regclass
+
+  [1m[36m (207.8ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'workers'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35mColumns for index index_workers_on_name_and_host on workers (202.1ms)[0m   SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 675429
+ AND a.attnum IN (2,3)
+
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 22:48:58 +0100
+
+ActionController::RoutingError (uninitialized constant StartsController):
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:229:in `constantize'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:339:in `call'
+  activerecord (3.2.8) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `_run__4494353154108078100__call__3251082520338058310__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+Connecting to database specified by database.yml
+  [1m[36m (182.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "artifacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "job_id" integer, "type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("artifacts")
+  [1m[36m (3.1ms)[0m  [1mCREATE INDEX "index_artifacts_on_type_and_job_id" ON "artifacts" ("type", "job_id")[0m
+  [1m[35m (33.5ms)[0m  CREATE TABLE "broadcasts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipient_id" integer, "recipient_type" varchar(255), "kind" varchar(255), "message" varchar(255), "expired" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "builds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "repository_id" integer, "number" varchar(255), "status" integer, "started_at" datetime, "finished_at" datetime, "agent" varchar(255), "created_at" datetime, "updated_at" datetime, "config" text, "commit_id" integer, "request_id" integer, "state" varchar(255), "language" varchar(255), "archived_at" datetime, "duration" integer, "owner_id" integer, "owner_type" varchar(255), "result" integer, "previous_result" integer, "event_type" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("builds")
+  [1m[36m (24.4ms)[0m  [1mCREATE INDEX "index_builds_on_finished_at" ON "builds" ("finished_at")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("builds")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_builds_on_finished_at')[0m
+  [1m[35m (3.0ms)[0m  CREATE INDEX "index_builds_on_repository_id_and_event_type" ON "builds" ("repository_id", "event_type")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("builds")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_builds_on_repository_id_and_event_type')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_builds_on_finished_at')[0m
+  [1m[35m (37.3ms)[0m  CREATE INDEX "index_builds_on_repository_id_and_state" ON "builds" ("repository_id", "state")
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "commits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "repository_id" integer, "commit" varchar(255), "ref" varchar(255), "branch" varchar(255), "message" text, "compare_url" varchar(255), "committed_at" datetime, "committer_name" varchar(255), "committer_email" varchar(255), "author_name" varchar(255), "author_email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("commits")
+  [1m[36m (37.3ms)[0m  [1mCREATE INDEX "index_commits_on_branch" ON "commits" ("branch")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("commits")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_commits_on_branch')[0m
+  [1m[35m (3.2ms)[0m  CREATE INDEX "index_commits_on_commit" ON "commits" ("commit")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "source_id" integer, "source_type" varchar(255), "repository_id" integer, "event" varchar(255), "data" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "repository_id" integer, "commit_id" integer, "source_id" integer, "source_type" varchar(255), "queue" varchar(255), "type" varchar(255), "state" varchar(255), "number" varchar(255), "config" text, "status" integer, "job_id" varchar(255), "worker" varchar(255), "started_at" datetime, "finished_at" datetime, "created_at" datetime, "updated_at" datetime, "tags" text, "retries" integer DEFAULT 0, "allow_failure" boolean DEFAULT 'f', "owner_id" integer, "owner_type" varchar(255), "result" integer, "queued_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("jobs")[0m
+  [1m[35m (2.8ms)[0m  CREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("jobs")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_jobs_on_created_at')
+  [1m[36m (2.9ms)[0m  [1mCREATE INDEX "index_jobs_on_queue_and_state" ON "jobs" ("queue", "state")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("jobs")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_jobs_on_queue_and_state')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_jobs_on_created_at')
+  [1m[36m (2.8ms)[0m  [1mCREATE INDEX "index_jobs_on_repository_id" ON "jobs" ("repository_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("jobs")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_jobs_on_repository_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_jobs_on_queue_and_state')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_jobs_on_created_at')[0m
+  [1m[35m (2.7ms)[0m  CREATE INDEX "index_jobs_on_state_owner_type_owner_id" ON "jobs" ("state", "owner_id", "owner_type")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("jobs")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_jobs_on_state_owner_type_owner_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_jobs_on_repository_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_jobs_on_queue_and_state')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_jobs_on_created_at')[0m
+  [1m[35m (2.6ms)[0m  CREATE INDEX "index_jobs_on_type_and_owner_id_and_owner_type" ON "jobs" ("type", "source_id", "source_type")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "organization_id" integer, "user_id" integer) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "login" varchar(255), "github_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "repository_id" integer, "admin" boolean DEFAULT 'f', "push" boolean DEFAULT 'f', "pull" boolean DEFAULT 'f') [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("permissions")
+  [1m[36m (4.2ms)[0m  [1mCREATE INDEX "index_permissions_on_repository_id" ON "permissions" ("repository_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("permissions")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_permissions_on_repository_id')[0m
+  [1m[35m (3.8ms)[0m  CREATE INDEX "index_permissions_on_user_id" ON "permissions" ("user_id")
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "url" varchar(255), "last_duration" integer, "created_at" datetime, "updated_at" datetime, "last_build_id" integer, "last_build_number" varchar(255), "last_build_status" integer, "last_build_started_at" datetime, "last_build_finished_at" datetime, "owner_name" varchar(255), "owner_email" text, "active" boolean, "description" text, "last_build_language" varchar(255), "last_build_duration" integer, "private" boolean DEFAULT 'f', "owner_id" integer, "owner_type" varchar(255), "last_build_result" integer) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("repositories")
+  [1m[36m (3.4ms)[0m  [1mCREATE INDEX "index_repositories_on_last_build_started_at" ON "repositories" ("last_build_started_at")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("repositories")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_repositories_on_last_build_started_at')[0m
+  [1m[35m (4.0ms)[0m  CREATE INDEX "index_repositories_on_owner_name_and_name" ON "repositories" ("owner_name", "name")
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "repository_id" integer, "commit_id" integer, "state" varchar(255), "source" varchar(255), "payload" text, "token" varchar(255), "config" text, "started_at" datetime, "finished_at" datetime, "created_at" datetime, "updated_at" datetime, "owner_id" integer, "owner_type" varchar(255), "event_type" varchar(255), "comments_url" varchar(255), "base_commit" varchar(255), "head_commit" varchar(255), "result" varchar(255), "message" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("requests")
+  [1m[36m (4.0ms)[0m  [1mCREATE INDEX "index_requests_on_head_commit" ON "requests" ("head_commit")[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "ssl_keys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "repository_id" integer, "public_key" text, "private_key" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("ssl_keys")[0m
+  [1m[35m (5.3ms)[0m  CREATE INDEX "index_ssl_key_on_repository_id" ON "ssl_keys" ("repository_id")
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "urls" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "code" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "login" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "is_admin" boolean DEFAULT 'f', "github_id" integer, "github_oauth_token" varchar(255), "gravatar_id" varchar(255), "locale" varchar(255), "is_syncing" boolean, "synced_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (5.1ms)[0m  [1mCREATE INDEX "index_users_on_github_id" ON "users" ("github_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_github_id')[0m
+  [1m[35m (4.2ms)[0m  CREATE INDEX "index_users_on_github_oauth_token" ON "users" ("github_oauth_token")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_github_oauth_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_github_id')[0m
+  [1m[35m (5.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "workers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "host" varchar(255), "state" varchar(255), "last_seen_at" datetime, "payload" text, "last_error" text, "queue" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("workers")
+  [1m[36m (4.8ms)[0m  [1mCREATE INDEX "index_workers_on_name_and_host" ON "workers" ("name", "host")[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (4.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121018210156')
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 22:50:19 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 123ms
+
+ActionView::Template::Error (undefined local variable or method `start_path' for #<#<Class:0x00000102952ad8>:0x0000010294fb30>):
+    15: 	  <div class="navbar-inner">
+    16: 
+    17: 	    	<!-- Be sure to leave the brand out there if you want it shown -->
+    18: 				<%= link_to 'VisualStats', start_path, :class => 'brand' %>	 
+    19: 	 			<ul class="nav">
+    20:  				 <li><%= link_to 'Repositories', repositories_path %></li>
+    21:  				 <li><%= link_to 'Builds', builds_path %></li>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___101817561372203403_2159879500'
+  app/controllers/start_controller.rb:4:in `index'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 22:51:27 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 56ms
+
+ActionView::Template::Error (undefined local variable or method `start' for #<#<Class:0x00000102952ad8>:0x00000102db2970>):
+    15: 	  <div class="navbar-inner">
+    16: 
+    17: 	    	<!-- Be sure to leave the brand out there if you want it shown -->
+    18: 				<%= link_to 'VisualStats', start, :class => 'brand' %>	 
+    19: 	 			<ul class="nav">
+    20:  				 <li><%= link_to 'Repositories', repositories_path %></li>
+    21:  				 <li><%= link_to 'Builds', builds_path %></li>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___101817561372203403_2171460820'
+  app/controllers/start_controller.rb:4:in `index'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 22:53:51 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 92ms
+
+ActionView::Template::Error (undefined local variable or method `start_index' for #<#<Class:0x00000102952ad8>:0x00000100ab9a90>):
+    15: 	  <div class="navbar-inner">
+    16: 
+    17: 	    	<!-- Be sure to leave the brand out there if you want it shown -->
+    18: 				<%= link_to 'VisualStats', start_index, :class => 'brand' %>	 
+    19: 	 			<ul class="nav">
+    20:  				 <li><%= link_to 'Repositories', repositories_path %></li>
+    21:  				 <li><%= link_to 'Builds', builds_path %></li>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___101817561372203403_2154073460'
+  app/controllers/start_controller.rb:4:in `index'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 22:54:02 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 90ms
+
+ActionView::Template::Error (undefined local variable or method `start_index_url' for #<#<Class:0x00000102952ad8>:0x00000102db52d8>):
+    15: 	  <div class="navbar-inner">
+    16: 
+    17: 	    	<!-- Be sure to leave the brand out there if you want it shown -->
+    18: 				<%= link_to 'VisualStats', start_index_url, :class => 'brand' %>	 
+    19: 	 			<ul class="nav">
+    20:  				 <li><%= link_to 'Repositories', repositories_path %></li>
+    21:  				 <li><%= link_to 'Builds', builds_path %></li>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___101817561372203403_2171466180'
+  app/controllers/start_controller.rb:4:in `index'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 22:54:11 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined local variable or method `start_index_path' for #<#<Class:0x00000102952ad8>:0x00000102b6dcc8>):
+    15: 	  <div class="navbar-inner">
+    16: 
+    17: 	    	<!-- Be sure to leave the brand out there if you want it shown -->
+    18: 				<%= link_to 'VisualStats', start_index_path, :class => 'brand' %>	 
+    19: 	 			<ul class="nav">
+    20:  				 <li><%= link_to 'Repositories', repositories_path %></li>
+    21:  				 <li><%= link_to 'Builds', builds_path %></li>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___101817561372203403_2170270700'
+  app/controllers/start_controller.rb:4:in `index'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 22:54:24 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined local variable or method `index_start_path' for #<#<Class:0x00000102952ad8>:0x0000010116bfc8>):
+    15: 	  <div class="navbar-inner">
+    16: 
+    17: 	    	<!-- Be sure to leave the brand out there if you want it shown -->
+    18: 				<%= link_to 'VisualStats', index_start_path, :class => 'brand' %>	 
+    19: 	 			<ul class="nav">
+    20:  				 <li><%= link_to 'Repositories', repositories_path %></li>
+    21:  				 <li><%= link_to 'Builds', builds_path %></li>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___101817561372203403_2156505820'
+  app/controllers/start_controller.rb:4:in `index'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:00:26 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:27 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:27 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:27 +0100
+Served asset /bootstrap.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:27 +0100
+Served asset /bootstrap.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:28 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:28 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:28 +0100
+Served asset /broadcasts.css - 200 OK (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:28 +0100
+Served asset /commits.css - 200 OK (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:29 +0100
+Served asset /builds.css - 200 OK (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:29 +0100
+Served asset /events.css - 200 OK (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:29 +0100
+Served asset /start.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:29 +0100
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:29 +0100
+Served asset /repositories.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:30 +0100
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:30 +0100
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:30 +0100
+Served asset /artifacts.js - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:30 +0100
+Served asset /bootstrap.js - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:31 +0100
+Served asset /bootstrap.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:31 +0100
+Served asset /broadcasts.js - 200 OK (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:31 +0100
+Served asset /builds.js - 200 OK (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:31 +0100
+Served asset /commits.js - 200 OK (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:32 +0100
+Served asset /events.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:32 +0100
+Served asset /jquery-1.8.3.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:32 +0100
+Served asset /repositories.js - 200 OK (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:32 +0100
+Served asset /start.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:00:32 +0100
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:00:33 +0100
+Served asset /logo_visualStats.png - 200 OK (5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:00:56 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:57 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:57 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:57 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:57 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:58 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:58 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:00:59 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:00 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:00 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:00 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:01 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:01 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:01 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:01 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:01 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:01 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:02 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:02 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:02 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:02 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:02 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:03 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:03 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:03 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:03 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:03 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:01:04 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:01:14 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:14 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:14 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:15 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:15 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:15 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:15 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:15 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:16 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:16 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:16 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:16 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:16 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:17 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:17 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:17 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:17 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:18 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:18 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:18 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:18 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:19 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:19 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:19 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:19 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:19 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:20 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:01:20 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:01:35 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:35 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:36 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:36 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:36 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:36 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:36 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:37 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:37 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:37 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:37 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:37 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:38 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:38 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:38 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:38 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:01:39 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:39 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:39 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:39 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:39 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:40 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:40 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:40 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:40 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:40 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:01:41 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:01:41 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:02:06 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:06 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:06 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:07 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:07 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:07 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:07 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:07 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:08 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:08 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:08 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:08 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:09 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:09 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:09 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:09 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:09 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:10 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:10 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:10 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:10 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:11 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:11 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:11 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:11 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:11 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:12 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:02:12 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:02:40 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 97ms (Views: 96.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:40 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:40 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:41 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:41 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:41 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:41 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:42 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:42 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:42 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:42 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:42 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:43 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:02:43 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:43 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:43 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:43 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:44 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:44 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:44 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:44 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:45 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:45 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:45 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:45 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:45 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:02:46 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:02:46 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:03:59 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 27ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:00 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:00 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:00 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:00 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:01 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:01 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:01 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:01 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:01 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:01 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:02 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:02 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:02 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:04:02 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:02 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:03 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:03 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:03 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:03 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:03 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:04 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:04 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:04 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:04 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:04 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:04:04 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:04:05 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:11:36 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.2ms)
+Compiled application.css  (3ms)  (pid 5201)
+Completed 200 OK in 297ms (Views: 296.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:37 +0100
+Served asset /application.css - 200 OK (17ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:37 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:37 +0100
+Served asset /artifacts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:37 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:37 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:38 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:38 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:38 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:38 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:38 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:38 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:39 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:11:39 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:39 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:39 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:39 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:40 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:40 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:40 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:40 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:40 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:41 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:41 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:41 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:41 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:11:41 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:11:41 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:12:10 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.2ms)
+Compiled application.css  (3ms)  (pid 5201)
+Completed 200 OK in 36ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:10 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:10 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:10 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:11 +0100
+Served asset /application.css - 200 OK (54ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:11 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:11 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:11 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:11 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:11 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:12 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:12 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:12 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:12 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:12 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:13 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:13 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:13 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:13 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:13 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:14 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:14 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:14 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:14 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:14 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:14 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:15 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:12:15 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:12:29 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.2ms)
+Compiled application.css  (3ms)  (pid 5201)
+Completed 200 OK in 202ms (Views: 202.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:29 +0100
+Served asset /application.css - 200 OK (19ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:29 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:29 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:30 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:30 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:30 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:30 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:30 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:31 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:31 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:31 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:31 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:12:31 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:32 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:32 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:32 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:32 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:32 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:33 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:33 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:33 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:33 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:33 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:33 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:34 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:12:34 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:12:34 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:18:47 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.6ms)
+Compiled application.css  (4ms)  (pid 5201)
+Completed 200 OK in 95ms (Views: 94.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:48 +0100
+Served asset /application.css - 200 OK (22ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:48 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:48 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:48 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:49 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:49 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:49 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:49 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:49 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:50 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:50 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:50 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:18:50 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:50 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:51 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:51 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:51 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:51 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:52 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:52 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:52 +0100
+Served asset /commits.js - 304 Not Modified (40ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:52 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:52 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:53 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:53 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:18:53 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:18:53 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:20:43 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:44 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:44 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:44 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:45 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:45 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:45 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:45 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:45 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:46 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:46 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:46 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:46 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:20:46 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:47 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:47 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:47 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:47 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:48 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:48 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:48 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:48 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:48 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:49 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:49 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:49 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:20:49 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:20:50 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 23:22:18 +0100
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (0.7ms)
+Compiled application.css  (3ms)  (pid 5201)
+Completed 200 OK in 75ms (Views: 74.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:18 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:18 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:18 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:19 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:19 +0100
+Served asset /application.css - 200 OK (52ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:19 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:19 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:20 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:20 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:20 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:20 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:20 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:21 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-20 23:22:21 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:21 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:21 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:21 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:22 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:22 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:22 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:22 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:23 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:23 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:23 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:23 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-20 23:22:24 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-20 23:22:24 +0100
+Served asset /logo_visualStats.png - 304 Not Modified (0ms)

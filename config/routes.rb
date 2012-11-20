@@ -75,6 +75,8 @@ VisualStats::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-    root :to => 'repositories#index'
+    match 'start' => 'start#index', :as => :welcomePage 
+
+    root :to => 'start#index'
 
 end
