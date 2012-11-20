@@ -27,7 +27,7 @@
     <td><%= repository.last_build_status %></td>
     <td><%= repository.last_build_result %></td>
     <td><%= link_to 'Repository', repository %></td>
-    <td><%= link_to 'Last Builds', repository_builds_path(repository) %></td>
+    <td><%= link_to 'Last Builds', findRepos_path(repository.id) %></td>
 
     <!--  <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
     <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
@@ -38,4 +38,3 @@
 <br />
 
 <%= will_paginate @repositories %>
-<%= link_to 'New Repository', new_repository_path %>

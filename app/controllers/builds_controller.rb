@@ -2,11 +2,21 @@ class BuildsController < ApplicationController
   # GET /builds
   # GET /builds.json
   def index
+    @builds = Build.page(params[:id])
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @builds }
+    end
+  end
+
+  #find all belonging builds to a repository
+  def findRepos
     @repository = Repository.find(params[:repository_id])
     @builds = @repository.builds.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # findRepos.html.erb
       format.json { render json: @builds }
     end
   end

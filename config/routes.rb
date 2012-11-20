@@ -1,7 +1,6 @@
 VisualStats::Application.routes.draw do
     
   resources :repositories do
-    resources :builds
     resources :events
   end
 
@@ -16,6 +15,8 @@ VisualStats::Application.routes.draw do
   resources :broadcasts
 
   resources :artifacts
+
+  match 'repositories/:repository_id/builds' => 'builds#findRepos', :as => :findRepos 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
