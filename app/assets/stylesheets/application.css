@@ -35,8 +35,8 @@ a {
 }
 
 .content{
-	width:100%;
-	margin:10px;
+	margin-right:150px;
+	margin-left: 150px;
 	text-align:justify;
 
 }
