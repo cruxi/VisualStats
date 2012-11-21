@@ -16,7 +16,12 @@ VisualStats::Application.routes.draw do
 
   resources :artifacts
 
+  # umbennen --> muesste findBuildsForRepo heissen
   match 'repositories/:repository_id/builds' => 'builds#findRepos', :as => :findRepos 
+
+  # find the commit belonging to a build
+  match 'builds/:commit_id/commits' => 'commits#showBelongingCommit', :as => :showBelongingCommit 
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

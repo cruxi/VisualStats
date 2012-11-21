@@ -2,7 +2,7 @@ class CommitsController < ApplicationController
   # GET /commits
   # GET /commits.json
   def index
-    @commits = Commit.page(params[:id])
+    @commits = Commit.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +17,17 @@ class CommitsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.json { render json: @commit }
+    end
+  end
+
+  # GET /commits/1
+  # GET /commits/1.json
+  def showBelongingCommit
+    @commit = Commit.find(params[:commit_id])
+
+    respond_to do |format|
+      format.html # showBelonging.html.erb
       format.json { render json: @commit }
     end
   end

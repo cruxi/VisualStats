@@ -2,7 +2,7 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   # GET /repositories.json
   def index
-    @repositories = Repository.page(params[:id])
+    @repositories = Repository.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

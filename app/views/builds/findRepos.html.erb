@@ -26,7 +26,7 @@
     <td><%= build.number %></td>
     <td><%= build.status %></td>
     <td><%= build.config %></td>
-    <td><%= build.commit_id %></td>
+    <td><%= link_to build.commit_id, showBelongingCommit_path(build.commit_id) %></td>
     <td><%= build.request_id %></td>
     <td><%= build.state %></td>
     <td><%= build.duration %></td>
