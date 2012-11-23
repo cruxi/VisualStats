@@ -27906,3 +27906,195 @@ Served asset /start.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-21 10:19:32 +0100
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-21 12:40:00 +0100
+Connecting to database specified by database.yml
+Processing by StartController#index as HTML
+  Rendered start/index.html.erb within layouts/application (4.0ms)
+Compiled bootstrap-responsive.css  (0ms)  (pid 6655)
+Compiled bootstrap-responsive.min.css  (0ms)  (pid 6655)
+Compiled bootstrap.css  (0ms)  (pid 6655)
+Compiled bootstrap.min.css  (0ms)  (pid 6655)
+Compiled repositories.css  (38ms)  (pid 6655)
+Compiled start.css  (1ms)  (pid 6655)
+Compiled application.css  (85ms)  (pid 6655)
+Compiled bootstrap.js  (0ms)  (pid 6655)
+Compiled bootstrap.min.js  (0ms)  (pid 6655)
+Compiled jquery-1.8.3.min.js  (0ms)  (pid 6655)
+Compiled repositories.js  (229ms)  (pid 6655)
+Compiled start.js  (138ms)  (pid 6655)
+Compiled application.js  (407ms)  (pid 6655)
+Completed 200 OK in 771ms (Views: 770.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:03 +0100
+Served asset /application.css - 200 OK (26ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /bootstrap.min.css - 200 OK (38ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /artifacts.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /bootstrap-responsive.css - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /bootstrap-responsive.min.css - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /bootstrap.css - 200 OK (2ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /broadcasts.css - 200 OK (2ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /commits.css - 200 OK (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /events.css - 200 OK (1ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:04 +0100
+Served asset /builds.css - 200 OK (1ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /repositories.css - 200 OK (1ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /start.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /scaffolds.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /bootstrap.js - 200 OK (2ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /artifacts.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /bootstrap.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:05 +0100
+Served asset /broadcasts.js - 200 OK (1ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /builds.js - 200 OK (3ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /events.js - 200 OK (1ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /commits.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /jquery-1.8.3.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /repositories.js - 200 OK (1ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /start.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /application.js - 200 OK (48ms)
+
+
+Started GET "/assets/logo_visualStats.png" for 127.0.0.1 at 2012-11-21 12:40:06 +0100
+Served asset /logo_visualStats.png - 200 OK (5ms)
+
+
+Started GET "/commits" for 127.0.0.1 at 2012-11-21 12:40:23 +0100
+Processing by CommitsController#index as HTML
+  [1m[36mCommit Load (106.9ms)[0m  [1mSELECT "commits".* FROM "commits" LIMIT 10 OFFSET 0[0m
+  [1m[35mEXPLAIN (173.6ms)[0m  EXPLAIN SELECT "commits".* FROM "commits" LIMIT 10 OFFSET 0
+EXPLAIN for: SELECT  "commits".* FROM "commits"  LIMIT 10 OFFSET 0
+                               QUERY PLAN
+------------------------------------------------------------------------
+ Limit  (cost=0.00..0.43 rows=10 width=295)
+   ->  Seq Scan on commits  (cost=0.00..35570.24 rows=835412 width=295)
+(2 rows)
+
+  [1m[36m (510.3ms)[0m  [1mSELECT COUNT(*) FROM "commits" [0m
+  Rendered commits/index.html.erb within layouts/application (1648.5ms)
+Completed 200 OK in 1669ms (Views: -37.3ms | ActiveRecord: 1705.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:25 +0100
+Served asset /application.css - 304 Not Modified (41ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:26 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:27 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:27 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:27 +0100
+Served asset /start.js - 304 Not Modified (0ms)
