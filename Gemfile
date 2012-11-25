@@ -30,6 +30,10 @@ end
 gem  'activerecord-postgresql-adapter'
 gem  'pg'
 
+gem "factory_girl"
+gem "factory_girl_rails", "~> 4.0"
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
