@@ -28098,3 +28098,18 @@ Served asset /bootstrap.min.js - 304 Not Modified (0ms)
 
 Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-11-21 12:40:27 +0100
 Served asset /start.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (121.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateJobs (20121128180050)
+  [1m[35m (113.1ms)[0m  BEGIN
+  [1m[36m (352.1ms)[0m  [1mCREATE TABLE "jobs" ("id" serial primary key, "repository_id" integer, "commit_id" integer, "source_id" integer, "source_type" character varying(255), "queue" character varying(255), "type" character varying(255), "state" character varying(255), "number" character varying(255), "config" text, "status" integer, "job_id" character varying(255), "worker" character varying(255), "started_at" timestamp, "finished_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "tags" text, "retries" integer, "allow_failure" boolean, "owner_id" integer, "owner_type" character varying(255), "result" integer, "queued_at" timestamp) [0m
+PG::Error: ERROR:  relation "jobs" already exists
+: CREATE TABLE "jobs" ("id" serial primary key, "repository_id" integer, "commit_id" integer, "source_id" integer, "source_type" character varying(255), "queue" character varying(255), "type" character varying(255), "state" character varying(255), "number" character varying(255), "config" text, "status" integer, "job_id" character varying(255), "worker" character varying(255), "started_at" timestamp, "finished_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "tags" text, "retries" integer, "allow_failure" boolean, "owner_id" integer, "owner_type" character varying(255), "result" integer, "queued_at" timestamp) 
+  [1m[35m (121.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+DEPRECATION WARNING: Calling set_inheritance_column is deprecated. Please use `self.inheritance_column = 'the_name'` instead. (called from <class:Job> at /home/jonas/development/travis_projekt/VisualStats/app/models/job.rb:4)
