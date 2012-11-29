@@ -1,6 +1,6 @@
 <h1>Listing jobs</h1>
 
-<table>
+<table class="table table-striped table-bordered table-hover">
   <tr>
     <th>Id</th>
     <th>Repository</th>
@@ -57,15 +57,14 @@
     <td><%= job.owner_type %></td>
     <td><%= job.result %></td>
     <td><%= job.queued_at %></td>
-    <td><%= link_to 'Show', job %></td>
-    <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <!-- <td><%= link_to 'Show', job %></td> -->
+    <!-- <td><%= link_to 'Edit', edit_job_path(job) %></td> -->
+    <!-- <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Job', new_job_path %>
 
 <%= will_paginate @jobs %>
