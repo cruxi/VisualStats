@@ -33,6 +33,9 @@ gem  'pg'
 
 gem 'will_paginate', '~> 3.0'
 
+gem 'd3_rails'
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

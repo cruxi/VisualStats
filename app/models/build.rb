@@ -5,6 +5,6 @@ class Build < ActiveRecord::Base
   belongs_to :repository, :foreign_key => "repository_id"
 
   #Limit the rows to be shown on one page
-  self.per_page = 10
+  self.per_page = 100
 
 end

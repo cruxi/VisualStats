@@ -10,7 +10,7 @@
     <th>Commit</th>
     <th>Request</th>
     <th>State</th>
-    <th>Duration</th>
+    <th>Finished</th>
     <th>Owner</th>
     <th>Result</th>
     <th>Previous result</th>
@@ -29,7 +29,7 @@
     <td><%= link_to build.commit_id, showBelongingCommit_path(build.commit_id) %></td>
     <td><%= build.request_id %></td>
     <td><%= build.state %></td>
-    <td><%= build.duration %></td>
+    <td><%= build.finished_at %></td>
     <td><%= build.owner_id %></td>
     <td><%= build.result %></td>
     <td><%= build.previous_result %></td>
@@ -41,5 +41,93 @@
 </table>
 
 <br />
-
 <%= will_paginate @builds %>
+
+<!-- TESTING VISUALIZATION -->
+<h1>Path showing last 100 builds and their results</h1>
+
+    <%= javascript_tag do %>
+var myJson = <%=raw @builds.to_json %>;
+console.log(myJson);
+
+d3.json('builds', 
+            function(data){
+            
+                var format = d3.time.format("%Y-%m-%dT%H:%M:%SZ");
+
+                //parse time format correct
+                data.forEach(function(d) {
+                    console.log(d.finished_at);
+                    d.finished_at = format.parse(d.finished_at);
+                    console.log(d.finished_at);
+                  });
+
+             
+              
+                var margin = {top: 40, right: 40, bottom: 40, left: 40},
+                width = 960,
+                height = 800;
+
+                var x = d3.time.scale()
+                    .domain(d3.extent(data, function(d) { return d.finished_at; }))
+                   .range([0, width - margin.right - margin.left]);
+
+                var y = d3.scale.linear()
+                    .domain(d3.extent(data, function(d) { return d.result; }))
+                    .range([150, 0]);
+
+                var xAxis = d3.svg.axis()
+                    .scale(x)
+                    .orient("bottom");
+
+                var yAxis = d3.svg.axis()
+                    .scale(y)
+                    .tickValues([1,2])
+                    .ticks(1)
+                    .orient("left");
+
+                var line = d3.svg.line()
+                    .interpolate("linear")
+                    .x(function(d) { return x(d.finished_at); })
+                    .y(function(d) { return y(d.result); });
+
+                var svg = d3.select("body").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                  .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+     
+
+                svg.selectAll("circle")
+                    .data(data)
+                  .enter().append("circle")
+                    .attr("class", "dot")
+                    .attr("cx", function(d) { return x(d.finished_at); })
+                    .attr("cy", function(d) { console.log(d.result); return y(d.result); })
+                    .attr("r", 3); 
+
+          
+                svg.selectAll("path")
+                    .data(data)
+                .enter().append("path")
+                    .attr("class", "line")
+                    .attr("d", line(data));
+
+                svg.append("g") // Render the axis by calling a <g> selection.
+                    .attr("transform", "translate(0," + y.range()[0] + ")") //setzt x-achse an null punkt von y-achse
+                    .attr("class", "x axis")
+                    .call(xAxis);   
+
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis)
+                    .append("text")
+                      .attr("transform", "rotate(-90)")
+                      .attr("y", 8)
+                      .attr("dy", "0.9em")
+                      .style("text-anchor", "end")
+                      .text("Result");
+
+            });     
+<% end %>
+

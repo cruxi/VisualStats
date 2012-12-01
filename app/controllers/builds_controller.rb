@@ -2,7 +2,7 @@ class BuildsController < ApplicationController
   # GET /builds
   # GET /builds.json
   def index
-    @builds = Build.page(params[:page])
+    @builds = Build.page(params[:page]).order(:finished_at)
     
     respond_to do |format|
       format.html # index.html.erb
