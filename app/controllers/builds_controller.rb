@@ -13,7 +13,7 @@ class BuildsController < ApplicationController
   #find all belonging builds to a repository
   def findRepos
     @repository = Repository.find(params[:repository_id])
-    @builds = @repository.builds.all
+    @builds = @repository.builds.order(:finished_at)
 
     respond_to do |format|
       format.html # findRepos.html.erb
