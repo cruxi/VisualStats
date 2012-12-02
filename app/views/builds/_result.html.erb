@@ -3,16 +3,8 @@
 <!-- TESTING VISUALIZATION -->
 <h1>Path showing last 100 builds and their results</h1>
 
-    <%= javascript_tag do %>
-<<<<<<< HEAD
-var myJson = <%=raw @builds.to_json %>;
-console.log(myJson);
-
-d3.json('builds', 
-=======
-
+<%= javascript_tag do %>
 d3.json('<% @builds.to_json %>', 
->>>>>>> make the visualization depending on the paginating
             function(data){
             
                 var format = d3.time.format("%Y-%m-%dT%H:%M:%SZ");
