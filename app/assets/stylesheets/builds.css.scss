@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 circle.dot {
-  fill: steelblue;
+  fill: #00868B;
 }
 
 .axis text {
@@ -11,7 +11,7 @@ circle.dot {
 
 .line {
   fill: none;
-  stroke: steelblue;
+  stroke: #00868B;
   stroke-width: 0.5px;
 }            
 
@@ -22,9 +22,3 @@ circle.dot {
   shape-rendering: crispEdges;
 }
 
-h1 {
-  margin-left: 200px; 
-  font-size: 25px;
-  color: steelblue;
-  font-family: sans-serif;
-}

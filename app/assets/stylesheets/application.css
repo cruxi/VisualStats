@@ -23,6 +23,9 @@ body{
 
 h1{
 	font-size: 2em !important;
+  font-size: 25px !important;
+  color: #00868B !important;
+  font-family: sans-serif !important;
 }
 
 a:hover{
