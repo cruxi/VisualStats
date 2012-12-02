@@ -1,0 +1,125 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @job.id %>
+</p>
+
+<p>
+  <b>Repository:</b>
+  <%= @job.repository_id %>
+</p>
+
+<p>
+  <b>Commit:</b>
+  <%= @job.commit_id %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @job.source_id %>
+</p>
+
+<p>
+  <b>Source type:</b>
+  <%= @job.source_type %>
+</p>
+
+<p>
+  <b>Queue:</b>
+  <%= @job.queue %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @job.type %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @job.state %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @job.number %>
+</p>
+
+<p>
+  <b>Config:</b>
+  <%= @job.config %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @job.status %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%= @job.job_id %>
+</p>
+
+<p>
+  <b>Worker:</b>
+  <%= @job.worker %>
+</p>
+
+<p>
+  <b>Started at:</b>
+  <%= @job.started_at %>
+</p>
+
+<p>
+  <b>Finished at:</b>
+  <%= @job.finished_at %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @job.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @job.updated_at %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @job.tags %>
+</p>
+
+<p>
+  <b>Retries:</b>
+  <%= @job.retries %>
+</p>
+
+<p>
+  <b>Allow failure:</b>
+  <%= @job.allow_failure %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @job.owner_id %>
+</p>
+
+<p>
+  <b>Owner type:</b>
+  <%= @job.owner_type %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%= @job.result %>
+</p>
+
+<p>
+  <b>Queued at:</b>
+  <%= @job.queued_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

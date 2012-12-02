@@ -1,5 +1,7 @@
 VisualStats::Application.routes.draw do
     
+  resources :jobs
+
   resources :repositories do
     resources :events
   end
