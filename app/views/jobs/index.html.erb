@@ -26,9 +26,6 @@
     <th>Owner type</th>
     <th>Result</th>
     <th>Queued at</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @jobs.each do |job| %>
@@ -57,6 +54,7 @@
     <td><%= job.owner_type %></td>
     <td><%= job.result %></td>
     <td><%= job.queued_at %></td>
+
     <!-- <td><%= link_to 'Show', job %></td> -->
     <!-- <td><%= link_to 'Edit', edit_job_path(job) %></td> -->
     <!-- <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->

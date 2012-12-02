@@ -17,6 +17,20 @@ class Job < ActiveRecord::Base
     self[:type] = s
   end
 
+
+  # this is used to retrieve the respective models config file
+  def parsecfg
+
+    yaml = YAML.load(config)
+    #pp yaml
+    
+    language = yaml.fetch(:language)
+    version = yaml.values[1] # we cannot look for the hash key here, since it is sometimes present and sometimes not. Position of the key should stay the same though
+
+    pp "Language: #{language}"
+    pp "Version:  #{version}"
+
+  end
   
   #Limit the rows to be shown on one page
   self.per_page = 10

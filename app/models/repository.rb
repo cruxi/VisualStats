@@ -3,6 +3,7 @@ class Repository < ActiveRecord::Base
 
   has_many :builds
   has_many :events
+  has_many :jobs
 
   #Limit the rows to be shown on one page
   self.per_page = 10
