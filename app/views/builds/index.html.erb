@@ -14,6 +14,7 @@
     <th>Owner</th>
     <th>Result</th>
     <th>Previous result</th>
+    <th>Show jobs</th>
     <th></th>
     <!-- <th></th>
     <th></th> -->
@@ -33,6 +34,7 @@
     <td><%= build.owner_id %></td>
     <td><%= build.result %></td>
     <td><%= build.previous_result %></td>
+     <td><%= link_to 'Jobs', listJobs_path(build) %></td>
     <td><%= link_to 'Show', build %></td>
     <!--<td><%= link_to 'Edit', edit_build_path(build) %></td>
     <td><%= link_to 'Destroy', build, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->

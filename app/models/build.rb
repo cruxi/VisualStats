@@ -3,7 +3,7 @@ class Build < ActiveRecord::Base
 
   has_one :commit
   belongs_to :repository, :foreign_key => "repository_id"
-  #has_many :job
+# has_many :jobs, :through => :commits
 
   #Limit the rows to be shown on one page
   self.per_page = 3

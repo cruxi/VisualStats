@@ -21,6 +21,17 @@ class JobsController < ApplicationController
     end
   end
 
+    #find all belonging jobs to a build
+  def listJobs
+    @build = Build.find(params[:build_id])
+    @jobs = Job.where("commit_id = ?", @build.commit_id).order(:finished_at)
+
+    respond_to do |format|
+      format.html # listJobs.html.erb
+      format.json { render json: @jobs }
+    end
+  end
+
   # GET /jobs/new
   # GET /jobs/new.json
   def new

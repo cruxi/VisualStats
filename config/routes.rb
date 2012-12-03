@@ -21,6 +21,9 @@ VisualStats::Application.routes.draw do
   # umbennen --> muesste findBuildsForRepo heissen
   match 'repositories/:repository_id/builds' => 'builds#findRepos', :as => :findRepos 
 
+  # umbennen --> muesste findBuildsForRepo heissen
+  match 'builds/:build_id/jobs' => 'jobs#listJobs', :as => :listJobs 
+
   # find the commit belonging to a build
   match 'builds/:commit_id/commits' => 'commits#showBelongingCommit', :as => :showBelongingCommit 
 

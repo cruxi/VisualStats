@@ -21,7 +21,6 @@ class BuildsController < ApplicationController
     end
   end
 
-
   # GET /builds/1
   # GET /builds/1.json
   def show
