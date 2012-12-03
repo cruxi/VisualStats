@@ -29,7 +29,7 @@
   </tr>
 
 <% @jobs.each do |job| %>
-  <tr>
+  <% if (job.result==1) %><tr class="success"><% else %><tr class="error"><%end%>
     <td><%= job.id %></td>
     <td><%= job.repository_id %></td>
     <td><%= job.commit_id %></td>
