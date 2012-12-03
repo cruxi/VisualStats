@@ -65096,3 +65096,850 @@ EXPLAIN for: SELECT "jobs".* FROM "jobs"  WHERE (commit_id = 3141) ORDER BY fini
 (4 rows)
 
 Completed 200 OK in 1779ms (Views: 7.2ms | ActiveRecord: 1770.4ms)
+
+
+Started GET "/builds" for 127.0.0.1 at 2012-12-03 11:42:52 +0100
+Processing by BuildsController#index as HTML
+  [1m[35mBuild Load (149.2ms)[0m  SELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 0
+  [1m[36m (480.0ms)[0m  [1mSELECT COUNT(*) FROM "builds" [0m
+  Rendered builds/_result.html.erb (2.0ms)
+  Rendered builds/index.html.erb within layouts/application (640.6ms)
+Completed 200 OK in 661ms (Views: 31.1ms | ActiveRecord: 629.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:53 +0100
+Served asset /application.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:53 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:54 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:54 +0100
+Served asset /bootstrap.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:54 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:54 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:54 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:54 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:54 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:55 +0100
+Served asset /events.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:55 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:55 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:55 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-12-03 11:42:55 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:55 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:56 +0100
+Served asset /artifacts.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:56 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:56 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:56 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:56 +0100
+Served asset /broadcasts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:56 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:56 +0100
+Served asset /commits.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/d3.v2.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Served asset /d3.v2.min.js - 304 Not Modified (38ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/builds" for 127.0.0.1 at 2012-12-03 11:42:57 +0100
+Processing by BuildsController#index as JSON
+  [1m[35mBuild Load (127.3ms)[0m  SELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 0
+  [1m[36m (575.3ms)[0m  [1mSELECT COUNT(*) FROM "builds" [0m
+Completed 200 OK in 710ms (Views: 7.2ms | ActiveRecord: 702.6ms)
+
+
+Started GET "/builds" for 127.0.0.1 at 2012-12-03 11:44:25 +0100
+Processing by BuildsController#index as HTML
+  [1m[35mBuild Load (157.0ms)[0m  SELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 0
+  [1m[36m (513.3ms)[0m  [1mSELECT COUNT(*) FROM "builds" [0m
+  Rendered builds/_result.html.erb (3.1ms)
+  Rendered builds/index.html.erb within layouts/application (684.4ms)
+Completed 200 OK in 713ms (Views: 42.6ms | ActiveRecord: 670.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:26 +0100
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:26 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:26 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:26 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:26 +0100
+Served asset /bootstrap.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:27 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:27 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:27 +0100
+Served asset /builds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:27 +0100
+Served asset /commits.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:27 +0100
+Served asset /events.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:27 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:28 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:28 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-12-03 11:44:28 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:28 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:28 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:28 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:28 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /commits.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/d3.v2.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /d3.v2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /events.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:29 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:30 +0100
+Served asset /repositories.js - 304 Not Modified (36ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:30 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-03 11:44:30 +0100
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/builds" for 127.0.0.1 at 2012-12-03 11:44:30 +0100
+Processing by BuildsController#index as JSON
+  [1m[35mBuild Load (136.3ms)[0m  SELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 0
+  [1m[36m (495.7ms)[0m  [1mSELECT COUNT(*) FROM "builds" [0m
+Completed 200 OK in 638ms (Views: 5.2ms | ActiveRecord: 632.0ms)
+
+
+Started GET "/builds/3137/jobs" for 127.0.0.1 at 2012-12-03 11:44:32 +0100
+Processing by JobsController#listJobs as HTML
+  Parameters: {"build_id"=>"3137"}
+  [1m[35mBuild Load (128.2ms)[0m  SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "3137"]]
+ERROR: compiling _app_views_jobs_list_obs_html_erb___1983130006920568881_2166594520 RAISED /Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/views/jobs/listJobs.html.erb:169: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/views/jobs/listJobs.html.erb:171: syntax error, unexpected $end, expecting keyword_end
+Function body:           def _app_views_jobs_list_obs_html_erb___1983130006920568881_2166594520(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "jobs/listJobs";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Listing all jobs to the build with commit id '); if (@jobs.size>0) ;@output_buffer.safe_concat(' with Id ');@output_buffer.append= ( @jobs[0].commit_id );@output_buffer.safe_concat(' </h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Repository</th>
+    <th>Commit</th>
+    <th>Source</th>
+    <th>Source type</th>
+    <th>Queue</th>
+    <th>Type</th>
+    <th>State</th>
+    <th>Number</th>
+    <th>Config</th>
+    <th>Status</th>
+    <th>Job</th>
+    <th>Worker</th>
+    <th>Started at</th>
+    <th>Finished at</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Tags</th>
+    <th>Retries</th>
+    <th>Allow failure</th>
+    <th>Owner</th>
+    <th>Owner type</th>
+    <th>Result</th>
+    <th>Queued at</th>
+  </tr>
+
+'); @jobs.each do |job| 
+@output_buffer.safe_concat('  <tr>
+    <td>');@output_buffer.append= ( job.id );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.repository_id );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.commit_id );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.source_id );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.source_type );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.queue );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.type );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.state );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.number );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.config );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.status );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.job_id );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.worker );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.started_at );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.finished_at );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.created_at );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.updated_at );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.tags );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.retries );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.allow_failure );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.owner_id );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.owner_type );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.result );@output_buffer.safe_concat('</td>
+    <td>');@output_buffer.append= ( job.queued_at );@output_buffer.safe_concat('</td>
+
+  </tr>
+'); end 
+@output_buffer.safe_concat('</table>
+
+<br />
+
+');@output_buffer.append=  javascript_tag do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('d3.json(\''); @jobs.to_json ;@output_buffer.safe_concat('\', 
+            function(data){
+            
+                var format = d3.time.format("%Y-%m-%dT%H:%M:%SZ");
+
+                //parse time format correct
+                data.forEach(function(d) {
+                    console.log(d.finished_at);
+                    d.finished_at = format.parse(d.finished_at);
+                    console.log(d.finished_at);
+                  });
+
+             
+              
+                var margin = {top: 40, right: 40, bottom: 40, left: 40},
+                width = 960,
+                height = 800;
+
+                var x = d3.time.scale()
+                    .domain(d3.extent(data, function(d) { return d.finished_at; }))
+                   .range([0, width - margin.right - margin.left]);
+
+                var y = d3.scale.linear()
+                    .domain(d3.extent(data, function(d) { return d.result; }))
+                    .range([150, 0]);
+
+                var xAxis = d3.svg.axis()
+                    .scale(x)
+                    .orient("bottom");
+
+                var yAxis = d3.svg.axis()
+                    .scale(y)
+                    .ticks(1)
+                    .orient("left");
+
+                var line = d3.svg.line()
+                    .interpolate("linear")
+                    .x(function(d) { return x(d.finished_at); })
+                    .y(function(d) { return y(d.result); });
+
+                var svg = d3.select("body").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                  .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+     
+
+                svg.selectAll("circle")
+                    .data(data)
+                  .enter().append("circle")
+                    .attr("class", "dot")
+                    .attr("cx", function(d) { return x(d.finished_at); })
+                    .attr("cy", function(d) { console.log(d.result); return y(d.result); })
+                    .attr("r", 3)
+                    .on("click", function(d,i) { alert("Builds Config : " + d.config); }); //click on circle point to see the config of that selected build
+                    
+
+          
+                svg.selectAll("path")
+                    .data(data)
+                .enter().append("path")
+                    .attr("class", "line")
+                    .attr("d", line(data));
+
+                svg.append("g") // Render the axis by calling a <g> selection.
+                    .attr("transform", "translate(0," + y.range()[0] + ")") //setzt x-achse an null punkt von y-achse
+                    .attr("class", "x axis")
+                    .call(xAxis)
+                    .append("text")
+                      .attr("transform", "translate(850)")
+                      .attr("x", 8)
+                      .attr("dx", "0.9em")
+                      .style("text-anchor", "end")
+                      .text("Finished at");   
+
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis)
+                    .append("text")
+                      .attr("transform", "rotate(-90)")
+                      .attr("y", 8)
+                      .attr("dy", "0.9em")
+                      .style("text-anchor", "end")
+                      .text("Result");
+
+                //mouse over graph
+                //show the commit_id                
+                d3.selectAll("circle")
+                    .on(\'mouseover\', function(d){
+                        svg.append(\'text\')
+                        .attr("x", x(d.finished_at))
+                        .attr("y", y(d.result))
+                        .text(d.id)
+                        .attr(\'class\',\'tip\')
+                        .style("font-size","1.5em")
+                    })
+                    .on(\'mouseout\', function(d){
+                        d3.selectAll(".tip").remove()
+                    });              
+            });     
+
+'); end 
+@output_buffer.safe_concat('
+');@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/template.rb:297:in `module_eval'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/template.rb:297:in `compile'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/template.rb:244:in `block in compile!'
+<internal:prelude>:10:in `synchronize'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/template.rb:232:in `compile!'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/template.rb:144:in `block in render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/notifications.rb:125:in `instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/template.rb:143:in `render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/notifications.rb:123:in `instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/template_renderer.rb:18:in `render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_view/renderer/renderer.rb:17:in `render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/rendering.rb:110:in `_render_template'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/rendering.rb:88:in `render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activerecord-3.2.8/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/mime_responds.rb:196:in `respond_to'
+/Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/controllers/jobs_controller.rb:29:in `listJobs'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/base.rb:167:in `process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:414:in `_run__101847562007116911__process_action__535725223193896902__callbacks'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/notifications.rb:123:in `instrument'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activerecord-3.2.8/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/base.rb:121:in `process'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/abstract_controller/rendering.rb:45:in `process'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal.rb:203:in `dispatch'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_controller/metal.rb:246:in `block in action'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/routing/route_set.rb:73:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/routing/route_set.rb:36:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/routing/route_set.rb:600:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/etag.rb:23:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/conditionalget.rb:25:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/flash.rb:242:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/session/abstract/id.rb:205:in `context'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/session/abstract/id.rb:200:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/cookies.rb:339:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activerecord-3.2.8/lib/active_record/query_cache.rb:64:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:405:in `_run__653970623199592427__call__875260506646547181__callbacks'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/railties-3.2.8/lib/rails/rack/logger.rb:26:in `call_app'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/railties-3.2.8/lib/rails/rack/logger.rb:16:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/methodoverride.rb:21:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/runtime.rb:17:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/activesupport-3.2.8/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/lock.rb:15:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/static.rb:62:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/railties-3.2.8/lib/rails/engine.rb:479:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/railties-3.2.8/lib/rails/application.rb:223:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/railties-3.2.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/Users/kristina_kirsten/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+  Rendered jobs/listJobs.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 132ms
+
+ActionView::Template::Error (/Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/views/jobs/listJobs.html.erb:169: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/kristina_kirsten/Uni/6.sem/projekt/VisualStats/app/views/jobs/listJobs.html.erb:171: syntax error, unexpected $end, expecting keyword_end):
+    166: <% end %>
+  app/controllers/jobs_controller.rb:29:in `listJobs'
+
+
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/kristina_kirsten/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/builds" for 127.0.0.1 at 2012-12-03 11:45:12 +0100
+Processing by BuildsController#index as HTML
+  [1m[36mBuild Load (139.1ms)[0m  [1mSELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 0[0m
+  [1m[35m (568.1ms)[0m  SELECT COUNT(*) FROM "builds" 
+  Rendered builds/_result.html.erb (2.1ms)
+  Rendered builds/index.html.erb within layouts/application (721.6ms)
+Completed 200 OK in 743ms (Views: 35.0ms | ActiveRecord: 707.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:13 +0100
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:13 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:14 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:14 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:14 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:14 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:14 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:14 +0100
+Served asset /builds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:14 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:15 +0100
+Served asset /events.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:15 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:15 +0100
+Served asset /repositories.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:15 +0100
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:15 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:15 +0100
+Served asset /start.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:16 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:16 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:16 +0100
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:16 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:16 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:16 +0100
+Served asset /builds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:16 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/d3.v2.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:17 +0100
+Served asset /d3.v2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:17 +0100
+Served asset /events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:17 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:17 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:17 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:17 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:17 +0100
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/builds" for 127.0.0.1 at 2012-12-03 11:45:18 +0100
+Processing by BuildsController#index as JSON
+  [1m[36mBuild Load (123.3ms)[0m  [1mSELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 0[0m
+  [1m[35m (463.9ms)[0m  SELECT COUNT(*) FROM "builds" 
+Completed 200 OK in 591ms (Views: 3.6ms | ActiveRecord: 587.2ms)
+
+
+Started GET "/builds/3147/jobs" for 127.0.0.1 at 2012-12-03 11:45:19 +0100
+Processing by JobsController#listJobs as HTML
+  Parameters: {"build_id"=>"3147"}
+  [1m[36mBuild Load (179.6ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3147"]]
+  [1m[35m (1543.9ms)[0m  SELECT COUNT(*) FROM "jobs" WHERE (commit_id = 3148)
+  [1m[36mJob Load (1462.8ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at[0m
+  [1m[35mEXPLAIN (154.0ms)[0m  EXPLAIN SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at
+EXPLAIN for: SELECT "jobs".* FROM "jobs"  WHERE (commit_id = 3148) ORDER BY finished_at
+                            QUERY PLAN
+------------------------------------------------------------------
+ Sort  (cost=135543.91..135543.92 rows=10 width=945)
+   Sort Key: finished_at
+   ->  Seq Scan on jobs  (cost=0.00..135543.88 rows=10 width=945)
+         Filter: (commit_id = 3148)
+(4 rows)
+
+  Rendered jobs/listJobs.html.erb within layouts/application (3171.8ms)
+Completed 200 OK in 3375ms (Views: 33.0ms | ActiveRecord: 3340.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:23 +0100
+Served asset /application.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:23 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:23 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:23 +0100
+Served asset /artifacts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:24 +0100
+Served asset /bootstrap.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:24 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:24 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:24 +0100
+Served asset /builds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:25 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:25 +0100
+Served asset /events.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:25 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:25 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:26 +0100
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-12-03 11:45:26 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:26 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:26 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:27 +0100
+Served asset /artifacts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:27 +0100
+Served asset /bootstrap.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:27 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:27 +0100
+Served asset /broadcasts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:27 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:27 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/d3.v2.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:28 +0100
+Served asset /d3.v2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:28 +0100
+Served asset /events.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:28 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:28 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:28 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:28 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-03 11:45:28 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/builds/3147/jobs" for 127.0.0.1 at 2012-12-03 11:45:29 +0100
+Processing by JobsController#listJobs as JSON
+  Parameters: {"build_id"=>"3147"}
+  [1m[36mBuild Load (122.3ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3147"]]
+  [1m[35mJob Load (1624.6ms)[0m  SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at
+  [1m[36mEXPLAIN (169.6ms)[0m  [1mEXPLAIN SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at[0m
+EXPLAIN for: SELECT "jobs".* FROM "jobs"  WHERE (commit_id = 3148) ORDER BY finished_at
+                            QUERY PLAN
+------------------------------------------------------------------
+ Sort  (cost=135543.91..135543.92 rows=10 width=945)
+   Sort Key: finished_at
+   ->  Seq Scan on jobs  (cost=0.00..135543.88 rows=10 width=945)
+         Filter: (commit_id = 3148)
+(4 rows)
+
+Completed 200 OK in 1925ms (Views: 6.5ms | ActiveRecord: 1916.5ms)
