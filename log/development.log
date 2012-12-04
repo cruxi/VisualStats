@@ -82279,3 +82279,447 @@ Processing by BuildsController#index as JSON
   [1m[36mBuild Load (147.0ms)[0m  [1mSELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 0[0m
   [1m[35m (429.0ms)[0m  SELECT COUNT(*) FROM "builds" 
 Completed 200 OK in 595ms (Views: 17.0ms | ActiveRecord: 576.0ms)
+
+
+Started GET "/builds/3137/jobs" for 127.0.0.1 at 2012-12-04 23:13:23 +0100
+Processing by JobsController#listJobs as HTML
+  Parameters: {"build_id"=>"3137"}
+  [1m[36mBuild Load (356.0ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  [1m[35m (1734.0ms)[0m  SELECT COUNT(*) FROM "jobs" WHERE (commit_id = 3138)
+  [1m[36mJob Load (1433.0ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE (commit_id = 3138) ORDER BY finished_at[0m
+  [1m[35mEXPLAIN (173.0ms)[0m  EXPLAIN SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3138) ORDER BY finished_at
+EXPLAIN for: SELECT "jobs".* FROM "jobs"  WHERE (commit_id = 3138) ORDER BY finished_at
+                            QUERY PLAN
+------------------------------------------------------------------
+ Sort  (cost=135543.91..135543.92 rows=10 width=945)
+   Sort Key: finished_at
+   ->  Seq Scan on jobs  (cost=0.00..135543.88 rows=10 width=945)
+         Filter: (commit_id = 3138)
+(4 rows)
+
+  Rendered jobs/listJobs.html.erb within layouts/application (3620.0ms)
+Completed 200 OK in 4221ms (Views: 521.0ms | ActiveRecord: 3696.0ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:28 +0100
+Served asset /artifacts.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:29 +0100
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:30 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:30 +0100
+Served asset /bootstrap.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:31 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:31 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:31 +0100
+Served asset /broadcasts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:32 +0100
+Served asset /builds.css - 304 Not Modified (23ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:32 +0100
+Served asset /commits.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:33 +0100
+Served asset /events.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:33 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:34 +0100
+Served asset /repositories.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:34 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-12-04 23:13:34 +0100
+Served asset /start.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:35 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:35 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:36 +0100
+Served asset /artifacts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:36 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:37 +0100
+Served asset /broadcasts.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:37 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:38 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:38 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/d3.legend.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:39 +0100
+Served asset /d3.legend.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/d3.v2.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:39 +0100
+Served asset /d3.v2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:40 +0100
+Served asset /events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:40 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:40 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:41 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:41 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-04 23:13:41 +0100
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/builds/3137/jobs" for 127.0.0.1 at 2012-12-04 23:13:42 +0100
+Processing by JobsController#listJobs as JSON
+  Parameters: {"build_id"=>"3137"}
+  [1m[36mBuild Load (147.0ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  [1m[35mJob Load (1455.0ms)[0m  SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3138) ORDER BY finished_at
+  [1m[36mEXPLAIN (159.0ms)[0m  [1mEXPLAIN SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3138) ORDER BY finished_at[0m
+EXPLAIN for: SELECT "jobs".* FROM "jobs"  WHERE (commit_id = 3138) ORDER BY finished_at
+                            QUERY PLAN
+------------------------------------------------------------------
+ Sort  (cost=135543.91..135543.92 rows=10 width=945)
+   Sort Key: finished_at
+   ->  Seq Scan on jobs  (cost=0.00..135543.88 rows=10 width=945)
+         Filter: (commit_id = 3138)
+(4 rows)
+
+Completed 200 OK in 1878ms (Views: 114.0ms | ActiveRecord: 1761.0ms)
+
+
+Started GET "/builds/3147/jobs" for 127.0.0.1 at 2012-12-04 23:13:58 +0100
+Processing by JobsController#listJobs as HTML
+  Parameters: {"build_id"=>"3147"}
+  [1m[35mBuild Load (147.0ms)[0m  SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "3147"]]
+  [1m[36m (1511.0ms)[0m  [1mSELECT COUNT(*) FROM "jobs" WHERE (commit_id = 3148)[0m
+  [1m[35mJob Load (1555.0ms)[0m  SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at
+  [1m[36mEXPLAIN (147.0ms)[0m  [1mEXPLAIN SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at[0m
+EXPLAIN for: SELECT "jobs".* FROM "jobs"  WHERE (commit_id = 3148) ORDER BY finished_at
+                            QUERY PLAN
+------------------------------------------------------------------
+ Sort  (cost=135543.91..135543.92 rows=10 width=945)
+   Sort Key: finished_at
+   ->  Seq Scan on jobs  (cost=0.00..135543.88 rows=10 width=945)
+         Filter: (commit_id = 3148)
+(4 rows)
+
+  Rendered jobs/listJobs.html.erb within layouts/application (3375.0ms)
+Completed 200 OK in 3710ms (Views: 347.0ms | ActiveRecord: 3360.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:03 +0100
+Served asset /application.css - 304 Not Modified (232ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:04 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:04 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:04 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:04 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:05 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:05 +0100
+Served asset /broadcasts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:06 +0100
+Served asset /builds.css - 304 Not Modified (49ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:06 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:07 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:07 +0100
+Served asset /jobs.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:07 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:08 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-12-04 23:14:08 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:09 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:09 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:10 +0100
+Served asset /artifacts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:10 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:11 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:11 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:11 +0100
+Served asset /builds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:12 +0100
+Served asset /commits.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/d3.legend.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:12 +0100
+Served asset /d3.legend.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/d3.v2.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:13 +0100
+Served asset /d3.v2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:13 +0100
+Served asset /events.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:13 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:14 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:15 +0100
+Served asset /repositories.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:15 +0100
+Served asset /start.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-04 23:14:16 +0100
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/builds/3147/jobs" for 127.0.0.1 at 2012-12-04 23:14:17 +0100
+Processing by JobsController#listJobs as JSON
+  Parameters: {"build_id"=>"3147"}
+  [1m[35mBuild Load (159.0ms)[0m  SELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1  [["id", "3147"]]
+  [1m[36mJob Load (1724.0ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at[0m
+  [1m[35mEXPLAIN (171.0ms)[0m  EXPLAIN SELECT "jobs".* FROM "jobs" WHERE (commit_id = 3148) ORDER BY finished_at
+EXPLAIN for: SELECT "jobs".* FROM "jobs"  WHERE (commit_id = 3148) ORDER BY finished_at
+                            QUERY PLAN
+------------------------------------------------------------------
+ Sort  (cost=135543.91..135543.92 rows=10 width=945)
+   Sort Key: finished_at
+   ->  Seq Scan on jobs  (cost=0.00..135543.88 rows=10 width=945)
+         Filter: (commit_id = 3148)
+(4 rows)
+
+Completed 200 OK in 2117ms (Views: 57.0ms | ActiveRecord: 2054.0ms)
+
+
+Started GET "/builds/3137" for 127.0.0.1 at 2012-12-04 23:23:42 +0100
+Processing by BuildsController#show as HTML
+  Parameters: {"id"=>"3137"}
+  [1m[36mBuild Load (158.0ms)[0m  [1mSELECT "builds".* FROM "builds" WHERE "builds"."id" = $1 LIMIT 1[0m  [["id", "3137"]]
+  Rendered builds/show.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 553ms (Views: 381.0ms | ActiveRecord: 158.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:46 +0100
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:47 +0100
+Served asset /bootstrap-responsive.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/artifacts.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:48 +0100
+Served asset /artifacts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:49 +0100
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:49 +0100
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:50 +0100
+Served asset /application.css - 304 Not Modified (20ms)
+
+
+Started GET "/assets/broadcasts.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:50 +0100
+Served asset /broadcasts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/builds.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:51 +0100
+Served asset /builds.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/commits.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:51 +0100
+Served asset /commits.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:51 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:52 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:52 +0100
+Served asset /repositories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:53 +0100
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/start.css?body=1" for 127.0.0.1 at 2012-12-04 23:23:54 +0100
+Served asset /start.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:54 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:55 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/artifacts.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:55 +0100
+Served asset /artifacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:56 +0100
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:56 +0100
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/broadcasts.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:57 +0100
+Served asset /broadcasts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/builds.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:57 +0100
+Served asset /builds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/commits.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:57 +0100
+Served asset /commits.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/d3.legend.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:58 +0100
+Served asset /d3.legend.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/d3.v2.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:58 +0100
+Served asset /d3.v2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:59 +0100
+Served asset /events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:59 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.3.min.js?body=1" for 127.0.0.1 at 2012-12-04 23:23:59 +0100
+Served asset /jquery-1.8.3.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repositories.js?body=1" for 127.0.0.1 at 2012-12-04 23:24:00 +0100
+Served asset /repositories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/start.js?body=1" for 127.0.0.1 at 2012-12-04 23:24:00 +0100
+Served asset /start.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-04 23:24:00 +0100
+Served asset /application.js - 304 Not Modified (6ms)
