@@ -85,7 +85,7 @@ class Job < ActiveRecord::Base
       pp "version value: #{vvalue}"
 
       
-      p "\n"
+      p "-------------------------------"
     
 
       #runtime = [yaml.keys[1]] & [:rvm:, :ruby:]
