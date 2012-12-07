@@ -1,8 +1,4 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+
 development:
   adapter: sqlite3
   database: db/development.sqlite3
@@ -24,5 +20,6 @@ production:
   pool: 5
   timeout: 5000
 
+# load the secret devheroku configuration if present
 <% secret = File.expand_path("secret/devheroku_database.yml") %>
 <%= File.read(secret) if File.exist?(secret)%>

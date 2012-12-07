@@ -9,15 +9,12 @@ VisualStats::Application.configure do
 #devheroku:
 #  adapter: postgresql
 #  encoding: unicode
-#  database: db0fvent4es8o7
+#  database: ...
 #  pool: 5
 #  username: ....
 #  password: ....
-#  host: ec2-184-73-250-225.compute-1.amazonaws.com
+#  host: ...
 #  port: 6402
-
-
-
 
 
   # Settings specified here will take precedence over those in config/application.rb
