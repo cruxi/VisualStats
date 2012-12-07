@@ -2,6 +2,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
+#gem 'travis-core',    git: 'git://github.com/travis-ci/travis-core', require: 'travis/engine'
+#gem 'travis-support', git: 'git://github.com/travis-ci/travis-support'
+#gem 'travis-sidekiqs', git: 'git://github.com/travis-ci/travis-sidekiqs'
+
+gem 'travis-support',  github: 'travis-ci/travis-support'
+gem 'travis-core',     github: 'travis-ci/travis-core', branch: 'regenerate-repo-key'
+gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
+
+
 group :development, :test do
   gem 'sqlite3'
 end

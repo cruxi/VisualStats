@@ -1,3 +1,5 @@
+#require 'travis'
+
 VisualStats::Application.configure do
   # this is a development environment pointing towards the production db at heroku
   # to try out things against this database with real data.
