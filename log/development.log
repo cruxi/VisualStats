@@ -87570,3 +87570,4 @@ Processing by BuildsController#index as JSON
   [1m[36mBuild Load (173.0ms)[0m  [1mSELECT "builds".* FROM "builds" ORDER BY finished_at LIMIT 3 OFFSET 12[0m
   [1m[35m (422.0ms)[0m  SELECT COUNT(*) FROM "builds" 
 Completed 200 OK in 610ms (Views: 14.0ms | ActiveRecord: 595.0ms)
+Connecting to database specified by database.yml
