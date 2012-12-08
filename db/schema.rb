@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121111111100) do
+ActiveRecord::Schema.define(:version => 20121208020817) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(:version => 20121111111100) do
   add_index "commits", ["branch"], :name => "index_commits_on_branch"
   add_index "commits", ["commit"], :name => "index_commits_on_commit"
 
+  create_table "dimensions", :force => true do |t|
+    t.integer  "job_info_id"
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.integer  "source_id"
     t.string   "source_type"
@@ -87,6 +95,17 @@ ActiveRecord::Schema.define(:version => 20121111111100) do
     t.text     "data"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "job_infos", :force => true do |t|
+    t.integer  "repository_id"
+    t.integer  "job_id"
+    t.string   "language"
+    t.string   "result"
+    t.string   "integer"
+    t.string   "dimension_keys"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "jobs", :force => true do |t|

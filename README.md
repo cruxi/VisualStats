@@ -55,3 +55,13 @@ e.g.
 
 gibt 8.
 
+
+
+Job.where("repository_id = ?",11593).group("result").count.to_json
+
+
+
+
+
+
+
