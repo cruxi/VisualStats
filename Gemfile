@@ -10,14 +10,16 @@ gem 'travis-support',  github: 'travis-ci/travis-support'
 gem 'travis-core',     github: 'travis-ci/travis-core', branch: 'regenerate-repo-key'
 gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
 
+# database dependency
+gem 'sqlite3' , :group => [:development, :test]
+gem 'pg', :group => [:test, :production, :devheroku]
+
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails'
 end
 group :devheroku, :development do
   gem  'activerecord-postgresql-adapter'
-  gem  'pg'
 end
 
 group :test do 
