@@ -10,7 +10,7 @@ postgresql: &postgresql
   adapter: postgresql
   username: postgres
   password:
-  database: myapp_<%= Rails.env %>
+  database: visualstats_<%= Rails.env %>
   min_messages: ERROR
 
 defaults: &defaults

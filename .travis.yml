@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.0.0
+before_script:
+- psql -c 'create database visualstats_test' -U postgres
 script: 
 - RAILS_ENV=test bundle exec rake --trace db:schema:load
 - RAILS_ENV=test bundle exec rspec spec
