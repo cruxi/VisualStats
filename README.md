@@ -1,4 +1,4 @@
-# VisualStats [![Build Status](https://secure.travis-ci.org/bkleinen/VisualStats.png?branch=master)](https://travis-ci. org/bkleinen/VisualStats)
+# VisualStats [![Build Status](https://secure.travis-ci.org/bkleinen/VisualStats.png?branch=master)](https://travis-ci.org/bkleinen/VisualStats)
 
 ##This is work in progress, no documentation here, just notes.
 
