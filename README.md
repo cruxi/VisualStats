@@ -1,4 +1,6 @@
-This is work in progress, no documentation here, just notes.
+# VisualStats [![Build Status](https://secure.travis-ci.org/thoughtbot/factory_girl.png)](http://travis-ci.org/thoughtbot/factory_girl?branch=master) [![Dependency Status](https://gemnasium.com/thoughtbot/factory_girl.png)](https://gemnasium.com/thoughtbot/factory_girl)
+
+##This is work in progress, no documentation here, just notes.
 
 
 # created new environment devheroku
