@@ -1,30 +1,17 @@
 require File.join("#{Rails.configuration.root}","lib/tasks/init_jobs")
+include InitJobs
 
 describe "init_jobs rake task" do
-  describe "substitute" do
-    it "should replace one argument" do
-      substitute("before_filter :not_current_user, only: :destroy").should ==
-       "before_filter :not_current_user, :only => :destroy"
-    end
-    it "should replace argument with list" do
-      substitute("before_filter :guest_user,     only: [:new, :create]").should ==
-       "before_filter :guest_user,     :only => [:new, :create]"
-    end
-    it "should replace in validation" do
-      substitute("validates :password_confirmation, presence: true").should ==
-       "validates :password_confirmation, :presence => true"
-    end
-    it "should replace in association" do
-      substitute("has_many :microposts, dependent: :destroy").should ==
-       "has_many :microposts, :dependent => :destroy"
-    end
-    it "should not replace the encoding declaration" do
-          substitute("# encoding: UTF-8").should ==
-           "# encoding: UTF-8"
-    end
-    it "should also leave comments alone" do
-      substitute("# These ... rules are supported but not enabled by default:\n")
-      .should == "# These ... rules are supported but not enabled by default:\n"
-    end
+ # let(:request) {FactoryGirl.create(:request)}
+ # let(:build) {FactoryGirl.create(:build)}
+  #let(:repository) {FactoryGirl.create(:repository)}
+  let(:job) {FactoryGirl.create(:test)}
+  it "job should be migrated" do
+
+    build = Factory(:build, result: 1, commit: Factory(:commit, branch: 'master'))
+      
+    expect do
+      migrate_job(job,[:rvm,:env],build)
+    end.to  change(JobInfo, :count).by(1)
   end
 end
