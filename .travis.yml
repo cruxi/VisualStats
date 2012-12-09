@@ -4,7 +4,7 @@ rvm:
   - 2.0.0
 before_script: "bundle exec rake db:test:prepare"
 script: 
-- RAILS_ENV=test bundle exec rake --trace db:migrate rspec
+- RAILS_ENV=test bundle exec rake --trace db:schema:load rspec
 matrix:
   allow_failures:
     - rvm: 2.0.0
