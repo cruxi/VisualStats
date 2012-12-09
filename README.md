@@ -1,4 +1,4 @@
-# VisualStats [![Build Status](https://secure.travis-ci.org/thoughtbot/factory_girl.png)](http://travis-ci.org/thoughtbot/factory_girl?branch=master) [![Dependency Status](https://gemnasium.com/thoughtbot/factory_girl.png)](https://gemnasium.com/thoughtbot/factory_girl)
+# VisualStats [![Build Status](https://secure.travis-ci.org/bkleinen/VisualStats.png?branch=master)](https://travis-ci. org/bkleinen/VisualStats)
 
 ##This is work in progress, no documentation here, just notes.
 
