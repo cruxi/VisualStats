@@ -2,11 +2,29 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+#gem 'travis-core',    git: 'git://github.com/travis-ci/travis-core', require: 'travis/engine'
+#gem 'travis-support', git: 'git://github.com/travis-ci/travis-support'
+#gem 'travis-sidekiqs', git: 'git://github.com/travis-ci/travis-sidekiqs'
 
-gem 'sqlite3'
+gem 'travis-support',  github: 'travis-ci/travis-support'
+gem 'travis-core',     github: 'travis-ci/travis-core', branch: 'regenerate-repo-key'
+gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
 
+# database dependency
+gem 'sqlite3' , :group => [:development, :test]
+gem 'pg', :group => [:test, :production, :devheroku]
+
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+group :devheroku, :development do
+  gem  'activerecord-postgresql-adapter'
+end
+
+group :test do 
+  gem 'factory_girl_rails'	
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,15 +39,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-
-group :development, :test do
-  gem 'rspec-rails'
-end
-
-gem  'activerecord-postgresql-adapter'
-gem  'pg'
-
 
 gem 'will_paginate', '~> 3.0'
 
