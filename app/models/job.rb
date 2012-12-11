@@ -1,7 +1,7 @@
-class Job < ActiveRecord::Base
-  attr_accessible :allow_failure, :commit_id, :config, :created_at, :finished_at, :id, :job_id, :number, :owner_id, :owner_type, :queue, :queued_at, :repository_id, :result, :retries, :source_id, :source_type, :started_at, :state, :status, :tags, :type, :updated_at, :worker
+class Job 
+  attr_accessible :owner, :log, :allow_failure, :commit_id, :config, :created_at, :finished_at, :id, :job_id, :number, :owner_id, :owner_type, :queue, :queued_at, :repository_id, :result, :retries, :source_id, :source_type, :started_at, :state, :status, :tags, :type, :updated_at, :worker
 
-  belongs_to :repository, :foreign_key => "repository_id"
+# belongs_to :repository, :foreign_key => "repository_id"
  # has_one :build, :through => :commit 
 
 # workaround since :type is a reserved keyword by ActiveRecord::Base. 

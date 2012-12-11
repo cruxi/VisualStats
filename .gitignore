@@ -19,5 +19,5 @@
 
 .DS_Store
 
-config/database.yml
-config/database.yml
+# Ignore secret configuration files.
+/secret/**

@@ -1,5 +1,23 @@
 
 VisualStats::Application.configure do
+  # this is a development environment pointing towards the production db at heroku
+  # to try out things against this database with real data.
+  # to use it, you need to put the heroku db credentials in
+  # secret/devheroku_database.yml
+  # like this:
+
+
+#devheroku:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: ...
+#  pool: 5
+#  username: ....
+#  password: ....
+#  host: ...
+#  port: 6402
+
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
