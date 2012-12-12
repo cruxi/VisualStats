@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 
 gem 'travis-support',  github: 'travis-ci/travis-support'
-gem 'travis-core',     github: 'VisualTravis/travis-core' 
+#gem 'travis-core',     github: 'VisualTravis/travis-core' 
+gem 'travis-core',     git: 'https://github.com/VisualTravis/travis-core.git'
 gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
 
 gem 'gh', github: 'rkh/gh'
