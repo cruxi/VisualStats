@@ -1,3 +1,4 @@
+#VisualTravis
 class CreateJobInfos < ActiveRecord::Migration
   def change
     create_table :job_infos do |t|

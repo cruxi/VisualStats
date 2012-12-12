@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
-
-#gem 'travis-core',    git: 'git://github.com/travis-ci/travis-core', require: 'travis/engine'
-#gem 'travis-support', git: 'git://github.com/travis-ci/travis-support'
-#gem 'travis-sidekiqs', git: 'git://github.com/travis-ci/travis-sidekiqs'
+gem 'rails', '3.2.9'
 
 gem 'travis-support',  github: 'travis-ci/travis-support'
-gem 'travis-core',     github: 'travis-ci/travis-core', branch: 'regenerate-repo-key'
+#gem 'travis-core',     github: 'VisualTravis/travis-core' 
+gem 'travis-core',     git: 'https://github.com/VisualTravis/travis-core.git'
 gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
+
+gem 'gh', github: 'rkh/gh'
 
 # database dependency
 gem 'sqlite3' , :group => [:development, :test]
