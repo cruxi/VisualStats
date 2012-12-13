@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20121208020817) do
     t.integer  "result"
     t.integer  "previous_result"
     t.string   "event_type"
+    t.string   "previous_state"
   end
 
   add_index "builds", ["finished_at"], :name => "index_builds_on_finished_at"
@@ -185,6 +186,7 @@ ActiveRecord::Schema.define(:version => 20121208020817) do
     t.integer  "owner_id"
     t.string   "owner_type"
     t.integer  "last_build_result"
+    t.string   "last_build_state"
   end
 
   add_index "repositories", ["last_build_started_at"], :name => "index_repositories_on_last_build_started_at"
