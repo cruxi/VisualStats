@@ -24,8 +24,8 @@ GIT
     travis-support (0.0.1)
 
 GIT
-  remote: https://github.com/VisualTravis/travis-core.git
-  revision: d367969e00829e1eb392bfd7b2b7189cbd5c19b6
+  remote: https://github.com/bkleinen/travis-core
+  revision: 48fc192ae89aa1701ab87287154024e787aca220
   specs:
     travis-core (0.0.1)
       actionmailer (~> 3.2.3)

@@ -3,8 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 gem 'travis-support',  github: 'travis-ci/travis-support'
-#gem 'travis-core',     github: 'VisualTravis/travis-core' 
-gem 'travis-core',     git: 'https://github.com/VisualTravis/travis-core.git'
+
+#this version will only work with migrations in branch database-migrations
+#as it is based on a newer db schema version
+#gem 'travis-core',     git: 'https://github.com/VisualTravis/travis-core.git'
+
+gem 'travis-core',      git: 'https://github.com/bkleinen/travis-core'
+
 gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
 
 gem 'gh', github: 'rkh/gh'
