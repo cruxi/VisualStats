@@ -2,28 +2,104 @@
 	<h1>Welcome to <%= image_tag "logo_visualStats.png", :alt => "VisualStats", :width => "300px" %> </h1>
 
 <div class="content">
+
+		<h2> Statistics </h2>
 		<p>
-		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+		Travis has done <%= Build.count %> builds so far.
 		</p>
 
 		<p>
-		Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+		<%= Build.where("result = ?", 0).count(:result) %> of the builds failed.
 		</p>
 
 		<p>
-		Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+		<%= Build.where("result = ?", 1).count(:result) %> of the builds succeeded.
 		</p>
 
 		<p>
-		Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+		<%= Build.where("duration < 1").count(:result) %> of the builds are not finished.
 		</p>
 
-		<p>
-		Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-		</p>
+</div>	
 
-		
 
-</div>
+<%= javascript_tag do %>
+			
+			var allBuilds = <%= Build.count %>;
+			var fail = <%= Build.where("result = ?", 0).count(:result) %>;
+			var success = <%= Build.where("result = ?", 1).count(:result) %>;
+			var unknown = allBuilds - (fail+success);
+
+			var result = new Array();
+			result[0] = fail;
+			result[1] = success;
+			result[2] = unknown;
+
+
+			var width = 200,
+                height = 200,
+                radius = Math.min(width, height) / 2;
+
+            var color = d3.scale.ordinal()
+            .range(["#F2DEDE", "#DFF0D8", "#EFEFEF"]);
+
+            var arc = d3.svg.arc()
+                .outerRadius(radius - 10)
+                .innerRadius(0);
+
+            var pie = d3.layout.pie()
+                .value(function(d) {console.log(d); return d; });
+
+            var svg = d3.select("body").append("svg")
+                .attr("width", width)
+                .attr("height", height)
+              .append("g")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+            var perSucc=0;
+            var perFail=0;
+            var perUnk=0;
+
+            if (result[2]>0) {
+               perUnk = (unknown*100)/allBuilds;
+            }
+            if (result[1]>0) {
+               perSucc = (success*100)/allBuilds;
+            }
+            if (result[0]>0) {
+                perFail= (fail*100)/allBuilds;
+            }
+
+            var perc = new Array();
+            perc[0] = perSucc;
+            perc[1] = perFail;
+            perc[2] = perUnk;
+
+            var g = svg.selectAll(".arc")
+                  .data(pie(result))
+                .enter().append("g")
+                  .attr("class", "arc");
+
+            g.append("path")
+                  .attr("d", arc)
+                  .style("fill", function() { return color(result.length--); });
+
+                  
+            g.append("text")
+                  .attr("transform", function(e) { return "translate(" + arc.centroid(e) + ")"; })
+                  .attr("dy", ".35em")
+                  .style("text-anchor", "middle")
+                  .text(function(e) { console.log(e.data); 
+                  		var curVal = e.data; 
+                  		var percentVal=0;
+
+            			percentVal=(curVal*100)/allBuilds;
+                  		return percentVal.toFixed(2)+"%"; 
+                  });
+
+            
+<% end %>
+
 
 </div>
