@@ -2,7 +2,8 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   # GET /repositories.json
   def index
-    @repositories = Repository.page(params[:page])
+    @repositories = Repository.page(params[:page]).order(:id)
+    #select * from table order by if(last_build_number = '' or last_build_number is null,1,0),last_build_number
 
     respond_to do |format|
       format.html # index.html.erb

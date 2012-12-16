@@ -7,8 +7,11 @@ class Repository
   #Limit the rows to be shown on one page
   self.per_page = 10
 
+
+
+
 def getPercentForBuilds 
-	builds = getBuilds
+	builds = self.builds
 	months = []
 	statistic = Hash.new
 	monthAmount = Array.new(12, Hash.new { |hash, key| hash[key] = 0})

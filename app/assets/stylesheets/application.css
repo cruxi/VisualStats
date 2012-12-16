@@ -48,3 +48,16 @@ a {
 	text-align:center;
 }
 
+
+
+ .barfail {
+   stroke: white;
+   fill: #FF8E8E;
+ }
+
+
+ .barsuccess {
+   stroke: white;
+   fill: #93EEAA;
+ }
+
