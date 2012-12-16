@@ -1,0 +1,98 @@
+
+<%= javascript_tag do %>
+d3.json('',function(data){
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+
+var y = d3.scale.linear()
+   .domain([0,100])
+   .range([height, 0]);
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1)
+    .domain(d3.entries(data).map(function(d) { return d.key; }));
+
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Percent");
+
+
+svg.selectAll(".barsuccess")
+            .data(d3.entries(data))
+          .enter().append("rect")
+              .attr("class", "barsuccess")
+              .attr("x", function(d) { return x(d.key) })
+              .attr("width", x.rangeBand()/2)
+              .attr("y", function(d) { return y(d.value.success); })
+              .attr("height", function(d) { return height - y(d.value.success); });
+
+svg.selectAll(".barfail")
+            .data(d3.entries(data))
+          .enter().append("rect")
+              .attr("class", "barfail")
+              .attr("x", function(d) { return x(d.key)+x.rangeBand()/2 })
+              .attr("width", x.rangeBand()/2)
+              .attr("y", function(d) { return y(d.value.fail); })
+              .attr("height", function(d) { return height - y(d.value.fail); });
+
+d3.selectAll(".barsuccess")
+          .on('mouseover', function(d){
+                        svg.append('text')
+                        .attr("x", x(d.key))
+                        .attr("y", y(d.value.success))
+                        .text(d.value.success+"%")
+                        .attr('class','success')
+                        .style("font-size","0.7em")
+                    })
+                    .on('mouseout', function(d){
+                        d3.selectAll(".success").remove()
+                    });  
+
+
+d3.selectAll(".barfail")
+          .on('mouseover', function(d){
+                        svg.append('text')
+                        .attr("x", x(d.key)+x.rangeBand()/2)
+                        .attr("y", y(d.value.fail))
+                        .text(d.value.fail+"%")
+                        .attr('class','fail')
+                        .style("font-size","0.7em")
+                    })
+                    .on('mouseout', function(d){
+                        d3.selectAll(".fail").remove()
+                    });  
+
+ });
+
+<% end %>
+

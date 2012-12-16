@@ -17,7 +17,7 @@ class RepositoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @repository }
+      format.json { render json: @repository.getPercentForBuilds }
     end
   end
 
