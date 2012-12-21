@@ -19,5 +19,7 @@
 
 .DS_Store
 
+# Ignore playground
+/play
 # Ignore secret configuration files.
 /secret/**
