@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208020817) do
+ActiveRecord::Schema.define(:version => 20121221081851) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20121208020817) do
     t.integer  "result"
     t.integer  "previous_result"
     t.string   "event_type"
-    t.string   "previous_state"
   end
 
   add_index "builds", ["finished_at"], :name => "index_builds_on_finished_at"
@@ -186,7 +185,6 @@ ActiveRecord::Schema.define(:version => 20121208020817) do
     t.integer  "owner_id"
     t.string   "owner_type"
     t.integer  "last_build_result"
-    t.string   "last_build_state"
   end
 
   add_index "repositories", ["last_build_started_at"], :name => "index_repositories_on_last_build_started_at"
@@ -258,6 +256,29 @@ ActiveRecord::Schema.define(:version => 20121208020817) do
   add_index "users", ["github_id"], :name => "index_users_on_github_id"
   add_index "users", ["github_oauth_token"], :name => "index_users_on_github_oauth_token"
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "visual_builds", :force => true do |t|
+    t.integer  "repository_id"
+    t.string   "number"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "request_id"
+    t.string   "language"
+    t.integer  "duration"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "result"
+    t.integer  "previous_result"
+    t.string   "commit"
+    t.string   "build_url"
+    t.string   "branch"
+    t.string   "committed_at"
+    t.string   "author_name"
+    t.string   "committer_name"
+    t.text     "config"
+  end
 
   create_table "workers", :force => true do |t|
     t.string   "name"
