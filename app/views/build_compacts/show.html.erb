@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Result:</b>
+  <%= @build_compact.result %>
+</p>
+
+<p>
+  <b>Finished at:</b>
+  <%= @build_compact.finished_at %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @build_compact.number %>
+</p>
+
+<p>
+  <b>Config:</b>
+  <%= @build_compact.config %>
+</p>
+
+
+<%= link_to 'Edit', edit_build_compact_path(@build_compact) %> |
+<%= link_to 'Back', build_compacts_path %>

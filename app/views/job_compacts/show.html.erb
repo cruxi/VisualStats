@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language:</b>
+  <%= @job_compact.language %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%= @job_compact.version %>
+</p>
+
+<p>
+  <b>Allow failure:</b>
+  <%= @job_compact.allow_failure %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%= @job_compact.result %>
+</p>
+
+<p>
+  <b>Finished at:</b>
+  <%= @job_compact.finished_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_compact_path(@job_compact) %> |
+<%= link_to 'Back', job_compacts_path %>

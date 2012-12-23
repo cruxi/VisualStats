@@ -1,0 +1,2 @@
+module RepositoryCompactsHelper
+end

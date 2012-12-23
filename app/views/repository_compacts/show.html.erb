@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @repository_compact.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @repository_compact.description %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @repository_compact.url %>
+</p>
+
+<p>
+  <b>Owner name:</b>
+  <%= @repository_compact.owner_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_repository_compact_path(@repository_compact) %> |
+<%= link_to 'Back', repository_compacts_path %>

@@ -1,0 +1,37 @@
+<%= form_for(@job_compact) do |f| %>
+  <% if @job_compact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_compact.errors.count, "error") %> prohibited this job_compact from being saved:</h2>
+
+      <ul>
+      <% @job_compact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :allow_failure %><br />
+    <%= f.check_box :allow_failure %>
+  </div>
+  <div class="field">
+    <%= f.label :result %><br />
+    <%= f.number_field :result %>
+  </div>
+  <div class="field">
+    <%= f.label :finished_at %><br />
+    <%= f.datetime_select :finished_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

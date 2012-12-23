@@ -1,0 +1,31 @@
+<h1>Listing job_compacts</h1>
+
+<table>
+  <tr>
+    <th>Language</th>
+    <th>Version</th>
+    <th>Allow failure</th>
+    <th>Result</th>
+    <th>Finished at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @job_compacts.each do |job_compact| %>
+  <tr>
+    <td><%= job_compact.language %></td>
+    <td><%= job_compact.version %></td>
+    <td><%= job_compact.allow_failure %></td>
+    <td><%= job_compact.result %></td>
+    <td><%= job_compact.finished_at %></td>
+    <td><%= link_to 'Show', job_compact %></td>
+    <td><%= link_to 'Edit', edit_job_compact_path(job_compact) %></td>
+    <td><%= link_to 'Destroy', job_compact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job compact', new_job_compact_path %>

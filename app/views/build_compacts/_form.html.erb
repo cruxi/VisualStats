@@ -1,0 +1,33 @@
+<%= form_for(@build_compact) do |f| %>
+  <% if @build_compact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@build_compact.errors.count, "error") %> prohibited this build_compact from being saved:</h2>
+
+      <ul>
+      <% @build_compact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :result %><br />
+    <%= f.number_field :result %>
+  </div>
+  <div class="field">
+    <%= f.label :finished_at %><br />
+    <%= f.datetime_select :finished_at %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :config %><br />
+    <%= f.text_field :config %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module JobCompactsHelper
+end

@@ -1,0 +1,29 @@
+<h1>Listing build_compacts</h1>
+
+<table>
+  <tr>
+    <th>Result</th>
+    <th>Finished at</th>
+    <th>Number</th>
+    <th>Config</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @build_compacts.each do |build_compact| %>
+  <tr>
+    <td><%= build_compact.result %></td>
+    <td><%= build_compact.finished_at %></td>
+    <td><%= build_compact.number %></td>
+    <td><%= build_compact.config %></td>
+    <td><%= link_to 'Show', build_compact %></td>
+    <td><%= link_to 'Edit', edit_build_compact_path(build_compact) %></td>
+    <td><%= link_to 'Destroy', build_compact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Build compact', new_build_compact_path %>

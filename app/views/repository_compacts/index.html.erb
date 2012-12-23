@@ -1,0 +1,29 @@
+<h1>Listing repository_compacts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Url</th>
+    <th>Owner name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @repository_compacts.each do |repository_compact| %>
+  <tr>
+    <td><%= repository_compact.name %></td>
+    <td><%= repository_compact.description %></td>
+    <td><%= repository_compact.url %></td>
+    <td><%= repository_compact.owner_name %></td>
+    <td><%= link_to 'Show', repository_compact %></td>
+    <td><%= link_to 'Edit', edit_repository_compact_path(repository_compact) %></td>
+    <td><%= link_to 'Destroy', repository_compact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Repository compact', new_repository_compact_path %>
