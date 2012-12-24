@@ -1,5 +1,9 @@
 class VisualDimension < ActiveRecord::Base
+
+  belongs_to :job, class_name: "VisualJob"
+
   attr_accessible :key, :value, :visual_job_id
+
   def self.kv(key,value)
     vd = VisualDimension.new
     vd.key=key.to_s

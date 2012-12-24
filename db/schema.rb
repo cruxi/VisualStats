@@ -79,14 +79,6 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
   add_index "commits", ["branch"], :name => "index_commits_on_branch"
   add_index "commits", ["commit"], :name => "index_commits_on_commit"
 
-  create_table "dimensions", :force => true do |t|
-    t.integer  "job_info_id"
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "events", :force => true do |t|
     t.integer  "source_id"
     t.string   "source_type"
@@ -95,17 +87,6 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
     t.text     "data"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-  end
-
-  create_table "job_infos", :force => true do |t|
-    t.integer  "repository_id"
-    t.integer  "job_id"
-    t.string   "language"
-    t.string   "result"
-    t.string   "integer"
-    t.string   "dimension_keys"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
   end
 
   create_table "jobs", :force => true do |t|
@@ -281,26 +262,25 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
   end
 
   create_table "visual_dimensions", :force => true do |t|
-    t.integer  "visual_job_id"
+    t.integer  "job_id"
     t.string   "key"
     t.string   "value"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "visual_jobs", :force => true do |t|
-    t.integer  "vsual_repository_id"
-    t.integer  "visual_build_id"
+    t.integer  "build_id"
     t.string   "number"
     t.string   "state"
     t.datetime "finished_at"
     t.text     "tags"
-    t.integer  "retries",             :default => 0
-    t.boolean  "allow_failures",      :default => false
+    t.integer  "retries",        :default => 0
+    t.boolean  "allow_failures", :default => false
     t.integer  "result"
     t.string   "dimensions"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "visual_repositories", :force => true do |t|
