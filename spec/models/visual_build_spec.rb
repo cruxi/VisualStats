@@ -47,13 +47,8 @@ describe VisualBuild do
     describe "other" do
       it "should handle existing ids somehow" do
         visual_build_failed.save
-        lambda {visual_build_failed2.save}.should raise_error(ActiveRecord::RecordNotUnique)
+        expect {visual_build_failed2.save}.to raise_error (ActiveRecord::StatementInvalid)
       end
     end
-
-
-
-
-
   end
 end
