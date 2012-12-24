@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221081851) do
+ActiveRecord::Schema.define(:version => 20121224084343) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -278,6 +278,37 @@ ActiveRecord::Schema.define(:version => 20121221081851) do
     t.string   "author_name"
     t.string   "committer_name"
     t.text     "config"
+  end
+
+  create_table "visual_dimensions", :force => true do |t|
+    t.integer  "visual_job_id"
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "visual_jobs", :force => true do |t|
+    t.integer  "vsual_repository_id"
+    t.integer  "visual_build_id"
+    t.string   "number"
+    t.string   "state"
+    t.datetime "finished_at"
+    t.text     "tags"
+    t.integer  "retries",             :default => 0
+    t.boolean  "allow_failures",      :default => false
+    t.integer  "result"
+    t.string   "dimensions"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  create_table "visual_repositories", :force => true do |t|
+    t.string   "name"
+    t.string   "owner_name"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "workers", :force => true do |t|
