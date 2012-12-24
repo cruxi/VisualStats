@@ -8,7 +8,7 @@ gem 'travis-support',  github: 'travis-ci/travis-support'
 #as it is based on a newer db schema version
 #gem 'travis-core',     git: 'https://github.com/VisualTravis/travis-core.git'
 
-gem 'travis-core',      git: 'https://github.com/bkleinen/travis-core'
+gem 'travis-core',      git: 'https://github.com/bkleinen/travis-core', :tag => "db-v1"
 
 gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
 
@@ -26,8 +26,8 @@ group :devheroku, :development do
   gem  'activerecord-postgresql-adapter'
 end
 
-group :test do 
-  gem 'factory_girl_rails'	
+group :test do
+  gem 'factory_girl_rails'
 end
 
 # Gems used only for assets and not required

@@ -25,7 +25,8 @@ GIT
 
 GIT
   remote: https://github.com/bkleinen/travis-core
-  revision: 1feea99a33f17db5f44fa06fb5bca12c9404fd6c
+  revision: fab80d2a1bc4acec784fd464e277e68809b44c95
+  tag: db-v1
   specs:
     travis-core (0.0.1)
       actionmailer (~> 3.2.3)
