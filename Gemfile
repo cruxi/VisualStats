@@ -48,6 +48,11 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'd3_rails'
 
+gem 'populator', git: "https://github.com/ryanb/populator.git"
+gem 'faker'
+
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -5,9 +5,8 @@ class CreateJobCompacts < ActiveRecord::Migration
       t.string :version
       t.boolean :allow_failure
       t.integer :result
-      t.timestamp :finished_at
+      t.datetime :finished_at
 
-      t.timestamps
     end
   end
 end

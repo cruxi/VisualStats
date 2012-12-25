@@ -1,3 +1,4 @@
+
 <h1>Listing repositories</h1>
 
 <table class="table table-striped table-bordered table-hover">
@@ -9,7 +10,7 @@
     <th>Last build</th>
     <th>Last build number</th>
     <th>Last build status</th>
-    <th>Last build result</th>
+    <!-- <th>Last build result</th> -->
     <th>Show</th>
     <th>Show</th>
     <!--  <th></th> -->
@@ -24,7 +25,7 @@
     <td><%= repository.owner_name %></td>
     <td><%= repository.last_build_id %></td>
     <td><%= repository.last_build_number %></td>
-    <td><%= repository.last_build_status %></td>
+    <!-- <td><%= repository.last_build_status %></td> -->
     <td><%= link_to 'Repository', repository %></td>
     <td><%= link_to 'Last Builds', findRepos_path(repository.id) %></td>
 

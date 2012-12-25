@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223100410) do
+ActiveRecord::Schema.define(:version => 20121223195113) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -37,9 +37,8 @@ ActiveRecord::Schema.define(:version => 20121223100410) do
     t.integer  "result"
     t.datetime "finished_at"
     t.integer  "number"
-    t.string   "config"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "config"
+    t.integer  "repository_compact_id"
   end
 
   create_table "builds", :force => true do |t|
@@ -112,8 +111,7 @@ ActiveRecord::Schema.define(:version => 20121223100410) do
     t.boolean  "allow_failure"
     t.integer  "result"
     t.datetime "finished_at"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "build_compact_id"
   end
 
   create_table "job_infos", :force => true do |t|
@@ -210,12 +208,10 @@ ActiveRecord::Schema.define(:version => 20121223100410) do
   add_index "repositories", ["owner_name", "name"], :name => "index_repositories_on_owner_name_and_name"
 
   create_table "repository_compacts", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.string   "url"
-    t.string   "owner_name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string "name"
+    t.text   "description"
+    t.string "url"
+    t.string "owner_name"
   end
 
   create_table "requests", :force => true do |t|

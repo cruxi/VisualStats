@@ -1,14 +1,14 @@
 VisualStats::Application.routes.draw do
     
-  resources :repository_compacts
+  resources :repository_compacts do
+      resources :build_compacts do
+          resources :job_compacts
+      end
+  end
 
-
-  resources :build_compacts
-
-
+  resources :build_compacts 
   resources :job_compacts
-
-
+  
   resources :jobs
 
   resources :repositories do

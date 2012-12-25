@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Description</th>
     <th>Url</th>
@@ -13,6 +14,7 @@
 
 <% @repository_compacts.each do |repository_compact| %>
   <tr>
+    <td><%= repository_compact.id %></td>
     <td><%= repository_compact.name %></td>
     <td><%= repository_compact.description %></td>
     <td><%= repository_compact.url %></td>
