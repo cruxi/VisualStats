@@ -15,7 +15,7 @@ describe VisualBuild do
        subject{ visual_build_failed }
 
        describe "sets fields in build: " do
-          its(:id) { should == 3628506}
+          #its(:id) { should == 3628506}
           its(:result) {should ==          1}
           its(:number) {should ==          "16"}
           its(:started_at) {should ==      "2012-12-12T13:47:23Z"}
@@ -36,7 +36,7 @@ describe VisualBuild do
          #its(:message) {should ==        "updated Gemfile to pick up new gh and travis-core from VisualTravis"}
          #its(:compare_url) {should ==    "https://github.com/bkleinen/VisualStats/compare/bbc433fffb5b...e55398dd8686"}
          #its(:author_email) {should ==    "drblinken@gmail.com"}
-         a#its(:committer_email) {should == "drblinken@gmail.com"}
+         #its(:committer_email) {should == "drblinken@gmail.com"}
        end
        describe "sets fields from the build config" do
          #"language":"ruby",
@@ -47,6 +47,7 @@ describe VisualBuild do
        end
        describe "other" do
          it "should handle existing ids somehow" do
+          pending
            visual_build_failed.save
            expect {visual_build_failed2.save}.to raise_error (ActiveRecord::StatementInvalid)
          end

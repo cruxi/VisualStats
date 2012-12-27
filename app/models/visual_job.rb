@@ -28,6 +28,7 @@ class VisualJob < ActiveRecord::Base
   end
   def extract_allow_failures(keys,config)
     allowed_to_fail = false
+    #{"allow_failures":[{"rvm":"2.0.0"},{"rvm":"2.0.1"},{"env":"DB=XYZ"}]},
      # "matrix":{"allow_failures":[{"rvm":     "2.0.0"}]},
      config["matrix"]["allow_failures"].each do | allowed_to_fail |
         allowed_to_fail.each_pair do | k,v|
