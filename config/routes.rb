@@ -37,6 +37,8 @@ VisualStats::Application.routes.draw do
   match 'builds/:commit_id/commits' => 'commits#showBelongingCommit', :as => :showBelongingCommit 
 
 
+  match '/calendar',    to: 'start#calendar'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
