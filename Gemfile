@@ -21,6 +21,11 @@ gem 'pg', :group => [:test, :production, :devheroku]
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'rb-fsevent', :require => false
+  gem 'growl'
+  gem 'guard-spork'
+  gem 'spork'
 end
 group :devheroku, :development do
   gem  'activerecord-postgresql-adapter'
