@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224084343) do
+ActiveRecord::Schema.define(:version => 20121227202530) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
     t.string   "dimensions"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.string   "language"
   end
 
   create_table "visual_repositories", :force => true do |t|

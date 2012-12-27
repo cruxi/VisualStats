@@ -5,30 +5,30 @@ class VisualBuild < ActiveRecord::Base
 
   # copied from travis-core/lib/travis/model/build/matrix.rb
   # clearly a workaround
- ENV_KEYS = [:rvm, :gemfile, :env, :otp_release, :php, :node_js, :scala, :jdk, :python, :perl, :compiler, :go]
+ ENV_KEYS = [:rvm, :gemfile, :env, :otp_release, :php, :node_js, :scala, :jdk, :python, :perl, :compiler, :go].map(&:to_s)
 
     def self.create_from_json(json_str)
-      self.from_json(json_str).save
-    end
-    def self.from_json(json_str)
-    visual_build = self.new
-    json = JSON.parse(json_str)
-    f = [:id,:result,:number,:started_at,:finished_at,:duration,:build_url,:commit,:branch,:committed_at,:author_name, :committer_name]
-    f.each do | field |
-      visual_build.send( "#{field}=",json[field.to_s])
-    end
-    visual_build.set_config_fields(json["config"])
-    json["matrix"].each do | json_job|
-      job = visual_build.jobs.build
+      build = self.new
+      build.init_from_json(json_str)
+      build.save
+      return build
     end
 
-    visual_build
+    def init_from_json(json_str)
+      json = JSON.parse(json_str)
+      #:id,
+      f = [:result,:number,:started_at,:finished_at,:duration,:build_url,:commit,:branch,:committed_at,:author_name, :committer_name]
+      f.each do | field |
+        self.send( "#{field}=",json[field.to_s])
+      end
+      self.language=json["config"]["language"]
+      self.save
 
-  end
-
-  def set_config_fields(json)
-    self.language=json["language"]
-  end
-
-
+      json["matrix"].each do | json_job|
+        job = self.jobs.build
+        job.init_from_json(json_job)
+        job.save
+      end
+      return self
+    end
 end

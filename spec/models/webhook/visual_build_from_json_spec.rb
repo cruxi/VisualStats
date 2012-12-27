@@ -6,7 +6,7 @@ describe VisualBuild do
   describe "initialization from json" do
     let(:build_failed_json) {
       dir = File.dirname(__FILE__)
-      json = File.open(File.join(dir,"webhook/build_failed.json")).read
+      json = File.open(File.join(dir,"json/build_failed.json")).read
       json
     }
     let(:visual_build_failed){ VisualBuild.create_from_json(build_failed_json) }
@@ -33,10 +33,10 @@ describe VisualBuild do
          # further fields probably not needed for visualization
          #its(:status_message) {should ==  "Failed"}
          #its(:result_message) {should ==  "Failed"}
-        #  its(:message) {should ==        "updated Gemfile to pick up new gh and travis-core from VisualTravis"}
-         # its(:compare_url) {should ==    "https://github.com/bkleinen/VisualStats/compare/bbc433fffb5b...e55398dd8686"}
-       #  its(:author_email) {should ==    "drblinken@gmail.com"}
-       #  its(:committer_email) {should == "drblinken@gmail.com"}
+         #its(:message) {should ==        "updated Gemfile to pick up new gh and travis-core from VisualTravis"}
+         #its(:compare_url) {should ==    "https://github.com/bkleinen/VisualStats/compare/bbc433fffb5b...e55398dd8686"}
+         #its(:author_email) {should ==    "drblinken@gmail.com"}
+         a#its(:committer_email) {should == "drblinken@gmail.com"}
        end
        describe "sets fields from the build config" do
          #"language":"ruby",
