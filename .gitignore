@@ -23,3 +23,5 @@
 /play
 # Ignore secret configuration files.
 /secret/**
+# ignore bundler_stubs
+/bundler_stubs
