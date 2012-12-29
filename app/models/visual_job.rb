@@ -27,14 +27,18 @@ class VisualJob < ActiveRecord::Base
       return self
   end
   def extract_allow_failures(keys,config)
-    allowed_to_fail = false
-    #{"allow_failures":[{"rvm":"2.0.0"},{"rvm":"2.0.1"},{"env":"DB=XYZ"}]},
+     # e.g. failures allowed if ruby 2.0.0:
      # "matrix":{"allow_failures":[{"rvm":     "2.0.0"}]},
+     # this is how it looks with more lines in .travis.yml
+     #{"allow_failures":[{"rvm":"2.0.0"},{"rvm":"2.0.1"},{"env":"DB=XYZ"}]},
      config["matrix"]["allow_failures"].each do | allowed_to_fail |
         allowed_to_fail.each_pair do | k,v|
-          allowed_to_fail = true if config[k] == v
+          puts "====pair #{k} => #{v.inspect}"
+          puts "config config[k] #{config[k].inspect}"
+          return true if config[k] == v
         end
       end
+      return false
   end
 
 end

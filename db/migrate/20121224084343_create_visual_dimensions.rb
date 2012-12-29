@@ -4,8 +4,6 @@ class CreateVisualDimensions < ActiveRecord::Migration
       t.integer :job_id
       t.string :key
       t.string :value
-
-      t.timestamps
     end
   end
 end

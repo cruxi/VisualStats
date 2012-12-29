@@ -5,9 +5,7 @@ describe VisualJob do
 
   describe "initialization from json" do
     let(:build_failed_json) {
-      dir = File.dirname(__FILE__)
-      json = File.open(File.join(dir,"json/build_failed.json")).read
-      json
+      read_file_to_s(__FILE__,"json/build_failed.json")
     }
     let(:visual_build_failed){ VisualBuild.create_from_json(build_failed_json) }
     let(:visual_build_failed2){ VisualBuild.create_from_json(build_failed_json) }
@@ -35,7 +33,7 @@ describe VisualJob do
       it "logs a warning if a field is missing"
       it "should preserve the original ids - at least for build"
     end
-describe "dimensions" do
+ describe "dimensions" do
       it "should be 2" do
         d = visual_build_failed.jobs.first.dimensions
         e = [VisualDimension.kv(:rvm,"1.9.3"),
@@ -43,6 +41,14 @@ describe "dimensions" do
         ((d[0].equalsDimension(e[0]) && d[1].equalsDimension(e[1])) ||
         (d[0].equalsDimension(e[1]) && d[1].equalsDimension(e[0]))).should == true
       end
+    end
+  end
+  describe "allow failures" do
+    let (:job_json) {read_file_to_json(__FILE__,"json/single_job.json")}
+    let (:job) { job = VisualJob.new; job.init_from_json(job_json)}
+    describe "" do
+      subject{job}
+      its(:allow_failures) { should == true }
     end
   end
 end

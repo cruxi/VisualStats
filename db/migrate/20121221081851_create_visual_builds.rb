@@ -28,8 +28,6 @@ class CreateVisualBuilds < ActiveRecord::Migration
 
       t.text     "config"
 
-
-      t.timestamps
     end
   end
 end

@@ -9,14 +9,14 @@ class VisualBuild < ActiveRecord::Base
 
     def self.create_from_json(json_str)
       build = self.new
-      build.init_from_json(json_str)
+      json = JSON.parse(json_str)
+      build.init_from_json(json)
       build.save
       return build
     end
 
-    def init_from_json(json_str)
-      json = JSON.parse(json_str)
-      #:id,
+    def init_from_json(json)
+        #:id,
       f = [:result,:number,:started_at,:finished_at,:duration,:build_url,:commit,:branch,:committed_at,:author_name, :committer_name]
       f.each do | field |
         self.send( "#{field}=",json[field.to_s])

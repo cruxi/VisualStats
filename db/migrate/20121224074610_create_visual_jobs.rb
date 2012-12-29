@@ -5,12 +5,9 @@ class CreateVisualJobs < ActiveRecord::Migration
        t.string   "number"
        t.string   "state"
        t.datetime "finished_at"
-       t.text     "tags"
-       t.integer  "retries",       :default => 0
        t.boolean  "allow_failures", :default => false
        t.integer  "result"
-       t.string   "dimensions"
-       t.timestamps
+       t.string   "language"
      end
   end
 

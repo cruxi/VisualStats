@@ -5,7 +5,6 @@ class CreateVisualRepositories < ActiveRecord::Migration
       t.string :owner_name
       t.string :url
 
-      t.timestamps
     end
   end
 end
