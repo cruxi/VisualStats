@@ -21,7 +21,10 @@ class VisualBuild < ActiveRecord::Base
       f.each do | field |
         self.send( "#{field}=",json[field.to_s])
       end
+      self.travis_id = json["id"]
       self.language=json["config"]["language"]
+      self.repository = VisualRepository.get_or_create_from_json(json["repository"])
+
       self.save
 
       json["matrix"].each do | json_job|

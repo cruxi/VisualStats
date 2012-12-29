@@ -5,16 +5,16 @@ require 'support/utilities'
 describe VisualBuild do
 
   describe "initialization from json" do
-    let(:build_failed_json) {
-      read_file_to_s(__FILE__,"json/build_failed.json")
-    }
+    let(:build_failed_json) { read_file_to_s(__FILE__,"json/build_failed.json") }
+    let(:build_json) { read_file_to_s(__FILE__,"json/build.json") }
     let(:visual_build_failed){ VisualBuild.create_from_json(build_failed_json) }
+    let(:visual_build){ VisualBuild.create_from_json(build_json) }
     let(:visual_build_failed2){ VisualBuild.create_from_json(build_failed_json) }
     describe "creates build" do
        subject{ visual_build_failed }
 
        describe "sets fields in build: " do
-          #its(:id) { should == 3628506}
+          its(:travis_id) {  should == 3628506}
           its(:result) {should ==          1}
           its(:number) {should ==          "16"}
           its(:started_at) {should ==      "2012-12-12T13:47:23Z"}
@@ -37,12 +37,9 @@ describe VisualBuild do
          #its(:author_email) {should ==    "drblinken@gmail.com"}
          #its(:committer_email) {should == "drblinken@gmail.com"}
        end
+
        describe "sets fields from the build config" do
-         #"language":"ruby",
          its(:language) {should == "ruby"}
-         # das ist quatsch das ergibt sich später aus den assoz. objekten
-        # its(:dimensions) {should == "rvm, env"}
-         #its(:allow_failures) { should == [{"rvm" => "2.0.0"}] }
        end
        describe "other" do
          it "should handle existing ids somehow" do
@@ -57,6 +54,17 @@ describe VisualBuild do
        describe "should all be created" do
         its(:size) {should == 4}
        end
+    end
+    describe "creates repository" do
+      it "once" do
+        expect { visual_build_failed }.to change(VisualRepository, :count).by(1)
+      end
+      it "and only once" do
+        expect do
+          visual_build_failed
+          visual_build_failed2
+        end.to change(VisualRepository, :count).by(1)
+      end
 
     end
   end

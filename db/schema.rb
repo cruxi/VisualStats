@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227202530) do
+ActiveRecord::Schema.define(:version => 20121229170610) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -259,6 +259,7 @@ ActiveRecord::Schema.define(:version => 20121227202530) do
     t.string   "author_name"
     t.string   "committer_name"
     t.text     "config"
+    t.integer  "travis_id"
   end
 
   create_table "visual_dimensions", :force => true do |t|
@@ -282,6 +283,7 @@ ActiveRecord::Schema.define(:version => 20121227202530) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.string   "language"
+    t.integer  "travis_id"
   end
 
   create_table "visual_repositories", :force => true do |t|
@@ -290,6 +292,7 @@ ActiveRecord::Schema.define(:version => 20121227202530) do
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "travis_id"
   end
 
   create_table "workers", :force => true do |t|

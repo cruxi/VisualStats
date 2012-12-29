@@ -3,14 +3,14 @@ class VisualJob < ActiveRecord::Base
   has_many :dimensions, class_name: "VisualDimension", foreign_key: :job_id
 
   def init_from_json(json)
-    #repository_id build_url
-#:id,
+
       f = [:number,:state,:finished_at,:result,:allow_failures]
       f.each do | field |
       #  puts "======== field #{field}nil #{json[field.to_s]}" unless json[field.to_s]
         self.send( "#{field}=",json[field.to_s])
         #puts ".send( #{field}= #{json[field.to_s]})"
       end
+      self.travis_id = json["id"]
 
       config = json["config"]
       self.language = config["language"]
@@ -33,8 +33,6 @@ class VisualJob < ActiveRecord::Base
      #{"allow_failures":[{"rvm":"2.0.0"},{"rvm":"2.0.1"},{"env":"DB=XYZ"}]},
      config["matrix"]["allow_failures"].each do | allowed_to_fail |
         allowed_to_fail.each_pair do | k,v|
-          puts "====pair #{k} => #{v.inspect}"
-          puts "config config[k] #{config[k].inspect}"
           return true if config[k] == v
         end
       end

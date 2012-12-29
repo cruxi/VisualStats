@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rb-fsevent', :require => false
   gem 'growl'
   gem 'guard-spork'
+  gem 'guard-rspec'
   gem 'spork'
 end
 group :devheroku, :development do

@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe VisualJob do
 
   describe "initialization from json" do
@@ -17,7 +16,7 @@ describe VisualJob do
     describe "creates jobs" do
        subject { visual_build_failed.jobs.first }
        describe "with fields" do
-         # its(:id) { should == 3628507 }
+          its(:travis_id) { should == 3628507 }
          # its(:repository_id) { should == 366197 }
           its(:number) { should == "16.1" }
           its(:state) { should == "finished" }
@@ -26,6 +25,8 @@ describe VisualJob do
           its(:build) { should == visual_build_failed }
           its(:allow_failures) { should == false }
     # its(:dimensions) { should == {rvm: "1.9.3",env:"DB=sqlite" } }
+      it "should preserve the original ids - at least for build"
+         # its(:id) { should == 3628507 }
 
 
       end
