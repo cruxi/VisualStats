@@ -1,0 +1,162 @@
+<!-- TESTING VISUALIZATION -->
+<h1>Path showing last 100 builds, their results and duration</h1>
+
+<%= javascript_include_tag 'd3.legend.js' %>
+
+<%= javascript_tag do %>
+
+//var  allJobs = <%= raw JobCompact.where("language = ?", "ruby").order(:finished_at)
+//   .to_json %> 
+//var  allRubinius = <%= raw JobCompact.where("language = ?", "rubinius").order(:finished_at)
+//   .to_json %> 
+ var  allJobs = <%= raw JobCompact.all.to_json %>    
+
+            //console.log(allJobs.line1, allJobs.line2)
+            
+                var format = d3.time.format("%Y-%m-%dT%H:%M:%SZ");
+
+                //parse time format correct
+                allJobs.forEach(function(d) {
+                    console.log(d.finished_at);
+                    d.finished_at = format.parse(d.finished_at);
+                    console.log(d.finished_at);
+                  });
+
+             
+              
+                var margin = {top: 40, right: 40, bottom: 40, left: 40},
+                width = 1300,
+                height = 1200;
+
+                var color = d3.scale.category10();
+
+                var languages = color.domain().map(function(language) {
+                    return {
+                      language: language,
+                      values: allJobs.map(function(d) {
+                        return {finished_at: d.finished_at, result: +d[language]};
+                      })
+                    };
+                 });
+
+
+                var x = d3.time.scale()
+                    .domain(d3.extent(allJobs, function(d) { return d.finished_at; }))
+                    .range([0, width - margin.right - margin.left]);
+
+                var y = d3.scale.linear()
+                    .domain(d3.extent(allJobs, function(d) { return d.result; }))
+                    .range([150, 0]);
+
+                var xAxis = d3.svg.axis()
+                    .scale(x)
+                    .orient("bottom");
+
+                var yAxis = d3.svg.axis()
+                    .scale(y)
+                    .tickValues([1,2])
+                    .ticks(1)
+                    .orient("left");
+
+                
+                var line = d3.svg.line()
+                    .interpolate("linear")
+                    .x(function(d) { return x(d.finished_at); })
+                    .y(function(d) { return y(d.result); });
+                
+
+
+                var svg = d3.select("body").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+     
+                 var elRoot = svg.selectAll(".language")
+                     .data(languages)
+                     .enter().append("g")
+                     .attr("class", "language"); 
+
+                // var elRoot2 = svg.selectAll("g")
+                //     .data(allRubinius)
+                //     .enter().append("g");
+
+
+                // elRoot.append("circle")
+                //     .attr("class", "dot")
+                //     .attr("cx", function(d) { return x(d.finished_at); })
+                //     .attr("cy", function(d) { console.log(d.result); return y(d.result); })
+                //     .attr("r", 3)
+                //     .style({'fill':'green'})
+
+                // elRoot2.append("circle")
+                //     .attr("class", "dot")
+                //     .attr("cx", function(d) { return x(d.finished_at); })
+                //     .attr("cy", function(d) { console.log(d.result); return y(d.result); })
+                //     .attr("r", 3)
+                //     .style({'fill':'red'})
+          
+                elRoot.append("path")
+                  .attr("class", "line")
+                  .attr("d", function(d) { return line(d.result); })
+                  .style("stroke", function(d) { return color(d.language); });
+
+
+                // elRoot2.append("path")
+                //     .attr("class", "line")
+                //     .attr("d", line(allRubinius))
+                //     .attr("allJobs-legend", function(d){return "Rubinius"})
+                //     .style({'stroke':'red'});
+              
+                svg.append("g") // Render the axis by calling a <g> selection.
+                    .attr("transform", "translate(0," + y.range()[0] + ")") //setzt x-achse an null punkt von y-achse
+                    .attr("class", "x axis")
+                    .call(xAxis)
+                    .append("text")
+                      .attr("transform", "translate(1240)")
+                      .attr("x", 8)
+                      .attr("dx", "0.9em")
+                      .style("text-anchor", "end")
+                      .text("Finished at");   
+
+                svg.append("g")
+                    .attr("class", "y axis axisLeft")
+                    .call(yAxis)
+                    .append("text")
+                    .attr("transform", "translate(-5,0)")
+                    .attr("transform", "rotate(90)")
+                    .attr("y", 8)
+                    .attr("dy", "0.9em")
+                    .style("text-anchor", "end");
+                    //.text("Result")
+            
+
+                //mouse over graph
+                //show the version                
+                // d3.selectAll("circle")
+                //     .on('mouseover', function(d){
+                //         svg.append('text')
+                //         .attr("x", x(d.finished_at))
+                //         .attr("y", y(d.result))
+                //         .text(d.version)
+                //         .attr('class','tip')
+                //         .style("font-size","1.5em")
+                //     })
+                //     .on('mouseout', function(d){
+                //         d3.selectAll(".tip").remove()
+                //     });     
+
+                // legend = svg.append("g")
+                //     .attr("class","legend")
+                //     .attr("transform","translate(50,30)")
+                //     .style("font-size","12px")
+                //     .call(d3.legend);
+
+                // setTimeout(function() { 
+                // legend
+                //     .style("font-size","20px")
+                //     .attr("allJobs-style-padding",10)
+                //     .call(d3.legend)
+                // },1000);     
+
+<% end %>
