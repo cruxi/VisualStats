@@ -19,6 +19,9 @@ VisualStats::Application.routes.draw do
     resources :builds
   end
 
+  #get 'data' => 'builds#getData', :as => :getData
+  get 'getJobs' => 'build_compacts#getJobs', :as => :getJobs
+
   resources :builds
 
   resources :events
@@ -39,6 +42,8 @@ VisualStats::Application.routes.draw do
 
   match '/calendar',    to: 'start#calendar'
   match '/multi',    to: 'start#multi'
+  match '/multi2',    to: 'start#multi2'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

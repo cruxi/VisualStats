@@ -51,6 +51,7 @@ gem 'd3_rails'
 gem 'populator', git: "https://github.com/ryanb/populator.git"
 gem 'faker'
 
+gem "htmlentities", "~> 4.3.1"
 
 
 
