@@ -1,0 +1,108 @@
+<h1>The number of succeeded Jobs based on Language</h1>
+
+<p>
+Which languages do you want to compare?
+<select id="firstLang">
+  <option value="ruby">ruby</option>
+  <option value="rubinius">rubinius</option>
+  <option value="jruby">jruby</option>
+</select>
+
+<select id="secondLang">
+  <option value="ruby">ruby</option>
+  <option value="rubinius">rubinius</option>
+  <option value="jruby">jruby</option>
+</select>
+</p>
+
+<p>
+How many last builds shall be shown?
+<input id="buildAmount"></input>
+</p> 
+
+<button name="create" type="button" value="create" onclick="createChart()">create</button>
+
+<div id="container">
+<% test = BuildCompact.getData("ruby", "rubinius", 205) %>
+
+<%= javascript_tag do %>
+  function createChart(){
+
+      var firstSelect = document.getElementById("firstLang");
+      var firstOpt = firstSelect.options[firstSelect.selectedIndex].value;
+
+      var secondSelect = document.getElementById("secondLang");
+      var secondOpt = secondSelect.options[secondSelect.selectedIndex].value;
+
+      var amount = document.getElementById("buildAmount").value;
+      console.log(amount);
+
+      var curData; 
+      // = <%=raw BuildCompact.getData("ruby", "rubinius", 500).to_json %>;
+      // console.log(curData);
+
+
+      $.getJSON("getJobs?lang1="+firstOpt+"&lang2="+secondOpt+"&amount="+amount, function(data) {
+            console.log(data);
+            curData = data;    
+      
+
+      var months = curData[0];
+      var firstLangProcent = curData[1];
+      var secondLangProcent = curData[2];
+
+      chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 25
+            },
+            title: {
+                text: 'Comparison of the succeeded jobs for '+firstOpt+' and '+secondOpt+'',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'based on the '+amount+' last builds',
+                x: -20
+            },
+            xAxis: {
+                categories: months
+            },
+            yAxis: {
+                title: {
+                    text: 'Percent of success'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }],
+                min: 0
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y +'%';
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: 0,
+                y: 100,
+                borderWidth: 0
+            },
+            series: [{
+                name: firstOpt,
+                data: firstLangProcent
+            }, {
+                name: secondOpt,
+                data: secondLangProcent
+            }]
+        });
+      });
+  }
+<% end %>
+</div>

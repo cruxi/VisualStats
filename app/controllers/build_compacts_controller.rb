@@ -80,4 +80,15 @@ class BuildCompactsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def getJobs
+    queryParams = request.query_parameters
+    @jobs = BuildCompact.getData(queryParams[:lang1],queryParams[:lang2],queryParams[:amount])
+
+    respond_to do |format|
+      format.json { render json: @jobs }
+    end
+
+  end 
+
 end
