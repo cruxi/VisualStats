@@ -22,7 +22,7 @@ describe VisualJob do
           its(:result) { should == 1 }
           its(:finished_at) { should == "2012-12-12T13:47:48Z" }
           its(:build) { should == visual_build_failed }
-          its(:allow_failures) { should == false }
+          its(:allow_failure) { should == false }
         end
     end
  describe "dimensions" do
@@ -40,7 +40,7 @@ describe VisualJob do
     let (:job) { job = VisualJob.new; job.init_from_json(job_json)}
     describe "" do
       subject{job}
-      its(:allow_failures) { should == true }
+      its(:allow_failure) { should == true }
     end
   end
 end

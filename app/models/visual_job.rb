@@ -4,7 +4,7 @@ class VisualJob < ActiveRecord::Base
 
   def init_from_json(json)
 
-      f = [:number,:state,:finished_at,:result,:allow_failures]
+      f = [:number,:state,:finished_at,:result,:allow_failure]
       f.each do | field |
       #  puts "======== field #{field}nil #{json[field.to_s]}" unless json[field.to_s]
         self.send( "#{field}=",json[field.to_s])
@@ -15,7 +15,7 @@ class VisualJob < ActiveRecord::Base
       config = json["config"]
       self.language = config["language"]
       dimension_keys = config.keys & VisualBuild::ENV_KEYS
-      self.allow_failures = extract_allow_failures(dimension_keys,config)
+      self.allow_failure = extract_allow_failure(dimension_keys,config)
 
       self.save
 
@@ -26,7 +26,7 @@ class VisualJob < ActiveRecord::Base
 
       return self
   end
-  def extract_allow_failures(keys,config)
+  def extract_allow_failure(keys,config)
      # e.g. failures allowed if ruby 2.0.0:
      # "matrix":{"allow_failures":[{"rvm":     "2.0.0"}]},
      # this is how it looks with more lines in .travis.yml

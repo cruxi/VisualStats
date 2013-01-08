@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121229170610) do
+ActiveRecord::Schema.define(:version => 20121224084343) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -243,8 +243,8 @@ ActiveRecord::Schema.define(:version => 20121229170610) do
     t.string   "number"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "request_id"
     t.string   "language"
     t.integer  "duration"
@@ -263,11 +263,9 @@ ActiveRecord::Schema.define(:version => 20121229170610) do
   end
 
   create_table "visual_dimensions", :force => true do |t|
-    t.integer  "job_id"
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "job_id"
+    t.string  "key"
+    t.string  "value"
   end
 
   create_table "visual_jobs", :force => true do |t|
@@ -275,24 +273,17 @@ ActiveRecord::Schema.define(:version => 20121229170610) do
     t.string   "number"
     t.string   "state"
     t.datetime "finished_at"
-    t.text     "tags"
-    t.integer  "retries",        :default => 0
-    t.boolean  "allow_failures", :default => false
+    t.boolean  "allow_failure", :default => false
     t.integer  "result"
-    t.string   "dimensions"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
     t.string   "language"
     t.integer  "travis_id"
   end
 
   create_table "visual_repositories", :force => true do |t|
-    t.string   "name"
-    t.string   "owner_name"
-    t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "travis_id"
+    t.string  "name"
+    t.string  "owner_name"
+    t.string  "url"
+    t.integer "travis_id"
   end
 
   create_table "workers", :force => true do |t|

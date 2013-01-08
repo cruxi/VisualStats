@@ -4,6 +4,7 @@ class CreateVisualRepositories < ActiveRecord::Migration
       t.string :name
       t.string :owner_name
       t.string :url
+      t.integer :travis_id
 
     end
   end

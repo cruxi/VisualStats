@@ -18,6 +18,8 @@ module InitJobs
     end
     def migrate_builds(builds)
      	builds.each do | build |
+        # eher so dann doch nicht:
+        # json = Travis::Api.data(build, version: 'v2')
         json = Travis::Api.data(build, :for => 'webhook', :type => 'build/finished', :version => 'v1')
         vb = VisualBuild.create_from_json(json)
       end

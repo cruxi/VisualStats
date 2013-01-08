@@ -25,8 +25,8 @@ class CreateVisualBuilds < ActiveRecord::Migration
       t.string "committed_at"
       t.string "author_name"
       t.string "committer_name"
-
       t.text     "config"
+      t.integer  "travis_id"
 
     end
   end
