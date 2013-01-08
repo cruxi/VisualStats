@@ -4,6 +4,6 @@ include InitJobs
 namespace :db do
 	desc "Fill the JobInfo table"
 	task jobinfo: :environment do
-		do_migration(10)
+		do_migration(100)
 	end
 end

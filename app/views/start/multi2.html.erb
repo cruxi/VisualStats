@@ -23,8 +23,6 @@ How many last builds shall be shown?
 <button name="create" type="button" value="create" onclick="createChart()">create</button>
 
 <div id="container">
-<% test = BuildCompact.getData("ruby", "rubinius", 205) %>
-
 <%= javascript_tag do %>
   function createChart(){
 
@@ -35,8 +33,6 @@ How many last builds shall be shown?
       var secondOpt = secondSelect.options[secondSelect.selectedIndex].value;
 
       var amount = document.getElementById("buildAmount").value;
-      console.log(amount);
-
       var curData; 
       // = <%=raw BuildCompact.getData("ruby", "rubinius", 500).to_json %>;
       // console.log(curData);

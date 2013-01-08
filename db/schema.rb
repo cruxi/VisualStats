@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223195113) do
+ActiveRecord::Schema.define(:version => 20121224084343) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -87,14 +87,6 @@ ActiveRecord::Schema.define(:version => 20121223195113) do
   add_index "commits", ["branch"], :name => "index_commits_on_branch"
   add_index "commits", ["commit"], :name => "index_commits_on_commit"
 
-  create_table "dimensions", :force => true do |t|
-    t.integer  "job_info_id"
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "events", :force => true do |t|
     t.integer  "source_id"
     t.string   "source_type"
@@ -112,17 +104,6 @@ ActiveRecord::Schema.define(:version => 20121223195113) do
     t.integer  "result"
     t.datetime "finished_at"
     t.integer  "build_compact_id"
-  end
-
-  create_table "job_infos", :force => true do |t|
-    t.integer  "repository_id"
-    t.integer  "job_id"
-    t.string   "language"
-    t.string   "result"
-    t.string   "integer"
-    t.string   "dimension_keys"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
   end
 
   create_table "jobs", :force => true do |t|
@@ -280,6 +261,54 @@ ActiveRecord::Schema.define(:version => 20121223195113) do
   add_index "users", ["github_id"], :name => "index_users_on_github_id"
   add_index "users", ["github_oauth_token"], :name => "index_users_on_github_oauth_token"
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "visual_builds", :force => true do |t|
+    t.integer  "repository_id"
+    t.string   "number"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "request_id"
+    t.string   "language"
+    t.integer  "duration"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "result"
+    t.integer  "previous_result"
+    t.string   "commit"
+    t.string   "build_url"
+    t.string   "branch"
+    t.string   "committed_at"
+    t.string   "author_name"
+    t.string   "committer_name"
+    t.text     "config"
+    t.integer  "travis_id"
+  end
+
+  create_table "visual_dimensions", :force => true do |t|
+    t.integer "job_id"
+    t.string  "key"
+    t.string  "value"
+  end
+
+  create_table "visual_jobs", :force => true do |t|
+    t.integer  "build_id"
+    t.string   "number"
+    t.string   "state"
+    t.datetime "finished_at"
+    t.boolean  "allow_failure", :default => false
+    t.integer  "result"
+    t.string   "language"
+    t.integer  "travis_id"
+  end
+
+  create_table "visual_repositories", :force => true do |t|
+    t.string  "name"
+    t.string  "owner_name"
+    t.string  "url"
+    t.integer "travis_id"
+  end
 
   create_table "workers", :force => true do |t|
     t.string   "name"

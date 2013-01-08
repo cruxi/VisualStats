@@ -7,12 +7,14 @@ env:
   - DB=postgresql
 before_script:
 - psql -c 'create database visualstats_test' -U postgres
-script: 
+script:
 - RAILS_ENV=test bundle exec rake --trace db:schema:load
 - RAILS_ENV=test bundle exec rspec spec
 matrix:
   allow_failures:
     - rvm: 2.0.0
+    - rvm: 2.0.1
+    - env: DB=XYZ
 notifications:
   webhooks:
   - http://visualstats.herokuapp.com/bkleinen/VisualStats/notify
