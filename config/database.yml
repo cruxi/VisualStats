@@ -2,9 +2,9 @@
 # db setup from this blog post
 # http://matthew.mceachen.us/blog/howto-test-your-rails-application-with-travis-ci-on-different-database-engines-1220.html
 
-# to migrate test db, use 
+# to migrate test db, use
 # bundle exec rake db:migrate RAILS_ENV=test
-# because Rails.env will return development otherwise - 
+# because Rails.env will return development otherwise -
 # see http://stackoverflow.com/questions/11156627/rake-dbtestprepare-task-deleting-data-in-development-database
 
 sqlite: &sqlite
@@ -28,11 +28,18 @@ defaults: &defaults
 #  <<: *<%= ENV['DB'] || "postgresql" %>
   <<: *<%= ENV['DB'] || "sqlite" %>
 
+# use local postgres dbs for test and development if configured
+
+<% local_pg = File.expand_path("secret/local_postgres.yml") %>
+<% if File.exist?(local_pg)%>
+<%= File.read(local_pg) %>
+<% else %>
+
 development:
   <<: *defaults
-
 test:
   <<: *defaults
+<% end %>
 
 # for devheroku:
 # load the secret devheroku configuration if present
