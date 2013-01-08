@@ -1,42 +1,42 @@
 <div class="startContent" >
-	<h1>Welcome to <%= image_tag "logo_visualStats.png", :alt => "VisualStats", :width => "300px" %> </h1>
+  <h1>Welcome to <%= image_tag "logo_visualStats.png", :alt => "VisualStats", :width => "300px" %> </h1>
 </div>
 
 <div class="content">
 
-		<h2> Statistics </h2>
-		<p>
-		Travis has done <%= Build.count %> builds so far.
-		</p>
-		<p>
-		<%= Build.getFailedAmount %> of the builds failed.
-		</p>
+    <h2> Statistics </h2>
+    <p>
+    Travis has done <%= Build.count %> builds so far.
+    </p>
+    <p>
+    <%= Build.getFailedAmount %> of the builds failed.
+    </p>
 
-		<p>
-		<%= Build.getSuccessAmount %> of the builds succeeded.
-		</p>
+    <p>
+    <%= Build.getSuccessAmount %> of the builds succeeded.
+    </p>
 
-		<p>
-		<%= Build.getNotFinishedAmount %> of the builds are not finished.
-		</p>
+    <p>
+    <%= Build.getNotFinishedAmount %> of the builds are not finished.
+    </p>
 
 
 
 
 <%= javascript_tag do %>
-			
-			var allBuilds = <%= Build.count %>;
-			var fail = <%= Build.getFailedAmount %>;
-			var success = <%= Build.getSuccessAmount %>;
-			var unknown = <%= Build.getNotFinishedAmount %>;
+      
+      var allBuilds = <%= Build.count %>;
+      var fail = <%= Build.getFailedAmount %>;
+      var success = <%= Build.getSuccessAmount %>;
+      var unknown = <%= Build.getNotFinishedAmount %>;
 
-			var result = new Array();
-			result[0] = fail;
-			result[1] = success;
-			result[2] = unknown;
+      var result = new Array();
+      result[0] = fail;
+      result[1] = success;
+      result[2] = unknown;
 
 
-			var width = 200,
+      var width = 200,
                 height = 200,
                 radius = Math.min(width, height) / 2;
 
@@ -90,35 +90,35 @@
                   .attr("dy", ".35em")
                   .style("text-anchor", "middle")
                   .text(function(e) { console.log(e.data); 
-                  		var curVal = e.data; 
-                  		var percentVal=0;
+                      var curVal = e.data; 
+                      var percentVal=0;
 
-            			percentVal=(curVal*100)/allBuilds;
-                  		return percentVal.toFixed(2)+"%"; 
+                  percentVal=(curVal*100)/allBuilds;
+                      return percentVal.toFixed(2)+"%"; 
                   });
 
             
 <% end %>
 
 <%= javascript_tag do %>
-			
-			var languagesAmount = <%= Build.getLanguagesAmount %>; //returned Array with amount of langues out of Build::ENV_KEYS
-			//var languages = <%= Build.getLanguges %>; //rails HTML escape googlen
+      
+      var languagesAmount = <%= Build.getLanguagesAmount %>; //returned Array with amount of langues out of Build::ENV_KEYS
+      //var languages = <%= Build.getLanguges %>; //rails HTML escape googlen
 
-			// for lang in languages {
-			// 	lang = ""+lang+""
-			// }
+      // for lang in languages {
+      //  lang = ""+lang+""
+      // }
 
-			console.log("AMOUNT: "+languagesAmount);
-			console.log("LANGUAGES: "+languages);
+      console.log("AMOUNT: "+languagesAmount);
+      console.log("LANGUAGES: "+languages);
 
-			// var result = new Array();
-			// result[0] = fail;
-			// result[1] = success;
-			// result[2] = unknown;
+      // var result = new Array();
+      // result[0] = fail;
+      // result[1] = success;
+      // result[2] = unknown;
 
 
-			// var width = 200,
+      // var width = 200,
    //              height = 200,
    //              radius = Math.min(width, height) / 2;
 
@@ -172,11 +172,11 @@
    //                .attr("dy", ".35em")
    //                .style("text-anchor", "middle")
    //                .text(function(e) { console.log(e.data); 
-   //                		var curVal = e.data; 
-   //                		var percentVal=0;
+   //                   var curVal = e.data; 
+   //                   var percentVal=0;
 
-   //          			percentVal=(curVal*100)/allBuilds;
-   //                		return percentVal.toFixed(2)+"%"; 
+   //               percentVal=(curVal*100)/allBuilds;
+   //                   return percentVal.toFixed(2)+"%"; 
    //                });
 
             
