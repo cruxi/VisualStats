@@ -42,8 +42,12 @@ VisualStats::Application.routes.draw do
 
   match '/calendar',    to: 'start#calendar'
   match '/multi',    to: 'start#multi'
+<<<<<<< HEAD
+  match '/showReal',    to: 'start#showReal'
+=======
   match '/multi2',    to: 'start#multi2'
 
+>>>>>>> c4da5e4c6b2512f27ce5fd7dafa1f93122a10985
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
