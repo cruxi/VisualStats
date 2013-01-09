@@ -1,14 +1,14 @@
 VisualStats::Application.routes.draw do
-    
+
   resources :repository_compacts do
       resources :build_compacts do
           resources :job_compacts
       end
   end
 
-  resources :build_compacts 
+  resources :build_compacts
   resources :job_compacts
-  
+
   resources :jobs
 
   resources :repositories do
@@ -31,23 +31,20 @@ VisualStats::Application.routes.draw do
   resources :artifacts
 
   # umbennen --> muesste findBuildsForRepo heissen
-  match 'repositories/:repository_id/builds' => 'builds#findRepos', :as => :findRepos 
+  match 'repositories/:repository_id/builds' => 'builds#findRepos', :as => :findRepos
 
   # umbennen --> muesste findBuildsForRepo heissen
-  match 'builds/:build_id/jobs' => 'jobs#listJobs', :as => :listJobs 
+  match 'builds/:build_id/jobs' => 'jobs#listJobs', :as => :listJobs
 
   # find the commit belonging to a build
-  match 'builds/:commit_id/commits' => 'commits#showBelongingCommit', :as => :showBelongingCommit 
+  match 'builds/:commit_id/commits' => 'commits#showBelongingCommit', :as => :showBelongingCommit
 
 
   match '/calendar',    to: 'start#calendar'
   match '/multi',    to: 'start#multi'
-<<<<<<< HEAD
   match '/showReal',    to: 'start#showReal'
-=======
   match '/multi2',    to: 'start#multi2'
 
->>>>>>> c4da5e4c6b2512f27ce5fd7dafa1f93122a10985
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -106,7 +103,7 @@ VisualStats::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-    match 'start' => 'start#index', :as => :welcomePage 
+    match 'start' => 'start#index', :as => :welcomePage
 
     root :to => 'start#index'
 
