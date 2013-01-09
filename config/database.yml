@@ -1,4 +1,10 @@
 
+<%
+    local_postgres_config_file = "secret/local_postgres.yml"
+    devheroku_config_file = "secret/devheroku_database.yml"
+    prefix = "--- db config: "
+    verbose = true
+%>
 # db setup from this blog post
 # http://matthew.mceachen.us/blog/howto-test-your-rails-application-with-travis-ci-on-different-database-engines-1220.html
 
@@ -6,6 +12,15 @@
 # bundle exec rake db:migrate RAILS_ENV=test
 # because Rails.env will return development otherwise -
 # see http://stackoverflow.com/questions/11156627/rake-dbtestprepare-task-deleting-data-in-development-database
+<%
+   puts "#{prefix}Rails.env #{Rails.env}" if verbose
+  #puts ARGV.inspect
+   if /test/ =~ ARGV[0] && Rails.env == "development"
+      puts "#{prefix }WARNING: use   rake db:test:prepare RAILS_ENV=test   to prepare test database"
+   end
+
+%>
+
 
 sqlite: &sqlite
   adapter: sqlite3
@@ -25,13 +40,13 @@ postgresql: &postgresql
 defaults: &defaults
   pool: 5
   timeout: 5000
-#  <<: *<%= ENV['DB'] || "postgresql" %>
   <<: *<%= ENV['DB'] || "sqlite" %>
 
-# use local postgres dbs for test and development if configured
 
-<% local_pg = File.expand_path("secret/local_postgres.yml") %>
-<% if File.exist?(local_pg)%>
+# use local postgres dbs for test and development if configured
+<% local_pg = File.expand_path(local_postgres_config_file) %>
+<% if File.exist?(local_pg)
+   puts "#{prefix}using #{local_postgres_config_file}"  if verbose %>
 <%= File.read(local_pg) %>
 <% else %>
 
@@ -43,5 +58,9 @@ test:
 
 # for devheroku:
 # load the secret devheroku configuration if present
-<% secret = File.expand_path("secret/devheroku_database.yml") %>
-<%= File.read(secret) if File.exist?(secret)%>
+<% secret = File.expand_path(devheroku_config_file)
+   if File.exist?(secret)
+    puts "#{prefix}using #{devheroku_config_file}" if verbose %>
+
+<%= File.read(secret) %>
+<% end %>
