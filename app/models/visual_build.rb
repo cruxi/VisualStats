@@ -9,7 +9,9 @@ class VisualBuild < ActiveRecord::Base
 
     def self.create_from_json(json_str)
       build = self.new
-      json = JSON.parse(json_str)
+      #json_str is already json object and not a string
+      #json = JSON.parse(json_str) 
+      json = json_str
       build.init_from_json(json)
       build.save
       return build
@@ -32,6 +34,8 @@ class VisualBuild < ActiveRecord::Base
         job.init_from_json(json_job)
         job.save
       end
+
       return self
+
     end
 end

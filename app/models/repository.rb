@@ -1,11 +1,11 @@
 class Repository 
-   attr_accessible :active, :created_at, :description, :id, :last_build_duration, :last_build_finished_at, :last_build_id, :last_build_language, :last_build_number, :last_build_result, :last_build_started_at, :last_build_status, :last_duration, :name, :owner_email, :owner_id, :owner_name, :owner_type, :private, :updated_at, :url
+			attr_accessible :active, :created_at, :description, :id, :last_build_duration, :last_build_finished_at, :last_build_id, :last_build_language, :last_build_number, :last_build_result, :last_build_started_at, :last_build_status, :last_duration, :name, :owner_email, :owner_id, :owner_name, :owner_type, :private, :updated_at, :url
 
 #  has_many :builds
 #  has_many :events
 
-  #Limit the rows to be shown on one page
-  self.per_page = 10
+		#Limit the rows to be shown on one page
+		self.per_page = 10
 
 
 
@@ -57,7 +57,7 @@ def getPercentForBuilds
 	end
 
 	for i in 0..11
-	   statistic[Date::MONTHNAMES[i+1]] = monthAmount[i]
+				statistic[Date::MONTHNAMES[i+1]] = monthAmount[i]
 	end
 
 	return statistic
