@@ -3,7 +3,7 @@ module InitJobs
         if (step == 0)
        	 migrate_builds(Build.all)
        	else
-       	  offset = 0
+       	  offset = 155*100
           going = true
           result = []
           i = 0
@@ -11,7 +11,7 @@ module InitJobs
           while going
             lastTime = newTime
             newTime = Time.now
-       	    puts "Batch #{i+=1} - #{Time.now} - #{newTime-lastTime}"
+       	    puts "Batch #{i+=1} - offset #{offset}- #{Time.now} - #{newTime-lastTime}"
             builds = Build.limit(step).offset(offset)
             offset +=step
             going = builds.size > 0 #&& i < max_i
