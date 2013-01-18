@@ -1,6 +1,6 @@
 class VisualJob < ActiveRecord::Base
   belongs_to :build, class_name: "VisualBuild"
-  has_many :dimensions, class_name: "VisualDimension", foreign_key: :job_id
+  has_many :dimensions, class_name: "VisualDimension", foreign_key: :job_id, dependent: :destroy
 
   def init_from_json(json)
       f = [:number,:state,:finished_at,:result,:allow_failure]
