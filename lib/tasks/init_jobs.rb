@@ -16,11 +16,11 @@ module InitJobs
             builds = Build.limit(step).offset(offset)
             offset +=step
             going = builds.size > 0 #&& i < max_i
-      		  migrate_builds(builds)
+      		  migrate_builds_via_json(builds)
       	  end
         end
     end
-    def migrate_builds(builds)
+    def migrate_builds_via_json(builds)
      	builds.each do | build |
         # eher so dann doch nicht:
         # json = Travis::Api.data(build, version: 'v2')
@@ -44,11 +44,11 @@ module InitJobs
   #   build.logger.warn("languages unequal #{build.id}") unless build.matrix.first.config[:language] == visual_build.jobs.first.language
   # end
 
-    def do_test_quick_migration(step = 0, max_i = 3)
+    def do_quick_migration(step = 0, max_i = 3)
         if (step == 0)
          migrate_builds(Build.all)
         else
-          offset = 120030
+          offset = 110000
           going = true
           result = []
           i = 0
@@ -59,8 +59,9 @@ module InitJobs
             puts "Batch #{i+=1} - offset #{offset}- #{Time.now} - #{newTime-lastTime}"
             builds = Build.limit(step).offset(offset)
             offset +=step
-            going = builds.size > 0 && i < max_i
-            test_quick_migrate_builds(builds)
+            going = builds.size > 0 && ((max_i == 0) || (i < max_i))
+            #test_quick_migrate_builds(builds)
+            quick_migrate_builds(builds)
           end
         end
     end
@@ -116,7 +117,6 @@ def quick_migrate_builds(builds)
           build.logger.info("build #{build.id} already migrated")
         else
           begin
-            build.logger.info("test migrating build #{build.id}")
             ActiveRecord::Base.transaction do
               b2 = VisualBuild.create_from_build(build)
               ok = VisualBuild.cross_check(b2,build,"quick")
@@ -124,13 +124,12 @@ def quick_migrate_builds(builds)
             end
           rescue => e
             build.logger.warn("Exception migrating build #{build.id} #{e}")
-            build.logger.warn("#{pp e.backtrace}")
+            build.logger.warn("#{e.backtrace}")
 
           end
         end
       end
     end
-
 
 
 end
