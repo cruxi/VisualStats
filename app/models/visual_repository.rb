@@ -9,6 +9,7 @@ class VisualRepository < ActiveRecord::Base
     return existing if existing
     self.create_from_json(json)
   end
+
   def self.create_from_json(json)
     r = self.new(json)
     r.travis_id = json["id"]

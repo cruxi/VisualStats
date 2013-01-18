@@ -1,15 +1,14 @@
 require 'spec_helper'
 require 'support/utilities'
 
-
 describe VisualBuild do
 
   describe "initialization from json" do
     let(:build_failed_json) { read_file_to_s(__FILE__,"json/build_failed.json") }
     let(:build_json) { read_file_to_s(__FILE__,"json/build.json") }
-    let(:visual_build_failed){ VisualBuild.create_from_json(build_failed_json) }
-    let(:visual_build){ VisualBuild.create_from_json(build_json) }
-    let(:visual_build_failed2){ VisualBuild.create_from_json(build_failed_json) }
+    let(:visual_build_failed){ VisualBuild.create_from_json_str(build_failed_json) }
+    let(:visual_build){ VisualBuild.create_from_json_str(build_json) }
+    let(:visual_build_failed2){ VisualBuild.create_from_json_str(build_failed_json) }
     describe "creates build" do
        subject{ visual_build_failed }
 

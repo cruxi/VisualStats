@@ -7,11 +7,11 @@ class VisualBuild < ActiveRecord::Base
   # clearly a workaround
  ENV_KEYS = [:rvm, :gemfile, :env, :otp_release, :php, :node_js, :scala, :jdk, :python, :perl, :compiler, :go].map(&:to_s)
 
-    def self.create_from_json(json_str)
+    def self.create_from_json_str(json_str)
+      self.create_from_json(JSON.parse(json_str))
+    end
+    def self.create_from_json(json)
       build = self.new
-      #json_str is already json object and not a string
-      #json = JSON.parse(json_str) 
-      json = json_str
       build.init_from_json(json)
       build.save
       return build

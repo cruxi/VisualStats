@@ -20,7 +20,9 @@ class VisualJob < ActiveRecord::Base
       self.save
 
       dimension_keys.each do | key |
-        self.dimensions.create!(key: key, value: config[key.to_sym])
+        value = config[key.to_s]
+        value = config[key.to_sym] unless value
+        self.dimensions.create!(key: key, value: value)
       end
 
       return self
@@ -30,7 +32,7 @@ class VisualJob < ActiveRecord::Base
      # "matrix":{"allow_failures":[{"rvm":     "2.0.0"}]},
      # this is how it looks with more lines in .travis.yml
      #{"allow_failures":[{"rvm":"2.0.0"},{"rvm":"2.0.1"},{"env":"DB=XYZ"}]},
-     if (config["matrix"]!=nil) 
+     if (config["matrix"]!=nil)
        config["matrix"]["allow_failures"].each do | allowed_to_fail |
           allowed_to_fail.each_pair do | k,v|
             return true if config[k] == v
