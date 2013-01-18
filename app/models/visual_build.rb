@@ -1,5 +1,4 @@
-include VisualBuildMigrationHelper
-require 'set'
+#include VisualBuildMigrationHelper
 class VisualBuild < ActiveRecord::Base
 
 
@@ -101,5 +100,25 @@ class VisualBuild < ActiveRecord::Base
 
       return self
 
+    end
+    def self.webhook_json(build)
+      json = Travis::Api.data(build, :for => 'webhook', :type => 'build/finished', :version => 'v1')
+    end
+
+    def self.create_from_build_via_json(build)
+      json = VisualBuild.webhook_json(build)
+      vb = VisualBuild.create_from_json(json)
+      VisualBuild.cross_check(vb,build)
+      vb
+    end
+
+    def self.cross_check(visual_build,build,message ="")
+      s = build.matrix.size
+      build.logger.warn("matrix size unequal #{build.id} / #{message}") unless s == visual_build.jobs.size
+      unless s == 0
+        unless (l1 = build.matrix.first.config[:language]) == (l2 = visual_build.jobs.first.language)
+          build.logger.warn("languages unequal #{build.id} / #{message} / #{l1} / #{l2}")
+        end
+      end
     end
 end

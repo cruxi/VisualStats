@@ -1,7 +1,8 @@
 require 'spec_helper'
 require 'support/utilities'
 
-describe VisualBuildMigrationHelper do
+#describe VisualBuildMigrationHelper do
+describe "VisualBuildMigrationHelper" do
   describe "both migration types" do
     let(:build){FactoryGirl.create(:build_with_matrix)}
     let(:job1){FactoryGirl.create(:job1, repository: build.repository, commit: build.commit, source: nil )}
@@ -23,3 +24,12 @@ describe VisualBuildMigrationHelper do
 
 
 end
+
+
+
+
+
+
+
+
+
