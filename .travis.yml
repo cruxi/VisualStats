@@ -13,9 +13,6 @@ script:
 matrix:
   allow_failures:
     - rvm: 2.0.0
-    - rvm: 2.0.1
-    - env: DB=XYZ
 notifications:
   webhooks:
   - http://visualstats.herokuapp.com/bkleinen/VisualStats/notify
-
