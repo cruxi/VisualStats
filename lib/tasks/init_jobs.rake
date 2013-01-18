@@ -8,7 +8,7 @@ namespace :db do
 	end
   desc "test drive quick migration"
   task quicktest: :environment do
-    do_test_quick_migration(10,1)
+    do_test_quick_migration(100,1)
   end
 
 end

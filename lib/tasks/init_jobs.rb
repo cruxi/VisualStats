@@ -1,3 +1,4 @@
+#require 'active_record_extensions'
 module InitJobs
     def do_migration(step = 0, max_i = 3)
         if (step == 0)
@@ -47,7 +48,7 @@ module InitJobs
         if (step == 0)
          migrate_builds(Build.all)
         else
-          offset = 120000
+          offset = 120030
           going = true
           result = []
           i = 0
@@ -59,11 +60,11 @@ module InitJobs
             builds = Build.limit(step).offset(offset)
             offset +=step
             going = builds.size > 0 && i < max_i
-            quick_migrate_builds(builds)
+            test_quick_migrate_builds(builds)
           end
         end
     end
-    def quick_migrate_builds(builds)
+    def test_quick_migrate_builds(builds)
       builds.each do | build |
         if  VisualBuild.where(travis_id: build.id).first
           build.logger.info("build #{build.id} already migrated")
@@ -73,21 +74,31 @@ module InitJobs
             ActiveRecord::Base.transaction do
               b1 = VisualBuild.create_from_build_via_json(build)
               b2 = VisualBuild.create_from_build(build)
-              VisualBuild.cross_check(b1,build,"json")
-              VisualBuild.cross_check(b2,build,"quick")
+#              puts "=================="
+#              puts "b1.language #{b1.language}"
+#              puts "b2.language #{b2.language}"
+#              puts "build.language #{build.language}"
+#              puts "=================="
+              ok1 = VisualBuild.cross_check(b1,build,"json")
+              ok2 = VisualBuild.cross_check(b2,build,"quick")
+              ok = ok1 && ok2
+
 
               unless (diff = b1.diff_attributes(b2)) == []
                 build.logger.warn("diff #{build.id}: #{diff}")
+                ok = false
               end
 
               b1.jobs.each do | j1 |
                 j2 =  VisualJob.where(build_id: b2.id, number: j1.number).first
                 unless (diff = j1.diff_attributes(j2,["build_id"])) == []
                   build.logger.warn("diff job #{j1.number} / #{build.id}: #{diff}")
+                  ok = false
                 end
               end
 
               b2.destroy
+              raise ActiveRecord::Rollback unless ok
 
             end
           rescue => e
@@ -98,6 +109,28 @@ module InitJobs
         end
       end
     end
+
+def quick_migrate_builds(builds)
+      builds.each do | build |
+        if  VisualBuild.where(travis_id: build.id).first
+          build.logger.info("build #{build.id} already migrated")
+        else
+          begin
+            build.logger.info("test migrating build #{build.id}")
+            ActiveRecord::Base.transaction do
+              b2 = VisualBuild.create_from_build(build)
+              ok = VisualBuild.cross_check(b2,build,"quick")
+              raise ActiveRecord::Rollback unless ok
+            end
+          rescue => e
+            build.logger.warn("Exception migrating build #{build.id} #{e}")
+            build.logger.warn("#{pp e.backtrace}")
+
+          end
+        end
+      end
+    end
+
 
 
 end

@@ -12,7 +12,7 @@ class VisualJob < ActiveRecord::Base
       self.travis_id = json["id"]
 
       config = json["config"]
-      self.language = config[:language]
+      self.language = config[:language] || config["language"]
 
       dimension_keys = config.keys.map(&:to_s) & VisualBuild::ENV_KEYS
       self.allow_failure = extract_allow_failure(dimension_keys,config)
@@ -36,7 +36,7 @@ class VisualJob < ActiveRecord::Base
       self.travis_id = job.id
 
       config = job.config
-      self.language = job.config["language"] #|| "ruby"
+      self.language = job.config["language"] || job.config[:language]
 
       dimension_keys = config.keys.map(&:to_s) & VisualBuild::ENV_KEYS
       self.allow_failure = extract_allow_failure(dimension_keys,config)
