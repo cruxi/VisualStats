@@ -3,9 +3,46 @@ require 'support/utilities'
 
 describe VisualBuild do
 
+  describe "it can check on equal values" do
+
+    let(:build_json) { read_file_to_s(__FILE__,"webhook/json/build.json") }
+    it "considers equal values equal" do
+
+      b1 = VisualBuild.create_from_json_str(build_json)
+      b2 = VisualBuild.create_from_json_str(build_json)
+      b1.equal_values(b2).should == true
+    end
+    it "considers unequal values unequal" do
+      b1 = VisualBuild.create_from_json_str(build_json)
+      b2 = VisualBuild.create_from_json_str(build_json)
+      (b1.id == b2.id).should == false
+      b2.config = "asdf"
+      #b2.build_url = "asdf"
+      b1.equal_values(b2).should == false
+    end
+    it "considers equal matrix values equal" do
+
+      b1 = VisualBuild.create_from_json_str(build_json)
+      b2 = VisualBuild.create_from_json_str(build_json)
+      b1.same_matrix(b2).should == true
+    end
+    it "considers unequal matrix values unequal" do
+
+      b1 = VisualBuild.create_from_json_str(build_json)
+      b2 = VisualBuild.create_from_json_str(build_json)
+      b2.jobs.first.destroy
+      b1.same_matrix(b2).should == false
+    end
+
+
+
+  end
+
+
   describe "migration" do
     let(:build){FactoryGirl.create(:build)}
     it "should be migrated" do
+      expect {VisualBuild.create_from_build_via_json(build)}.to change {VisualBuild.count}.by(1)
 
 
     end

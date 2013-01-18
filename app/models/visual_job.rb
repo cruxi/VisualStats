@@ -27,6 +27,32 @@ class VisualJob < ActiveRecord::Base
 
       return self
   end
+
+  def init_from_job(job)
+      f = [:number,:state,:finished_at,:result,:allow_failure]
+      f.each do | field |
+        self.send( "#{field}=",job.send("#{field}"))
+      end
+      self.travis_id = job.id
+
+      config = job.config
+      self.language = job.config["language"] #|| "ruby"
+
+      dimension_keys = config.keys.map(&:to_s) & VisualBuild::ENV_KEYS
+      self.allow_failure = extract_allow_failure(dimension_keys,config)
+
+      self.save
+
+      dimension_keys.each do | key |
+        value = config[key.to_s]
+        value = config[key.to_sym] unless value
+        self.dimensions.create!(key: key, value: value)
+      end
+
+      return self
+  end
+
+
   def extract_allow_failure(keys,config)
      # e.g. failures allowed if ruby 2.0.0:
      # "matrix":{"allow_failures":[{"rvm":     "2.0.0"}]},

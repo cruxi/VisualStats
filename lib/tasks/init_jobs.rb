@@ -37,10 +37,68 @@ module InitJobs
       end
     end
 
-    def cross_check(visual_build,build)
-      #build.logger.info("checking #{build.id}")
-      build.logger.warn("matrix size unequal #{build.id}") unless build.matrix.size == visual_build.jobs.size
-      build.logger.warn("languages unequal #{build.id}") unless build.matrix.first.config[:language] == visual_build.jobs.first.language
+  # def cross_check(visual_build,build)
+  #   #build.logger.info("checking #{build.id}")
+  #   build.logger.warn("matrix size unequal #{build.id}") unless build.matrix.size == visual_build.jobs.size
+  #   build.logger.warn("languages unequal #{build.id}") unless build.matrix.first.config[:language] == visual_build.jobs.first.language
+  # end
+
+    def do_test_quick_migration(step = 0, max_i = 3)
+        if (step == 0)
+         migrate_builds(Build.all)
+        else
+          offset = 120000
+          going = true
+          result = []
+          i = 0
+          newTime = Time.now
+          while going
+            lastTime = newTime
+            newTime = Time.now
+            puts "Batch #{i+=1} - offset #{offset}- #{Time.now} - #{newTime-lastTime}"
+            builds = Build.limit(step).offset(offset)
+            offset +=step
+            going = builds.size > 0 && i < max_i
+            quick_migrate_builds(builds)
+          end
+        end
     end
+    def quick_migrate_builds(builds)
+      builds.each do | build |
+        if  VisualBuild.where(travis_id: build.id).first
+          build.logger.info("build #{build.id} already migrated")
+        else
+          begin
+            build.logger.info("test migrating build #{build.id}")
+            ActiveRecord::Base.transaction do
+              b1 = VisualBuild.create_from_build_via_json(build)
+              b2 = VisualBuild.create_from_build(build)
+              VisualBuild.cross_check(b1,build,"json")
+              VisualBuild.cross_check(b2,build,"quick")
+
+              unless (diff = b1.diff_attributes(b2)) == []
+                build.logger.warn("diff #{build.id}: #{diff}")
+              end
+
+              b1.jobs.each do | j1 |
+                j2 =  VisualJob.where(build_id: b2.id, number: j1.number).first
+                unless (diff = j1.diff_attributes(j2,["build_id"])) == []
+                  build.logger.warn("diff job #{j1.number} / #{build.id}: #{diff}")
+                end
+              end
+
+              b2.destroy
+
+            end
+          rescue => e
+            build.logger.warn("Exception migrating build #{build.id} #{e}")
+            build.logger.warn("#{pp e.backtrace}")
+
+          end
+        end
+      end
+    end
+
+
 end
 
