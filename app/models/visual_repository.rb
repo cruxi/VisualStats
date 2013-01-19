@@ -21,16 +21,23 @@ class VisualRepository < ActiveRecord::Base
   end
 
 
-  def self.get_or_create_from_json(json)
+  def self.get_or_create_from_json(build,json)
     existing = self.find_by_travis_id(json["id"])
-    return existing if existing
-    self.create_from_json(json)
+    if existing
+      build.repository = existing
+      return existing
+    else
+      r = self.build_from_json(build,json)
+      r.save
+      r
+    end
   end
 
-  def self.create_from_json(json)
-    r = self.new(json)
-    r.travis_id = json["id"]
-    r.save
+  def self.build_from_json(build,json)
+    travis_id = json["id"]
+    json.delete("id")
+    r = build.build_repository(json)
+    r.travis_id = travis_id
     r
   end
 end

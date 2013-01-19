@@ -40,13 +40,7 @@ describe VisualBuild do
        describe "sets fields from the build config" do
          its(:language) {should == "ruby"}
        end
-       describe "other" do
-         it "should handle existing ids somehow" do
-          pending
-           visual_build_failed.save
-           expect {visual_build_failed2.save}.to raise_error (ActiveRecord::StatementInvalid)
-         end
-       end
+
     end
     describe "jobs" do
        subject{ visual_build_failed.jobs }

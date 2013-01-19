@@ -18,11 +18,20 @@ class VisualBuild < ActiveRecord::Base
     def self.create_from_json_str(json_str)
       self.create_from_json(JSON.parse(json_str))
     end
+    def self.build_from_json_str(json_str)
+      self.build_from_json(JSON.parse(json_str))
+    end
     def self.create_from_json(json)
+      build = build_from_json(json)
+      build.save
+      repository = build.repository
+      repository.save
+      build
+    end
+    def self.build_from_json(json)
       build = self.new
       build.init_from_json(json)
-      build.save
-      return build
+      build
     end
 
     def init_from_json(json)
@@ -46,14 +55,14 @@ class VisualBuild < ActiveRecord::Base
       self.committer_name=json['committer_name']
       self.travis_id = json["id"]
       self.language=json["config"]["language"]
-      self.repository = VisualRepository.get_or_create_from_json(json["repository"])
+      self.repository = VisualRepository.get_or_create_from_json(self,json["repository"])
 
-      self.save
+      #self.save
 
       json["matrix"].each do | json_job|
         job = self.jobs.build
         job.init_from_json(json_job)
-        job.save
+        #job.save
       end
 
       return self
@@ -68,35 +77,6 @@ class VisualBuild < ActiveRecord::Base
       return visual_build
     end
 
-    def init_from_build(build)
-      self.result=build.result
-      self.number=build.number
-      self.started_at=build.started_at
-      self.finished_at=build.finished_at
-      self.duration=build.duration
-      self.build_url=build.repository.url.gsub(/^https:\/\/github\.com/,"https://travis-ci.org")+"/builds/#{build.id}"
-      self.commit=build.commit.commit
-      self.branch=build.commit.branch
-      self.committed_at=build.commit.committed_at
-      self.author_name=build.commit.author_name
-      self.committer_name=build.commit.committer_name
-      self.travis_id = build.id
-      self.language = build.config[:language]
-      #self.language= build.matrix.first.config[:language] # || "ruby"
-     # self.language=build.config["language"] #|| "ruby"
-      self.repository = VisualRepository.get_or_create_from_repository(build.repository)
-
-      self.save
-
-      build.matrix.each do | j|
-        job = self.jobs.build
-        job.init_from_job(j)
-        job.save
-      end
-
-      return self
-
-    end
     def self.webhook_json(build)
       Travis::Api.data(build, :for => 'webhook', :type => 'build/finished', :version => 'v1')
     end
@@ -124,6 +104,8 @@ class VisualBuild < ActiveRecord::Base
       return ok
     end
 end
+
+# helper methods for double checking
 
 class ActiveRecord::Base
   def equal_values(other)

@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe VisualJob do
-
-  describe "initialization from json" do
-    let(:build_failed_json) {
+ let(:build_failed_json) {
       read_file_to_s(__FILE__,"json/build_failed.json")
     }
+
+
+  describe "initialization from json" do
     let(:visual_build_failed){ VisualBuild.create_from_json_str(build_failed_json) }
     let(:visual_build_failed2){ VisualBuild.create_from_json_str(build_failed_json) }
     describe "jobs" do
@@ -44,4 +45,21 @@ describe VisualJob do
       its(:allow_failure) { should == true }
     end
   end
-end
+  describe "does not set the ids" do
+     build_last_json = read_file_to_s(__FILE__,"json/last_build.json")
+   build = VisualBuild.build_from_json_str(build_last_json)
+    describe "build" do
+      subject{build}
+      its(:id){ should == nil}
+    end
+    VisualBuild.build_from_json_str(read_file_to_s(__FILE__,"json/last_build.json")).jobs.each do | job|
+      it "jobs should not have links" do
+        #build.jobs.each do | job|
+          job.id.should == nil
+        #end
+      end
+      end
+    end
+  end
+
+

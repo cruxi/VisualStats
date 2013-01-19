@@ -48,9 +48,6 @@ describe VisualBuild do
     end
   end
 
-
-
-
   describe "should destroy dependent objects" do
     # be lazy and use a json generated visual_build as sut
     let(:build_json) { read_file_to_s(__FILE__,"webhook/json/build.json") }

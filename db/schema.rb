@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118014409) do
+ActiveRecord::Schema.define(:version => 20130118192450) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -286,7 +286,7 @@ ActiveRecord::Schema.define(:version => 20130118014409) do
   create_table "visual_dimensions", :force => true do |t|
     t.integer "job_id"
     t.string  "key"
-    t.string  "value"
+    t.text    "value"
   end
 
   create_table "visual_jobs", :force => true do |t|
