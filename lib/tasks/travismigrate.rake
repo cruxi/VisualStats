@@ -6,15 +6,16 @@ namespace :db do
 	task travismigrate: :environment do
 		do_migration(100,0)
 	end
-end
-
-#require 'better-benchmark'
-namespace :db do
   desc "Migrate builds and dependent stuff to VisualBuild"
   task benchmarkquery: :environment do
     do_benchmarkquery
   end
+  desc "Migrate list of ids manually given in script"
+  task manualmigration: :environment do
+    do_manual_migration
+  end
 end
+
 
 
 def do_benchmarkquery

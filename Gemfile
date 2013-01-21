@@ -9,7 +9,7 @@ gem 'travis-support',  github: 'travis-ci/travis-support'
 #gem 'travis-core',     git: 'https://github.com/VisualTravis/travis-core.git'
 
 gem 'travis-core',      git: 'https://github.com/bkleinen/travis-core', :tag => "db-v1"
-
+#gem 'travis-core', path: '/Users/kleinen/code/travis/bkleinen/travis-core'
 gem 'travis-sidekiqs', github: 'travis-ci/travis-sidekiqs', require: nil
 
 gem 'gh', github: 'rkh/gh'

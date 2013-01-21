@@ -66,25 +66,7 @@ describe VisualBuild do
         expect { visual_build_failed_not_saved}.to change(VisualDimension, :count).by(0)
       end
     end
-    describe "creates dependent objects on import" do
-      it "- jobs" do
-        expect { VisualBuild.my_import [visual_build_failed_not_saved]}.to change(VisualJob, :count).by(4)
-      end
-      it "- dimensions" do
-        expect { VisualBuild.my_import [visual_build_failed_not_saved]}.to change(VisualDimension, :count).by(8)
-      end
-      it "sets associations" do
-        VisualBuild.my_import [visual_build_failed_not_saved]
-        visual_build_failed_not_saved.jobs.size.should == 4
-        visual_build_failed_not_saved.jobs.first.dimensions.size.should == 2
-      end
-      it "sets associations on group" do
-        VisualBuild.my_import [visual_build_failed_not_saved,visual_build_failed2_not_saved]
-        visual_build_failed2_not_saved.jobs.size.should == 4
-        visual_build_failed2_not_saved.jobs.first.dimensions.size.should == 2
-      end
 
-    end
     describe "creates repository" do
       it "once" do
         expect { visual_build_failed }.to change(VisualRepository, :count).by(1)

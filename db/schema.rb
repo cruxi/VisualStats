@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(:version => 20130120224228) do
     t.datetime "updated_at",     :null => false
   end
 
-  create_table "build_compacts", :force => true do |t|
-    t.integer  "result"
-    t.datetime "finished_at"
-    t.integer  "number"
-    t.text     "config"
-    t.integer  "repository_compact_id"
-  end
-
   create_table "builds", :force => true do |t|
     t.integer  "repository_id"
     t.string   "number"
@@ -87,6 +79,14 @@ ActiveRecord::Schema.define(:version => 20130120224228) do
   add_index "commits", ["branch"], :name => "index_commits_on_branch"
   add_index "commits", ["commit"], :name => "index_commits_on_commit"
 
+  create_table "dimensions", :force => true do |t|
+    t.integer  "job_info_id"
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.integer  "source_id"
     t.string   "source_type"
@@ -97,13 +97,15 @@ ActiveRecord::Schema.define(:version => 20130120224228) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "job_compacts", :force => true do |t|
+  create_table "job_infos", :force => true do |t|
+    t.integer  "repository_id"
+    t.integer  "job_id"
     t.string   "language"
-    t.string   "version"
-    t.boolean  "allow_failure"
-    t.integer  "result"
-    t.datetime "finished_at"
-    t.integer  "build_compact_id"
+    t.string   "result"
+    t.string   "integer"
+    t.string   "dimension_keys"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "jobs", :force => true do |t|
@@ -195,13 +197,6 @@ ActiveRecord::Schema.define(:version => 20130120224228) do
 
   add_index "repositories", ["last_build_started_at"], :name => "index_repositories_on_last_build_started_at"
   add_index "repositories", ["owner_name", "name"], :name => "index_repositories_on_owner_name_and_name"
-
-  create_table "repository_compacts", :force => true do |t|
-    t.string "name"
-    t.text   "description"
-    t.string "url"
-    t.string "owner_name"
-  end
 
   create_table "requests", :force => true do |t|
     t.integer  "repository_id"
