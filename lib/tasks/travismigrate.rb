@@ -30,10 +30,13 @@ module TravisMigrate
         # without regarding MigrationErrors
         #l = Build.connection.select_all("select id from builds  where NOT EXISTS(select 1 from visual_builds WHERE travis_id = builds.id ) LIMIT #{step} OFFSET #{offset};")
         # with MigrationErrors
-        l = Build.connection.select_all("select id from builds  where NOT EXISTS(select 1 from visual_builds WHERE travis_id = builds.id ) AND NOT EXISTS(select 1 from migration_errors WHERE travis_id = builds.id ) LIMIT #{step} OFFSET #{offset};")
+        # with offset
+        # l = Build.connection.select_all("select id from builds  where NOT EXISTS(select 1 from visual_builds WHERE travis_id = builds.id ) AND NOT EXISTS(select 1 from migration_errors WHERE travis_id = builds.id )  ORDER BY id LIMIT #{step} OFFSET #{offset};")
+        # without offset - doesn't seem to hit all elements and not necessary with the double check
+        l = Build.connection.select_all("select id from builds  where NOT EXISTS(select 1 from visual_builds WHERE travis_id = builds.id ) AND NOT EXISTS(select 1 from migration_errors WHERE travis_id = builds.id ) LIMIT #{step};")
         ids = l.map{|h| h["id"].to_i}
-        going = ids.size > 0 && ((max_i == 0) || (i < max_i))
-        puts "ids size #{ids.size}"
+        going = ids.size > MigrationError.count && ((max_i == 0) || (i < max_i))
+        puts "ids size #{ids.size}, MigrationError count #{MigrationError.count}"
         migrate_builds_with_ids(ids)
       end
     end
@@ -75,7 +78,7 @@ module TravisMigrate
         ids.each do |id|
           begin
             builds << Build.find(id)
-          rescue Psych::SyntaxError
+          rescue Psych::SyntaxError => e
             message = "Psych::SyntaxError in build id #{id}"
             $logger.warn(message)
             MigrationError.create(travis_id: id, message: message, stackrace: "#{e.backtrace}")
