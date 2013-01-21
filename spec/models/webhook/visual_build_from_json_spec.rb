@@ -7,8 +7,10 @@ describe VisualBuild do
     let(:build_failed_json) { read_file_to_s(__FILE__,"json/build_failed.json") }
     let(:build_json) { read_file_to_s(__FILE__,"json/build.json") }
     let(:visual_build_failed){ VisualBuild.create_from_json_str(build_failed_json) }
+    let(:visual_build_failed_not_saved){ VisualBuild.build_from_json_str(build_failed_json) }
     let(:visual_build){ VisualBuild.create_from_json_str(build_json) }
     let(:visual_build_failed2){ VisualBuild.create_from_json_str(build_failed_json) }
+    let(:visual_build_failed2_not_saved){ VisualBuild.build_from_json_str(build_failed_json) }
     describe "creates build" do
        subject{ visual_build_failed }
 
@@ -48,6 +50,41 @@ describe VisualBuild do
         its(:size) {should == 4}
        end
     end
+    describe "creates dependent objects" do
+      it "- jobs" do
+        expect { visual_build_failed}.to change(VisualJob, :count).by(4)
+      end
+      it "- dimensions" do
+        expect { visual_build_failed}.to change(VisualDimension, :count).by(8)
+      end
+    end
+    describe "doesn't create anything on build" do
+      it "- jobs" do
+        expect { visual_build_failed_not_saved}.to change(VisualJob, :count).by(0)
+      end
+      it "- dimensions" do
+        expect { visual_build_failed_not_saved}.to change(VisualDimension, :count).by(0)
+      end
+    end
+    describe "creates dependent objects on import" do
+      it "- jobs" do
+        expect { VisualBuild.my_import [visual_build_failed_not_saved]}.to change(VisualJob, :count).by(4)
+      end
+      it "- dimensions" do
+        expect { VisualBuild.my_import [visual_build_failed_not_saved]}.to change(VisualDimension, :count).by(8)
+      end
+      it "sets associations" do
+        VisualBuild.my_import [visual_build_failed_not_saved]
+        visual_build_failed_not_saved.jobs.size.should == 4
+        visual_build_failed_not_saved.jobs.first.dimensions.size.should == 2
+      end
+      it "sets associations on group" do
+        VisualBuild.my_import [visual_build_failed_not_saved,visual_build_failed2_not_saved]
+        visual_build_failed2_not_saved.jobs.size.should == 4
+        visual_build_failed2_not_saved.jobs.first.dimensions.size.should == 2
+      end
+
+    end
     describe "creates repository" do
       it "once" do
         expect { visual_build_failed }.to change(VisualRepository, :count).by(1)
@@ -58,7 +95,6 @@ describe VisualBuild do
           visual_build_failed2
         end.to change(VisualRepository, :count).by(1)
       end
-
     end
   end
 end

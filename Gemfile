@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-gem 'activerecord-import'
-
 gem 'travis-support',  github: 'travis-ci/travis-support'
 
 #this version will only work with migrations in branch database-migrations

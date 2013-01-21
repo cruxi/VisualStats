@@ -103,6 +103,13 @@ class VisualBuild < ActiveRecord::Base
       end
       return ok
     end
+    def self.my_import(builds)
+      jobs = builds.map(&:jobs).flatten
+      dimensions = jobs.map(&:dimensions).flatten
+      VisualDimension.import dimensions
+      VisualJob.import jobs
+      VisualBuild.import builds
+    end
 end
 
 # helper methods for double checking
