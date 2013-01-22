@@ -4,14 +4,14 @@
 Which languages do you want to compare?
 <select id="firstLang">
   <option value="ruby">ruby</option>
-  <option value="rubinius">rubinius</option>
-  <option value="jruby">jruby</option>
+  <option value="php">php</option>
+  <option value="erlang">erlang</option>
 </select>
 
 <select id="secondLang">
   <option value="ruby">ruby</option>
-  <option value="rubinius">rubinius</option>
-  <option value="jruby">jruby</option>
+  <option value="php">php</option>
+  <option value="erlang">erlang</option>
 </select>
 </p>
 
@@ -23,7 +23,6 @@ How many last builds shall be shown?
 <button name="create" type="button" value="create" onclick="createChart()">create</button>
 
 <div id="container">
-<% test = BuildCompact.getData("ruby", "rubinius", 205) %>
 
 <%= javascript_tag do %>
   function createChart(){
@@ -35,19 +34,17 @@ How many last builds shall be shown?
       var secondOpt = secondSelect.options[secondSelect.selectedIndex].value;
 
       var amount = document.getElementById("buildAmount").value;
-      console.log(amount);
 
       var curData; 
-      // = <%=raw BuildCompact.getData("ruby", "rubinius", 500).to_json %>;
-      // console.log(curData);
 
-
-      $.getJSON("getJobs?lang1="+firstOpt+"&lang2="+secondOpt+"&amount="+amount, function(data) {
+      $.getJSON("data?lang1="+firstOpt+"&lang2="+secondOpt+"&amount="+amount, function(data) {
             console.log(data);
             curData = data;    
+
+      lineChart(curData, "container", "Time", "Success in %", "Job", "Comparison of succeeded jobs", "based on their language");
       
 
-      var months = curData[0];
+ /*     var months = curData[0];
       var firstLangProcent = curData[1];
       var secondLangProcent = curData[2];
 
@@ -101,7 +98,7 @@ How many last builds shall be shown?
                 name: secondOpt,
                 data: secondLangProcent
             }]
-        });
+        }); */
       });
   }
 <% end %>

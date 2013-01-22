@@ -1,0 +1,2 @@
+module VisualBuildsHelper
+end

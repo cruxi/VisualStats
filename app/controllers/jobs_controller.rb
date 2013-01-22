@@ -22,7 +22,7 @@ class JobsController < ApplicationController
   end
 
     #find all belonging jobs to a build
-  def listJobs
+  def listJobsTemp
     @build = Build.find(params[:build_id])
     @jobs = Job.where("commit_id = ?", @build.commit_id).order(:finished_at)
 
@@ -91,4 +91,19 @@ class JobsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #############################
+  ###COPY LATER INTO VISUAL_JOB Controller
+  #############################
+
+
+  def listLanguages
+    @jobs = Job.all
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @job }
+    end
+  end
+
 end

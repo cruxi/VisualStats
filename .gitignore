@@ -27,3 +27,5 @@
 /bundler_stubs
 
 .sass-cache/c38a970d02f5c2c027513e93f2daa01e5e004fd0/start.css.scssc
+
+*.scssc

@@ -83,7 +83,7 @@ class BuildCompactsController < ApplicationController
 
   def getJobs
     queryParams = request.query_parameters
-    @jobs = BuildCompact.getData(queryParams[:lang1],queryParams[:lang2],queryParams[:amount])
+    @jobs = VisualBuild.getJobs(queryParams[:lang1],queryParams[:lang2],queryParams[:amount])
 
     respond_to do |format|
       format.json { render json: @jobs }

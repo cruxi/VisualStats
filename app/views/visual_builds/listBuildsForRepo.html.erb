@@ -1,0 +1,32 @@
+
+<h1>Builds for user <%= @repo[0].owner_name %> and repository <%= @repo[0].name %> </h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Repository</th>
+    <th>Number</th>
+    <th>Config</th>
+    <th>Request</th>
+    <th>Finished</th>
+    <th>Owner</th>
+    <th>Result</th>
+    <th>Previous result</th>
+  </tr>
+
+<% @repoBuilds.each do |build| %>
+  <tr>
+    <td><%= build.id %></td>
+    <td><%= build.repository_id %></td>
+    <td><%= build.number %></td>
+    <td><%= build.config %></td>
+    <td><%= build.request_id %></td>
+    <td><%= build.finished_at %></td>
+    <td><%= build.owner_id %></td>
+    <td><%= build.result %></td>
+    <td><%= build.previous_result %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

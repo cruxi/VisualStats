@@ -1,0 +1,22 @@
+
+<h1>Repositories for user <%= @repositories[0].owner_name %> </h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+  	<th>Id</th>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Owner name</th>
+</tr>
+
+<% @repositories.each do |repository| %>
+  <tr>   
+  	<td><%= repository.id %></td>
+    <td><%= repository.name %></td>
+    <td><%= repository.url %></td>
+    <td><%= repository.owner_name %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

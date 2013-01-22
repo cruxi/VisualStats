@@ -1,0 +1,29 @@
+<h1>Listing jobs</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <td>Id</td>
+    <td>Build Id</td>
+    <td>Job Number</td>
+    <td>Finished at</td>
+    <td>Allow Failure</td>
+    <td>Result</td>
+    <td>Language</td>
+  </tr>
+
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%=  job.id %></td>
+    <td><%=  job.build_id %></td>
+    <td><%=  job.number %></td>
+    <td><%=  job.finished_at %></td>
+    <td><%=  job.allow_failure%></td>
+    <td><%=  job.result %></td>
+    <td><%=  job.language %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @jobs, :params => {:controller => "visualJobs", :action=>"index" } %>

@@ -1,5 +1,31 @@
 VisualStats::Application.routes.draw do
 
+######## NEW RESTFUL ROUTES
+
+#TRAVIS
+  match 'repositories/builds' => 'visualBuilds#index' #shows all builds of all repositories 
+  match 'repositories/builds/jobs' => 'visualJobs#index' #shows all jobs of all builds of all repositories 
+  match 'repositories/builds/jobs/languages' => 'visualJobs#listLanguages' #shows all languages used in jobs
+
+#USER
+  match 'user/:username/repositories' => 'visualRepositories#listReposForUser'  #show all repositories of a user
+  match 'user/:username/:repository_name/builds' => 'visualBuilds#listBuildsForRepo'  #show all builds of a repository of a user
+  match 'user/:username/:repository_name/:build_number/jobs' => 'visualJobs#listJobsForBuild'  #show all jobs of a build of a repository of a user
+  match 'user/:username/repositories/builds/jobs' => 'visualJobs#listJobsForUser' #show all jobs of a user
+  match 'user/:username/jobs' => 'visualJobs#listJobsForUser' #SAME AS ABOVE (show all jobs of a user) but another shorter routing
+
+#LANGUAGE
+  match 'languages' => 'visualJobs#listLanguages' #shows all languages used in jobs (SAME as above but another route)
+  match 'languages/:language/' => 'visualJobs#listJobsForLanguage' #shows all results of a language -> visualization of success and fail 
+  match 'languages/:language1/:language2(/:language3)(/:language4)(/:language5)' => 'visualJobs#listJobsForLanguages'  #shows all results of min two language -> visualization of success and fail 
+
+#DIMENSION
+  match 'dimensions/:language/:version1/:version2' => 'visualJobs#listJobsForDimension',  
+  :constraints => { :version1 => /[^\/]+/ , :version2 => /[^\/]+/ } #shows all results two versions of a language -> visualization of success and fail 
+
+########
+
+
   resources :repository_compacts do
       resources :build_compacts do
           resources :job_compacts
@@ -19,9 +45,7 @@ VisualStats::Application.routes.draw do
     resources :builds
   end
 
-  #get 'data' => 'builds#getData', :as => :getData
-  get 'getJobs' => 'build_compacts#getJobs', :as => :getJobs
-
+ 
   resources :builds
 
   resources :events
@@ -30,20 +54,28 @@ VisualStats::Application.routes.draw do
 
   resources :artifacts
 
-  # umbennen --> muesste findBuildsForRepo heissen
+
+
+
+
+ get 'myData' => 'build_compacts#getJobs', :as => :getData
+# get 'getJobs' => 'build_compacts#getJobs', :as => :getJobs
+
+  #umbennen --> muesste findBuildsForRepo heissen
   match 'repositories/:repository_id/builds' => 'builds#findRepos', :as => :findRepos
 
-  # umbennen --> muesste findBuildsForRepo heissen
-  match 'builds/:build_id/jobs' => 'jobs#listJobs', :as => :listJobs
+  #umbennen --> muesste findBuildsForRepo heissen
+  match 'builds/:build_id/jobs' => 'jobs#listJobsTemp', :as => :listJobsTemp
 
-  # find the commit belonging to a build
-  match 'builds/:commit_id/commits' => 'commits#showBelongingCommit', :as => :showBelongingCommit
+  #find the commit belonging to a build
+  match 'builds/:build_id/commit' => 'commits#showBelongingCommit', :as => :showBelongingCommit
 
 
   match '/calendar',    to: 'start#calendar'
   match '/multi',    to: 'start#multi'
   match '/showReal',    to: 'start#showReal'
   match '/multi2',    to: 'start#multi2'
+
 
 
   # The priority is based upon order of creation:

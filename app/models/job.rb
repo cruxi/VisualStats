@@ -22,4 +22,5 @@ class Job
   #Limit the rows to be shown on one page
   self.per_page = 10
 
+
 end

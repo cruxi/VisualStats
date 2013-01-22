@@ -24,7 +24,9 @@ class CommitsController < ApplicationController
   # GET /commits/1
   # GET /commits/1.json
   def showBelongingCommit
-    @commit = Commit.find(params[:commit_id])
+    @build = Build.find(params[:build_id])
+    @commit = @build.commit
+    #@commit = Commit.find(params[:commit_id])
 
     respond_to do |format|
       format.html # showBelonging.html.erb

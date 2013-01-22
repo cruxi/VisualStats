@@ -1,0 +1,2 @@
+class VisualUsersController < ApplicationController
+end

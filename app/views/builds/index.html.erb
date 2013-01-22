@@ -27,14 +27,14 @@
     <td><%= build.number %></td>
     <td><%= build.status %></td>
     <td><%= build.config %></td>
-    <td><%= link_to build.commit_id, showBelongingCommit_path(build.commit_id) %></td>
+    <td><%= link_to build.commit_id, showBelongingCommit_path(build.id) %></td>
     <td><%= build.request_id %></td>
     <td><%= build.state %></td>
     <td><%= build.finished_at %></td>
     <td><%= build.owner_id %></td>
     <td><%= build.result %></td>
     <td><%= build.previous_result %></td>
-     <td><%= link_to 'Jobs', listJobs_path(build) %></td>
+     <td><%= link_to 'Jobs', listJobsTemp_path(build) %></td>
     <td><%= link_to 'Show', build %></td>
     <!--<td><%= link_to 'Edit', edit_build_path(build) %></td>
     <td><%= link_to 'Destroy', build, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
