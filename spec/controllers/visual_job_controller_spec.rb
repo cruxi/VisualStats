@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe VisualJobController do
+describe VisualJobsController do
 
 end

@@ -2,17 +2,42 @@ class VisualRepository < ActiveRecord::Base
 
   attr_accessible :name, :owner_name, :url
 
-  has_many :builds, class_name: "VisualBuild", foreign_key: :repository_id
+  has_many :builds, class_name: "VisualBuild", foreign_key: :repository_id, dependent: :destroy
 
-  def self.get_or_create_from_json(json)
-    existing = self.find_by_travis_id(json["id"])
-    return existing if existing
-    self.create_from_json(json)
+
+  def self.get_or_create_from_repository(repository)
+    if existing = self.find_by_travis_id(repository.id)
+      return existing
+    else
+      self.create_from_repository(repository)
+    end
   end
-  def self.create_from_json(json)
-    r = self.new(json)
-    r.travis_id = json["id"]
+  def create_from_repository(repository)
+    r = self.new
+    r.name = repository.name
+    r.owner_name = repository.owner_name
     r.save
+    r
+  end
+
+
+  def self.get_or_create_from_json(build,json)
+    existing = self.find_by_travis_id(json["id"])
+    if existing
+      build.repository = existing
+      return existing
+    else
+      r = self.build_from_json(build,json)
+      r.save
+      r
+    end
+  end
+
+  def self.build_from_json(build,json)
+    travis_id = json["id"]
+    json.delete("id")
+    r = build.build_repository(json)
+    r.travis_id = travis_id
     r
   end
 end

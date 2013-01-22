@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 describe VisualJob do
-
-  describe "initialization from json" do
-    let(:build_failed_json) {
+ let(:build_failed_json) {
       read_file_to_s(__FILE__,"json/build_failed.json")
     }
-    let(:visual_build_failed){ VisualBuild.create_from_json(build_failed_json) }
-    let(:visual_build_failed2){ VisualBuild.create_from_json(build_failed_json) }
+
+
+  describe "initialization from json" do
+    let(:visual_build_failed){ VisualBuild.create_from_json_str(build_failed_json) }
+    let(:visual_build_failed2){ VisualBuild.create_from_json_str(build_failed_json) }
     describe "jobs" do
       it "creates 4 jobs" do
         visual_build_failed.jobs.size.should == 4
@@ -30,6 +31,7 @@ describe VisualJob do
         d = visual_build_failed.jobs.first.dimensions
         e = [VisualDimension.kv(:rvm,"1.9.3"),
          VisualDimension.kv(:env,"DB=sqlite")]
+        # d.should == ""
         ((d[0].equalsDimension(e[0]) && d[1].equalsDimension(e[1])) ||
         (d[0].equalsDimension(e[1]) && d[1].equalsDimension(e[0]))).should == true
       end
@@ -43,4 +45,21 @@ describe VisualJob do
       its(:allow_failure) { should == true }
     end
   end
-end
+  describe "does not set the ids" do
+     build_last_json = read_file_to_s(__FILE__,"json/last_build.json")
+   build = VisualBuild.build_from_json_str(build_last_json)
+    describe "build" do
+      subject{build}
+      its(:id){ should == nil}
+    end
+    VisualBuild.build_from_json_str(read_file_to_s(__FILE__,"json/last_build.json")).jobs.each do | job|
+      it "jobs should not have links" do
+        #build.jobs.each do | job|
+          job.id.should == nil
+        #end
+      end
+      end
+    end
+  end
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224084343) do
+ActiveRecord::Schema.define(:version => 20130120224228) do
 
   create_table "artifacts", :force => true do |t|
     t.text     "content"
@@ -31,14 +31,6 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
     t.boolean  "expired"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-  end
-
-  create_table "build_compacts", :force => true do |t|
-    t.integer  "result"
-    t.datetime "finished_at"
-    t.integer  "number"
-    t.text     "config"
-    t.integer  "repository_compact_id"
   end
 
   create_table "builds", :force => true do |t|
@@ -105,15 +97,6 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "job_compacts", :force => true do |t|
-    t.string   "language"
-    t.string   "version"
-    t.boolean  "allow_failure"
-    t.integer  "result"
-    t.datetime "finished_at"
-    t.integer  "build_compact_id"
-  end
-
   create_table "job_infos", :force => true do |t|
     t.integer  "repository_id"
     t.integer  "job_id"
@@ -162,6 +145,14 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
     t.integer "user_id"
   end
 
+  create_table "migration_errors", :force => true do |t|
+    t.integer  "travis_id"
+    t.text     "message"
+    t.text     "stacktrace"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "organizations", :force => true do |t|
     t.string   "name"
     t.string   "login"
@@ -206,13 +197,6 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
 
   add_index "repositories", ["last_build_started_at"], :name => "index_repositories_on_last_build_started_at"
   add_index "repositories", ["owner_name", "name"], :name => "index_repositories_on_owner_name_and_name"
-
-  create_table "repository_compacts", :force => true do |t|
-    t.string "name"
-    t.text   "description"
-    t.string "url"
-    t.string "owner_name"
-  end
 
   create_table "requests", :force => true do |t|
     t.integer  "repository_id"
@@ -305,10 +289,12 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
     t.integer  "travis_id"
   end
 
+  add_index "visual_builds", ["travis_id"], :name => "index_visual_builds_on_travis_id"
+
   create_table "visual_dimensions", :force => true do |t|
     t.integer "job_id"
     t.string  "key"
-    t.string  "value"
+    t.text    "value"
   end
 
   create_table "visual_jobs", :force => true do |t|
@@ -328,6 +314,8 @@ ActiveRecord::Schema.define(:version => 20121224084343) do
     t.string  "url"
     t.integer "travis_id"
   end
+
+  add_index "visual_repositories", ["travis_id"], :name => "index_visual_repositories_on_travis_id"
 
   create_table "workers", :force => true do |t|
     t.string   "name"

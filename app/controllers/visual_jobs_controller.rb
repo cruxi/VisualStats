@@ -93,7 +93,7 @@ class VisualJobsController < ApplicationController
 			#stat['positiv'] = VisualJob.where("language = '#{lang}' AND result=1").count
 
 			#besser aufgrund von SQL injection!!
-			stat['positiv'] = VisualJob.where(language:  = lang).where(result: = 1  ).count
+			stat['positiv'] = VisualJob.where(language: lang).where(result: 1).count
 
 			stat['negativ'] = VisualJob.where("language = '#{lang}' AND result=0").count
 			stat['total'] = VisualJob.where("language = '#{lang}'").count
