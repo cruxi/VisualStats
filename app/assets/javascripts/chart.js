@@ -428,27 +428,22 @@ function getSingleSeriesByName(name, array){
 }
 
 function drawColumSplineChart(categories, series, getSingleSeriesByName, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle, yAxisOppositeLable){
-    
+
+		var splineType = "spline";    
 		series[0].type  = 'column';
 		series[1].type  = 'column';
-		// series[0].yAxis = 1;
-		// series[1].yAxis = 1;
-
-		//var splineSeries = series;
 	
 		series.push({
 			data: series[0].total,
-			type: 'spline',
+			type: splineType,
 			name: typeOfComparedObjects + "s in total",
 			yAxis: 1
 		});
 
-		//console.log(series);
-
 		chart = new Highcharts.Chart({
             chart: {
                 renderTo: postionTag,
-                marginRight: 130,
+                marginRight: 165,
                 marginBottom: 45
             },
             title: {
@@ -480,7 +475,7 @@ function drawColumSplineChart(categories, series, getSingleSeriesByName, postion
             	min: 0,
             	max: series[2].data.max(),
                 title: {
-                    text: yAxisOppositeLable,
+                    text: (yAxisOppositeLable == null)? "Number of " + typeOfComparedObjects.capitalize() + "s" : yAxisOppositeLable,
                     style: {
                         color: '#4572A7'
                     }
@@ -498,8 +493,8 @@ function drawColumSplineChart(categories, series, getSingleSeriesByName, postion
             tooltip: {
             	
                 formatter: function() {
-                		if(this.series.type=='spline'){
-                			return '<b>'+ this.y +' ' + typeOfComparedObjects + 's in total.</b>';
+                		if(this.series.type==splineType){
+                			return '<b>'+ this.y +' ' + typeOfComparedObjects + 's in total</b>';
                 		}else{
 	                        return '<b>'+ this.series.name +'</b><br />'+
 	                        this.x +': '+ this.y+'%<br />'+
