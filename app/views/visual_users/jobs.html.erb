@@ -13,6 +13,19 @@
 
 <script type="text/javascript">
 
+var user = <%=raw VisualRepository.getUser %>;
+$( "#userName" ).autocomplete({
+  source: function(req, responseFn) {
+        var re = $.ui.autocomplete.escapeRegex(req.term);
+        var matcher = new RegExp( "^" + re, "i" );
+        var a = $.grep( user, function(item,index){
+            return matcher.test(item);
+        });
+        responseFn( a );
+  },
+  minLength: 0, //maybe >0 to perform faster --> many user names!
+});
+
 // pass formID, ID of div to display data and callback function to build route
 submitFormViaAjax('userForm', 'showUserDetails', function(form){
   form.attr('action', '/user/'+$('#userName').val()+'/jobs');
