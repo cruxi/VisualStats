@@ -69,8 +69,8 @@ VisualStats::Application.routes.draw do
 
     root :to => 'start#index'
 
-end
-
 
 # webhook callbacks
   match ':username/:repository/notify' => 'webhooks#notify'
+
+end
