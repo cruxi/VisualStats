@@ -73,59 +73,39 @@ class VisualBuild < ActiveRecord::Base
 
     #CLASS METHODS
 
-  def self.getJobs(lang1, lang2, amount)
-  myData = Array.new
 
-  tempArray = Array.new
-  #determine all build_compact_id's as foreign keys in job_compact that belong to a build with jobs with the wanted languages
- # tempArray = VisualJob.where("visual_jobs.language ='#{lang1}' OR visual_jobs.language='#{lang2}'").limit(amount).order(:finished_at)
-  #VisualJob.all(:select => "DISTINCT visual_jobs.id, visual_jobs.finished_at, visual_jobs.result, visual_jobs.language",:joins => "JOIN visual_jobs AS jobs2 ON visual_jobs.build_id = jobs2.build_id", :conditions => ["visual_jobs.language = '#{lang1}' AND jobs2.language='#{lang2}'"], :limit => amount, :order => "visual_jobs.finished_at")
+  def self.getJobsByAmount(langArray, amount)
   
-  jobsLang1 = VisualJob.where("visual_jobs.language ='#{lang1}'").order(:finished_at)
-  jobsLang2 = VisualJob.where("visual_jobs.language='#{lang2}'").order(:finished_at)
+  data = Array.new
+  counter = 0
 
-  # tempArray.each do |job|
-  #     curLang = job.language
-  #     puts "test"
-  #     puts job.language
-  #     if (curLang==lang1) 
-  #         jobsLang1 << job
-  #     else 
-  #         jobsLang2 << job
-  #     end
-  # end
+  langArray.each do |language|
 
-  ##FIRST LANG
-  myData[0] = Hash.new 
-  entry1 = myData[0]
-  entry1['name'] = lang1
+    if amount > 0
+      jobsLang = VisualJob.where(language: language).where("finished_at IS NOT NULL").order(:finished_at).limit(amount)
+    else
+      jobsLang = VisualJob.where(language: language).where("finished_at IS NOT NULL").order(:finished_at)
+    end
+    data[counter] = Hash.new 
+    singleEntry = data[counter]
+    singleEntry['name'] = language
 
-  tempXlang1 = Array.new
-  tempYlang1 = Array.new
-  jobsLang1.each do |lang1|
-    tempYlang1 << lang1.result
-    tempXlang1 << lang1.finished_at
+    finishedAtDateTimes = Array.new
+    results             = Array.new
+    jobsLang.each do |lang|
+      results << lang.result
+      finishedAtDateTimes << lang.finished_at
+    end
+
+    singleEntry['x'] = finishedAtDateTimes
+    singleEntry['y'] = results
+
+    counter += 1
+
   end
-  entry1['x'] = tempXlang1
-  entry1['y'] = tempYlang1
 
-  ##SECOND LANG
-  myData[1] = Hash.new 
-  entry2 = myData[1]
-  entry2['name'] = lang2
-
-  tempXlang2 = Array.new
-  tempYlang2 = Array.new
-  jobsLang2.each do |lang2|
-    tempYlang2 << lang2.result
-    tempXlang2 << lang2.finished_at
+  return data
   end
-  entry2['x'] = tempXlang2
-  entry2['y'] = tempYlang2
-
-
-  return myData
-end
 
 
     def self.create_from_build(build)

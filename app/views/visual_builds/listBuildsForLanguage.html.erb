@@ -1,0 +1,6 @@
+
+<h1>Builds for language: <%= @language %> </h1>
+
+<%= render :file => "visual_builds/listBuilds", :locals => { :builds => @builds} %>
+
+<%= will_paginate @builds, :params => {:controller => "visualBuilds", :action=>"listBuildsForLanguage" } %>

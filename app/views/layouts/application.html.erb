@@ -2,46 +2,71 @@
 <html>
 <head>
   <title>VisualStats</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    "bootstrap.min.css", :media => "all" %>
   <%= javascript_include_tag 'jquery-1.8.3.min.js', 'bootstrap.min.js' %>
+  <%= javascript_include_tag 'jquery.form.js' %>
   <%= javascript_include_tag 'd3.v2.min.js' %>
-  <%= javascript_include_tag 'd3.legend.js' %>
   <%= javascript_include_tag 'highcharts.js' %>
+  <%= javascript_include_tag 'ajaxFormHelper.js' %>
   <%= javascript_include_tag 'helpers.js' %>
   <%= javascript_include_tag 'chart.js' %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
 
 </head>
 <body>
-	<div class="navbar navbar-inverse">
-	  <div class="navbar-inner">
 
-	    	<!-- Be sure to leave the brand out there if you want it shown -->
-				<%= link_to 'VisualStats', welcomePage_path, :class => 'brand' %>	 
-	 			<ul class="nav">
- 				 <li><%= link_to 'Repositories', repositories_path %></li>
- 				 <li><%= link_to 'Builds', builds_path %></li>
- 				 <li><%=link_to 'Commits', commits_path %></li>
- 				 <li><%=link_to 'Jobs', jobs_path %></li>
-  				 <li><%=link_to 'Calendar', calendar_path %></li>
-  				 <li><%=link_to 'Multi lines', multi_path %></li>
-  				 <li><%=link_to 'Animated multi lines', showReal_path %></li>
-  				 <li><%=link_to 'Multi', multi2_path %></li>
-				</ul>
-	      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	      </a>
-	 
-	      <!-- Everything you want hidden at 940px or less, place within here -->
-	      <div class="nav-collapse">
-	        <!-- .nav, .navbar-search, .navbar-form, etc -->
-	      </div>
-	 
-	  </div>
-	</div>
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+    	<div class="container" style="width: auto;">
+           <%= link_to 'VisualStats', welcomePage_path, :class => 'brand' %>
+
+            <ul class="nav" role="navigation">
+	            <li class="dropdown">
+	             <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Travis <b class="caret"></b></a>
+	              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+	  				<li><%=link_to 'About', about_path %></li>
+	  				<li class="divider"></li>
+	                <li><%= link_to 'All Repositories', '/repositories/' %></li>
+	 				<li><%= link_to 'All Builds', '/repositories/builds' %></li>
+	 				<li><%=link_to 'All Jobs', '/repositories/builds/jobs' %></li>
+	              </ul>
+	            </li>
+
+	            <li class="dropdown">
+	              <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+	              <ul class="dropdown-menu" role="menu" aria-labelledby="drop2"> 
+					<li><%= link_to 'Overview', overview_path %></li>
+	              	<li class="divider"></li>
+	              	<li><%= link_to 'Repositories', user_repositories_path %></li>
+	              	<li><%= link_to 'Builds', user_builds_path %></li>
+					<li><%= link_to 'Jobs', user_jobs_path %></li>
+	              </ul>
+	            </li>
+
+	            <li id="fat-menu" class="dropdown">
+	              <a href="#" id="drop4" role="button" class="dropdown-toggle" data-toggle="dropdown"> Language <b class="caret"></b></a>
+	             <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+	  				<li><%=link_to 'Overview', languages_overview_path %></li>
+	                <li><%= link_to 'Compare', languages_compare_path %></li>
+	                <li class="divider"></li>
+	              	<li><%= link_to 'Builds', languages_builds_path %></li>
+	              </ul>
+	            </li>
+
+				<li id="fat-menu" class="dropdown">
+	              <a href="#" id="drop4" role="button" class="dropdown-toggle" data-toggle="dropdown"> Dimension <b class="caret"></b></a>
+	             <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+	  				<li><%=link_to 'Overview', dimensions_overview_path %></li>
+	                <li><%= link_to 'Compare', dimensions_compare_path %></li>
+	              </ul>
+	            </li>
+	        </ul>
+        </div>
+    </div>
+</div>
 
 <%= yield %>
 

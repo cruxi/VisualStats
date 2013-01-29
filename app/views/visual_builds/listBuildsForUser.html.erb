@@ -1,0 +1,12 @@
+<div class="content">
+
+<% if @builds.length == 0 %>
+	<h2> No builds for user <%= @username %> found! </h2>
+<% else  %>
+	<h1>Builds for user <%= @username %> </h1>
+
+	<%= render :file => "visual_builds/listBuilds", :locals => { :builds => @builds} %>
+
+	<%= will_paginate @builds, :params => {:controller => "visualBuilds", :action=>"listBuildsForUser" } %>
+<% end %>
+</div>
