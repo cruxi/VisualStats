@@ -3,8 +3,8 @@ VisualStats::Application.routes.draw do
 ######## NEW RESTFUL ROUTES
 
 #TRAVIS
-  match 'repositories/builds' => 'visualBuilds#index' #shows all builds of all repositories 
-  match 'repositories/builds/jobs' => 'visualJobs#index' #shows all jobs of all builds of all repositories 
+  match 'repositories/builds' => 'visualBuilds#index' #shows all builds of all repositories
+  match 'repositories/builds/jobs' => 'visualJobs#index' #shows all jobs of all builds of all repositories
   match 'repositories/builds/jobs/languages' => 'visualJobs#listLanguages' #shows all languages used in jobs
 
 #USER
@@ -16,14 +16,17 @@ VisualStats::Application.routes.draw do
 
 #LANGUAGE
   match 'languages' => 'visualJobs#listLanguages' #shows all languages used in jobs (SAME as above but another route)
-  match 'languages/:language/' => 'visualJobs#listJobsForLanguage' #shows all results of a language -> visualization of success and fail 
-  match 'languages/:language1/:language2(/:language3)(/:language4)(/:language5)' => 'visualJobs#listJobsForLanguages'  #shows all results of min two language -> visualization of success and fail 
+  match 'languages/:language/' => 'visualJobs#listJobsForLanguage' #shows all results of a language -> visualization of success and fail
+  match 'languages/:language1/:language2(/:language3)(/:language4)(/:language5)' => 'visualJobs#listJobsForLanguages'  #shows all results of min two language -> visualization of success and fail
 
 #DIMENSION
-  match 'dimensions/:language/:version1/:version2' => 'visualJobs#listJobsForDimension',  
-  :constraints => { :version1 => /[^\/]+/ , :version2 => /[^\/]+/ } #shows all results two versions of a language -> visualization of success and fail 
+  match 'dimensions/:language/:version1/:version2' => 'visualJobs#listJobsForDimension',
+  :constraints => { :version1 => /[^\/]+/ , :version2 => /[^\/]+/ } #shows all results two versions of a language -> visualization of success and fail
 
 ########
+
+# webhook callbacks
+  match ':username/:repository/notify' => 'webhooks#notify'
 
 
   resources :repository_compacts do
@@ -45,7 +48,7 @@ VisualStats::Application.routes.draw do
     resources :builds
   end
 
- 
+
   resources :builds
 
   resources :events
