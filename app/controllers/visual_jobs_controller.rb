@@ -3,6 +3,17 @@ class VisualJobsController < ApplicationController
 	def index
 	    @jobs =  VisualJob.page(params[:page])
 
+	    @draw = Array.new 
+
+	    amount =  VisualJob.count()
+	    amount.to_i
+	    success =  VisualJob.where(:result => 1).count()
+	    fail = VisualJob.where(:result => 0).count()
+		
+		@draw << ['no result', amount-fail-success]
+	    @draw << ['fail', fail.to_i]
+	    @draw << ['success', success.to_i]
+
 	    respond_to do |format|
 	      format.html # index.html.erb
 	      format.json { render json: @jobs }
