@@ -1,37 +1,24 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
 
 * {
-	margin: 0 !important;
+	margin: 0;
 }
 
 body{
-	border:	none !important;	
-	padding-top: 5px !important;
-	padding-left: 50px !important;
-	padding-right: 50px !important;
-  font-family: sans-serif !important;
+	border:	none;	
+	padding-top: 5px;
+	padding-left: 50px;
+	padding-right: 50px;
+  font-family: sans-serif;
 }
 h1 {
-  font-size: 250% !important;
-  color: #00868B !important;
+  font-size: 250%;
+  color: #00868B;
 
 }
 
 h2, h3, h4{
-  font-size: 200% !important;
-  color: #00868B !important;
+  font-size: 200%;
+  color: #00868B;
 
 }
 
@@ -71,33 +58,33 @@ a {
 .content{
 	/*margin-right:150px;*/
 	/*margin-left: 150px;*/
-	text-align:justify !important;
+	text-align:justify;
 
 }
 
 .startContent{
-	text-align:center !important;
+	text-align:center ;
 }
 
 #dimensionTable {
 
-  width: 700px !important;
+  width: 700px;
 }
 
 
 .submitBtn {
-  margin-bottom: 12px !important;
+  margin-bottom: 12px;
 }
 
 .labelTag {
-  font-weight: bold !important;
-  margin-left: 5px !important;
+  font-weight: bold ;
+  margin-left: 5px;
 }
 
 .labelTagHTML{
-  font-weight: bold !important;
+  font-weight: bold;
 }
 
 .labelTagHTMLsmall{
- font-variant: small-caps !important;
+ font-variant: small-caps;
 }
