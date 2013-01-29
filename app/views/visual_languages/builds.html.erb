@@ -1,0 +1,21 @@
+<h1>Builds for specific language</h1>
+
+<%= form_tag (url_for :controller => 'start', :action => "index", :username => ' '), :id => 'langForm', :onsubmit => "return false;" do %>
+  <%= label_tag(:language, "Search for language:", :class => "labelTag") %>
+  <%= text_field_tag(:language) %>
+  <%= submit_tag("Search", :class => "submitBtn") %>
+<% end %>
+
+
+
+<div id="showlanguageDetails">
+</div>
+
+<script type="text/javascript">
+
+// pass formID, ID of div to display data and callback function to build route
+submitFormViaAjax('langForm', 'showlanguageDetails', function(form){
+  form.attr('action', '/languages/'+$('#language').val()+'/builds/');
+});
+
+</script>

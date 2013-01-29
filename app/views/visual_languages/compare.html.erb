@@ -1,0 +1,68 @@
+<h1>Compare languages</h1>
+
+<form id="selectNumber" action="return false;">
+	<label class="labelTagHTML">Select how many languages you want to compare:</label>
+	<select id="numberOfLangs" onchange="generateForm()">
+		<option value="0" name="" selected="selected"></option>
+		<option value="2" name="2">2</option>
+		<option value="3" name="3">3</option>
+		<option value="4" name="4">4</option>
+		<option value="5" name="5">5</option>
+	</select>
+</form>
+
+<%= form_tag (url_for :controller => 'start', :action => "index", :username => ' '), :id => 'langForm', :onsubmit => "return false;" do %>
+
+	<%= submit_tag("Search",  :id => 'submit_langs', :class => "submitBtn")%>
+<% end %>
+
+
+
+
+<div id="showlanguageDetails">
+</div>
+
+<script type="text/javascript">
+
+$('#submit_langs').hide();
+
+function generateForm(){
+
+
+	var submitBtn = $('#submit_langs');
+	var form = $('#langForm');
+	form.empty();
+	var options = '<%=raw options_for_select(@languages).squish %>';
+	var noOfLangs = $('#numberOfLangs').val();
+	
+	submitBtn.remove();
+	for(var i=1; i<=noOfLangs; i++){
+		form.append('<label class="labelTagHTMLsmall">Language ' + i + '</label><select id="language' + i + '">' + options + '</select>');
+	}
+	form.append('<br />');
+	form.append(submitBtn);
+	if (noOfLangs == 0) return
+	submitBtn.show();
+	
+}
+
+// pass formID, ID of div to display data and callback function to build route
+submitFormViaAjax('langForm', 'showlanguageDetails', function(form){
+
+
+	var url='/languages/';
+
+	// get all select-values of form
+    $('#langForm').children('select').each(function(){
+    
+        url += $(this).val() + '/';
+    });
+
+ 	url += '?ui=1'
+
+ 	console.log(url)
+
+  	form.attr('action', url);
+});
+
+</script>

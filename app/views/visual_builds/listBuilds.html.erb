@@ -1,0 +1,21 @@
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Repository</th>
+    <th>Finished</th>
+    <th>Result</th>
+    <th>Details</th>
+  </tr>
+
+<% builds.each do |build| %>
+  <tr>
+    <td><%= build.id %></td>
+    <td><%= build.repository_id %></td>
+    <td><%= build.finished_at %></td>
+    <td><%= build.result %></td>
+    <td><%= link_to "Show", show_build_path(:build_id => build.id, :ui => "1" )%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

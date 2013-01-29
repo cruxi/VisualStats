@@ -1,0 +1,38 @@
+<h1>Compare Dimensions</h1>
+
+<form id="dimensionsForm" action="return false;" onsubmit="">
+	<label class="labelTagHTML">language:</label>
+	<input id="language"></input>
+	<label class="labelTagHTMLsmall">dimension1:</label>
+	<input class="dimension"></input>
+	<label class="labelTagHTMLsmall">dimension2:</label>
+	<input class="dimension"></input>
+	<br />
+	<input type="submit" value="search" class="submitBtn"></input>
+</form>
+
+
+<div id="showDimensionDetails">
+</div>
+
+	<script type="text/javascript">
+
+// pass formID, ID of div to display data and callback function to build route
+submitFormViaAjax('dimensionsForm', 'showDimensionDetails', function(form){
+
+	var url='/dimensions/'+$('#language').val()+'/';
+
+	// get all select-values of form
+    $('#dimensionsForm').children('input.dimension').each(function(){
+    
+        url += $(this).val() + '/';
+    });
+
+ 	url += '?ui=1'
+
+ 	console.log(url)
+
+  	form.attr('action', url);
+});
+
+</script>

@@ -1,6 +1,13 @@
 var monthNames = [ "January", "February", "March", "April", "May", "June", 
                        "July", "August", "September", "October", "November", "December" ];
-    
+ 
+
+var CHARTTYPE_COLUMN = 'column';
+var CHARTTYPE_LINE   = 'line';
+
+var CHARTLABEL_SUCCESS = 'success';
+var CHARTLABEL_FAIL    = 'fail';
+
 /**
  * converts a String containing a DateTime representatio into a DateTime object
  * @param {String} dateTimeString 
@@ -10,16 +17,29 @@ function parseString2DateTime(dateTimeString){
 	
     var reggie = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/;
 	var dateArray = reggie.exec(dateTimeString); 
-	return new Date(
-					    (+dateArray[1]),
-					    (+dateArray[2])-1, // Careful, month starts at 0!
-					    (+dateArray[3]),
-					    (+dateArray[4]),
-					    (+dateArray[5]),
-					    (+dateArray[6])
-					);
-}
 
+	try{
+
+		var d = new Date(
+						    (+dateArray[1]),
+						    (+dateArray[2])-1, // Careful, month starts at 0!
+						    (+dateArray[3]),
+						    (+dateArray[4]),
+						    (+dateArray[5]),
+						    (+dateArray[6])
+						);
+		if(d.getFullYear() < 2010){
+			return -1;
+		}else{
+			return d;
+		}
+
+	}catch(e){
+
+		console.log('invalid dataTime: '+dateTimeString);
+		return -1;
+	}
+}
 /**
  * extend Date to return name of a month of a string
  */
@@ -40,6 +60,17 @@ function SortByDateASC(a, b){
 	return (a - b); // a and b are interpreted as milliseconds since 1970, therefore a simple subtraction in sufficent
 }
 
+/**
+ * draws a column chart of data at defined positionTag with title and subtitle
+ * @param {Object} data
+ * @param {Object} postionTag
+ * @param {Object} title
+ * @param {Object} subtitle
+ */
+function columnChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
+
+	customChart(CHARTTYPE_COLUMN, data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle);
+}
 
 /**
  * draws a line chart of data at defined positionTag with title and subtitle
@@ -49,8 +80,21 @@ function SortByDateASC(a, b){
  * @param {Object} subtitle
  */
 function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
+
+	customChart(CHARTTYPE_LINE, data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle);
+}
+
+/**
+ * draws a specified chart of data at defined positionTag with title and subtitle
+ * @param {Object} data
+ * @param {Object} postionTag
+ * @param {Object} title
+ * @param {Object} subtitle
+ */
+function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
 	
-	console.log(data);
+	// console.log(data);
+	var invalidDates = 0;
 	
 	var lableYEAR  = 'year';
 	var lableMONTH = 'month';
@@ -59,24 +103,32 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 	var series = new Array();
 	var structuredData = new Array();
 	
-	// create array {'2012-02-01 10:38:01'=> 0, ...} from x = {'2012-02-01 10:38:01', ...} and y = { 0, ...}
+	// create array {'2012-02-01T10:38:01Z'=> 0, ...} from x = {'2012-02-01T10:38:01Z', ...} and y = { 0, ...}
 	$.map(data, function( item, i){	
 		var assocData = new Array();
 		item.x.forEach(function(element, index, array){
-			item.x[index]=parseString2DateTime(element);
-			assocData[item.x[index]]=item.y[index];
+			var currDate = parseString2DateTime(element);
+			if(currDate == -1){
+				// in case it was an invalid date, remove it both from date and value arrays
+				item.x = item.x.slice(0,index-1).concat(item.x.slice(index));
+				item.y = item.y.slice(0,index-1).concat(item.y.slice(index));
+				console.log('element removed at index: ' + index);
+			}else{
+				item.x[index]= currDate;
+				assocData[item.x[index]]=item.y[index];
+			}
 		});
 		structuredData[item.name]=assocData;
 	});
 	
-	console.log(structuredData);
+	// console.log(structuredData);
 	
 	// join all timestamps into one array
 	$.map(data, function( item, i){	
 		times = times.concat(item.x);
 	});
 
-	console.log(times);
+	// console.log(times);
 	
 	// get max and min date form all times
 	var maxDate = new Date(times.max());
@@ -90,12 +142,12 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 	
 	var multipleYears = (maxYear != minYear);
 		
-	console.log('max: '+ maxDate);
-	console.log('min: '+ minDate);
+	// console.log('max: '+ maxDate);
+	// console.log('min: '+ minDate);
 	console.log('maxYear: '+ maxYear);
 	console.log('minYear: '+ minYear);
-	console.log('maxMonth: '+ maxMonth);
-	console.log('minMonth: '+ minMonth);
+	// console.log('maxMonth: '+ maxMonth);
+	// console.log('minMonth: '+ minMonth);
 	
 	var xVals = new Array();
 	var yVals = new Array();
@@ -114,9 +166,9 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 			
 			var tempMonths = new Array();// contains relevant month of current year
 			
-			console.log("tempYear: " + tempYear);
-			console.log("minYear: " + minYear);
-			console.log("maxYear: " + maxYear);
+			// console.log("tempYear: " + tempYear);
+			// console.log("minYear: " + minYear);
+			// console.log("maxYear: " + maxYear);
 	
 			
 			if(tempYear==minYear) i = minMonth;
@@ -131,7 +183,7 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 			tempYear++;			
 		}
 	}else{
-		var tempMon = minMonth+1;
+		var tempMon = minMonth;
 		var tempMonths = new Array();
 		
 		while(tempMon<=maxMonth)tempMonths.push(tempMon++);
@@ -140,9 +192,10 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 					month: tempMonths});	
 	}
 	
-	console.log("multi: " + multipleYears);
+	// console.log("multi: " + multipleYears);
 	
-	console.log(xVals);
+	// console.log('xVals');
+	// console.log(xVals);
 	
 	// fill categories-Array (x-axis)
 	// and series-object (values)
@@ -155,7 +208,7 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 		seriesByLang[item.name] = Array ();
 	});
 	
-	console.log(seriesByLang);
+	// console.log(seriesByLang);
 	
 	xVals.forEach(function(element, index, array){
 	
@@ -163,9 +216,9 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 			
 			var xMonth = e; 
 			var xYear  = element[lableYEAR];
-			console.log(element);
-			console.log(lableYEAR);
-			console.log("xYear: " + xYear);
+			// console.log(element);
+			// console.log(lableYEAR);
+			// console.log("xYear: " + xYear);
 			
 			var currSeriesTotal;		// total count of results of a month (doesn't matter if result is success or not')
 			var currSeriesPositiv;		// to count success
@@ -175,7 +228,7 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 			// values
 			$.map(data, function(value, j){
 				
-				console.log(value);
+				// console.log(value);
 				// reset values for each dataset
 				currSeriesTotal = 0;
 				currSeriesPositiv = 0;		
@@ -183,55 +236,124 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 	
 				value.x.forEach(function(xElement, xIndex, xArray){	
 					
-					var currXMonth = xElement.getMonth() + 1;	//+1 to match xMonth 1..12, because getMonth() returns a value between 0 and 11
-					var currXYear  = xElement.getFullYear();
-					
-					if(currXMonth==xMonth && currXYear==xYear){
+					try{
+
+						var currXMonth = xElement.getMonth() + 1;	//+1 to match xMonth 1..12, because getMonth() returns a value between 0 and 11
+						var currXYear  = xElement.getFullYear();
 						
-						 currSeriesTotal++;
-						 if(value.y[xIndex]==0) currSeriesPositiv++;
-						 else if(value.y[xIndex]==1) currSeriesNegativ++;
+						if(currXMonth==xMonth && currXYear==xYear){
+							
+							 currSeriesTotal++;
+							 if(value.y[xIndex]==1) currSeriesPositiv++;
+							 else if(value.y[xIndex]==0) currSeriesNegativ++;
+						}
+						// console.log("--------------------------------");
+						// console.log(value.name + " name");
+						// console.log(currXMonth + " currXMonth");
+						// console.log(xMonth  + " xMonth");
+						// console.log(currXYear + " currXYear");
+						// console.log(xYear +" xYear");
+						// console.log(currSeriesTotal + " currSeriesTotal");
+					}catch(exception){
+						invalidDates++;
+						// console.log('EXC ' + exception.toString());
+						// console.log('null at index: ' + xIndex);
 					}
-					// console.log("--------------------------------");
-					// console.log(value.name + " name");
-					// console.log(currXMonth + " currXMonth");
-					// console.log(xMonth  + " xMonth");
-					// console.log(currXYear + " currXYear");
-					// console.log(xYear +" xYear");
-					// console.log(currSeriesTotal + " currSeriesTotal");
-					
 				});
 				
+				// if (currSeriesTotal==0) {
+				// 	console.log("jetzt 0!!");
+				// 	currSeriesTotal = null;
+
+				// }
+
 				// determine success-rate and add result to 
 				//seriesByLang[value.name].push(currSeriesPositiv);
-				seriesByLang[value.name].push({
-												total: currSeriesTotal,
-												success: currSeriesPositiv,
-												fail: 	currSeriesNegativ,
-												successrate: (currSeriesTotal==0)?0.0:currSeriesPositiv*100.0/currSeriesTotal
-											});
+				//if(chartType == CHARTTYPE_LINE){
+				//	console.log("chartType "+CHARTTYPE_LINE);
+					seriesByLang[value.name].push({
+													total:   currSeriesTotal,
+													success: currSeriesPositiv,
+													fail: 	 currSeriesNegativ,
+													successrate: (currSeriesTotal==0)?0.0:currSeriesPositiv*100.0/currSeriesTotal
+												});
+				// }else if (chartType == CHARTTYPE_COLUMN){
+				// 	console.log("chartType "+CHARTTYPE_COLUMN);
+				// 	var successIndex = 0;
+				// 	var failIndex = 0;
+				// 	$.map(data, function( item, i){	
+						
+				// 		if(item.name == CHARTLABEL_FAIL)failIndex = i;
+				// 		if(item.name == CHARTLABEL_SUCCESS)successIndex = i;
+				// 	});			
+				// 	var failTotal = data[failIndex].x.length;
+				// 	var successTotal = data[successIndex].x.length;
+				// 	var successFailTotal = failTotal+successTotal;
+
+				// 	if(value.name == CHARTLABEL_SUCCESS){
+				// 		seriesByLang[value.name].push({
+				// 										total:   successFailTotal,
+				// 										success: successTotal,
+				// 										fail: 	 failTotal,
+				// 										successrate: (successFailTotal==0)?0.0:successTotal*100.0/successFailTotal
+				// 									});
+
+				// 	}else if(value.name == CHARTLABEL_FAIL){
+				// 		seriesByLang[value.name].push({
+				// 										total:   successFailTotal,
+				// 										success: successTotal,
+				// 										fail: 	 failTotal,
+				// 										successrate: (successFailTotal==0)?0.0:failTotal*100.0/successFailTotal
+				// 									});
+				// 	}
+				// }
+
 			});
 
 			// categories
 			categories.push(monthNames[xMonth-1].substring(0,3) + " " + xYear.toString().substring(2));		// -1 to match monthNames array 0..11, because xMonth 1..12
 		});
 	});
-	 console.log(categories); 
-	 console.log(seriesByLang); 
+	 // console.log(categories); 
+	 // console.log(seriesByLang); 
 	
+	if(chartType == CHARTTYPE_COLUMN){
+		
+		seriesByLang[CHARTLABEL_SUCCESS].forEach(function(element, index, array){
+				
+			var failCount = seriesByLang[CHARTLABEL_FAIL][index].success;
+			var successCount = element.success;
+			var successFailTotal = failCount+successCount;
+
+			seriesByLang[CHARTLABEL_SUCCESS][index].total       = successFailTotal;
+			seriesByLang[CHARTLABEL_SUCCESS][index].fail        = failCount;
+			seriesByLang[CHARTLABEL_SUCCESS][index].success     = successCount;
+			seriesByLang[CHARTLABEL_SUCCESS][index].successrate = (successFailTotal==0)?0.0:successCount*100.0/successFailTotal;;
+
+			seriesByLang[CHARTLABEL_FAIL][index].total       = successFailTotal;
+			seriesByLang[CHARTLABEL_FAIL][index].fail        = failCount;
+			seriesByLang[CHARTLABEL_FAIL][index].success     = successCount;
+			seriesByLang[CHARTLABEL_FAIL][index].successrate = (successFailTotal==0)?0.0:failCount*100.0/successFailTotal;
+
+		});			
+	}
+
 	$.map(data, function(element, index){
 		
 		var total       = new Array();
 		var success     = new Array();
 		var fail        = new Array();
 		var successrate = new Array(); 
-		
+
 		seriesByLang[element.name].forEach(function(element, index, array){
 			
-			total.push(element.total);
-			success.push(element.success);
-			fail.push(element.fail);
-			successrate.push(element.successrate);
+			//just push data if there were jobs for language in this month
+			if (element.total > 0) {
+				total.push(element.total);
+				success.push(element.success);
+				fail.push(element.fail);
+				successrate.push(Math.round(element.successrate));
+			}
 			
 		});
 		
@@ -246,7 +368,7 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 	
 	var outseries = series;
 	
-	console.log(outseries);
+	// console.log(outseries);
 	
 	function getSingleSeriesByName(name, array){
 		
@@ -259,15 +381,15 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
 		return retObj;
 	}
 // 	
-	console.log(getSingleSeriesByName('ruby', series));
-	
-	
+	if(invalidDates>0){
+		alert('Sourcedata contains '+invalidDates+' invalid DateTime-values!');
+	}
     var chart;
     
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: postionTag,
-                type: 'line',
+                type: chartType,
                 marginRight: 130,
                 marginBottom: 45
             },
@@ -315,7 +437,21 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
                 y: 100,
                 borderWidth: 0
             },
-            series: series
+            series: series,
+            
+            colors: [
+						'#FF8E8E',
+						'#93EEAA', 
+						'#4572A7', 
+						'#AA4643', 
+						'#89A54E', 
+						'#80699B', 
+						'#3D96AE', 
+						'#DB843D', 
+						'#92A8CD', 
+						'#A47D7C', 
+						'#B5CA92'				
+					]
         });
         
 }

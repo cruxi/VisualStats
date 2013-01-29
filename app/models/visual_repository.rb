@@ -4,6 +4,7 @@ class VisualRepository < ActiveRecord::Base
 
   has_many :builds, class_name: "VisualBuild", foreign_key: :repository_id, dependent: :destroy
 
+#CLASS METHODS
 
   def self.get_or_create_from_repository(repository)
     if existing = self.find_by_travis_id(repository.id)
@@ -39,5 +40,38 @@ class VisualRepository < ActiveRecord::Base
     r = build.build_repository(json)
     r.travis_id = travis_id
     r
+  end
+
+  # name: pos / neg
+  # x: dates
+  # y: fail / success
+  def self.getRepositoryDrawData(id)
+  
+  data = Array.new
+  names = ['fail', 'success']
+
+  builds = VisualBuild.where(repository_id: id).where("finished_at IS NOT NULL").order(:finished_at)
+  
+  for i in 0..1 do
+
+    data[i] = Hash.new 
+    singleEntry = data[i]
+    singleEntry['name'] = names[i]
+
+    finishedAtDateTimes = Array.new
+    results             = Array.new
+    builds.each do |build|
+      if build.result == i        # result 1 -> success
+        results << 1
+        finishedAtDateTimes << build.finished_at
+      end
+    end
+
+    singleEntry['x'] = finishedAtDateTimes
+    singleEntry['y'] = results
+
+  end
+
+  return data
   end
 end

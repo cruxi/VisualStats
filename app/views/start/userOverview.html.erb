@@ -1,0 +1,20 @@
+<%= form_tag (url_for :controller => 'start', :action => "aboutUser", :username => ' '), :id => 'userForm', :onsubmit => "return false;" do %>
+  <%= label_tag(:userName, "Search for User Name:", :class => "labelTag") %>
+  <%= text_field_tag(:userName) %>
+  <%= submit_tag("Search", :class => "submitBtn") %>
+<% end %>
+
+
+
+<div id="showUserDetails">
+</div>
+
+<script type="text/javascript">
+
+// pass formID, ID of div to display data and callback function to build route
+submitFormViaAjax('userForm', 'showUserDetails', function(form){
+	form.attr('action', '/user/'+$('#userName').val());
+});
+
+
+</script>

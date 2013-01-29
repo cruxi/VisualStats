@@ -1,0 +1,25 @@
+
+<div class="content">
+
+<% if @repositories.length == 0 %>
+	<h2> No data for user <%= @user %> found! </h2>
+<% else  %>
+	<h1>Data overview for <%= @user %>!</h1>
+	<p>
+	Amount of repository: <%=  @repositoriesCount %>
+	<br />
+	Amount of builds: <%=  @buildsCount %>
+	<br />
+	Amount of jobs: <%=  @jobsCount %>
+	</p>
+	<h2>Repositories</h2>
+	<%= render :file => "visual_repositories/listRepos", :locals => {:repositories => @repositories} %>
+
+	<h2>Last <%= @lastBuildsNumber %> Builds</h2>
+	<%= render :file => "visual_builds/listBuilds", :locals => {:builds => @buildsArray} %>
+
+	<h2>Last <%= @lastJobsNumber %> Jobs</h2>
+	<%= render :file => "visual_jobs/listJobs", :locals => {:jobs => @jobsArray} %>
+<% end %>
+
+</div>

@@ -1,0 +1,41 @@
+
+<h1>All Dimensions used for CI </h1>
+<h4>Click on the row to see the different speficications</h4>
+
+<% i=0 %>
+<table class="table table-striped table-bordered table-hover" id="dimensionTable">
+ <tr>
+    <th>Name <span style="float:right">Amount </span></th>
+ </tr>
+
+<% @distinctDimensions.each do |dimension| %>
+	<% dimensionVals = @dimensions[dimension.key.to_s] %>
+	<tr>
+		<td class="sum" id="<%= i%>"><%= dimension.key.to_s %> <span style="float:right"><%= @sums[dimension.key.to_s] %> </span>
+			<br />
+			<div colspan="2" class="dimensionList" id="dimensionList<%=i%>" style="display:none">
+			<%= render :file => "visual_dimensions/listDimensions", :locals => { :dimensions => dimensionVals} %>
+			</div>
+		</td>
+	</tr>
+	<% i += 1 %>
+<% end %>
+
+</table>
+
+<script type="text/javascript">
+	
+
+	setup();
+
+	function setup(){
+
+		$('td.sum').click(function(){
+			var id = $(this).attr('id');
+			$('#dimensionList'+id).toggle();
+
+		});
+
+	};
+
+</script>

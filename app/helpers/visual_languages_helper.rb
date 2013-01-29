@@ -1,0 +1,2 @@
+module VisualLanguagesHelper
+end
