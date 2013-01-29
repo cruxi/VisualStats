@@ -88,3 +88,45 @@ a {
 .labelTagHTMLsmall{
  font-variant: small-caps;
 }
+
+#outContainer {
+  width: 100%;
+}
+
+#rightContainer{
+  width: 50%;
+  float: right;
+}
+
+#leftContainer{
+  width: 50%;
+  float: left;
+  margin-top: 120px;
+}
+
+.number {
+  text-align: right !important;
+}
+
+.ligthenTable {
+  color: #ffffff !important;
+}
+.ligthenTable:hover {
+  color: #000000 !important;
+  filter: alpha(opacity=90) !important;
+}
+.successTable {
+  background-color: #7f9b44 !important;
+}
+
+.failTable {
+  background-color: #a4403d !important;
+}
+
+.no_resultTable {
+  background-color: #345f94 !important;
+}
+.totalTable {
+  color: #000000 !important;
+  background-color: #d2d2d2 !important;
+}
