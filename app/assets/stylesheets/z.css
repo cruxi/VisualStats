@@ -16,7 +16,7 @@ h1 {
 
 }
 
-h2, h3, h4{
+h2, h3{
   font-size: 200%;
   color: #00868B;
 
@@ -129,4 +129,10 @@ a {
 .totalTable {
   color: #000000 !important;
   background-color: #d2d2d2 !important;
+}
+
+
+.example_images {
+  width: 80% !important;
+  margin-left: 120px !important;
 }

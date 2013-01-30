@@ -101,4 +101,6 @@ a {
 .labelTagHTMLsmall{
  font-variant: small-caps !important;
 }
-
+.item {
+  height: 70%;
+}

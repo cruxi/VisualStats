@@ -9,11 +9,42 @@
     TravisCI ist ein gehosteter, verteilter Continous Integration Service welcher verwendet wird um auf Github gehostete Projekte zu testen. Jeder Commit löst einen Build des Projektes aus, bei welchem dieses auf verschiedenen Umgebungen getestet wird. Builds, untergliedert in einzelne Jobs, können somit entweder erfolgreich sein oder fehlschlagen. Die Menge an Daten, die Travis dabei jeden Tag sammelt, stehen uns, der Gruppe VisualStats, zur Verfügung um diese zu visualisieren. Wir haben eine App entwickelt in welcher über Restful Routes die Daten verfügbar gemacht wurden und mittels verschiedener Diagramme visualisiert werden. Dabei gilt es die großen Datenmengen von über 40GB zu beachten und die Daten sinnvoll aufzubereiten. 
    </p>
    
-<div class="startContent">
-   <%= image_tag "screenshot_pie.png", :alt => "Pie", :width => "150px" %> 
-   <%= image_tag "screenshot_balken.png", :alt => "Balken", :width => "500px" %> 
-   <p>
-   <%= image_tag "screenshot_lines.png", :alt => "Lines", :width => "800px" %> 
-   </p>
-
+  <div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+     <%= image_tag "example_multi_lines.png", :class => "example_images"  %> 
+      <div class="carousel-caption">
+            <h4>Example Multi Lines</h4>
+            <p>You can compare 2-5 languages with each other. They are shown by success over the period they have been used for CI.</p>
+        </div>
+    </div>
+    <div class="item">
+      <%= image_tag "example_pie.png", :class => "example_images"   %> 
+    <div class="carousel-caption">
+            <h4>Example Pie</h4>
+            <p>The result of all builds and all jobs can be seen in a pie.</p>
+        </div>
+    </div>
+    <div class="item">
+     <%= image_tag "example_column_spline.png", :class => "example_images"   %> 
+    <div class="carousel-caption">
+            <h4>Example Columns with Spline</h4>
+            <p>Each repository is visualized by its builds and their success and fail. The spline represents the amount of builds in this month.</p>
+        </div>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+
+<script type="text/javascript">
+
+setup();
+
+  function setup(){
+
+$('.carousel').carousel();
+
+};
