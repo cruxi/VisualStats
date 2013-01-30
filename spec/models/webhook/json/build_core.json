@@ -1,0 +1,388 @@
+{
+  "id": 2224302,
+  "repository": {
+    "id": 3323,
+    "name": "travis-core",
+    "owner_name": "travis-ci",
+    "url": "https://github.com/travis-ci/travis-core"
+  },
+  "number": "1001",
+  "config": {
+    "language": "ruby",
+    "rvm": ["1.9.3", "jruby-18mode", "jruby-19mode"],
+    "jdk": ["oraclejdk7", "openjdk6"],
+    "env": ["JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false\""],
+    "matrix": {
+      "allow_failures": [{
+        "rvm": "jruby-head"
+      }],
+      "include": [{
+        "rvm": "jruby-head",
+        "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+      }, {
+        "rvm": "jruby-head",
+        "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+      }]
+    },
+    "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+    "script": ["./build.sh"],
+    "notifications": {
+      "irc": "irc.freenode.org#travis"
+    },
+    ".result": "configured"
+  },
+  "status": 0,
+  "result": 0,
+  "status_message": "Fixed",
+  "result_message": "Fixed",
+  "started_at": "2012-08-24T10:32:41Z",
+  "finished_at": "2012-08-24T10:39:14Z",
+  "duration": 1524,
+  "build_url": "https://travis-ci.org/travis-ci/travis-core/builds/2224302",
+  "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+  "branch": "master",
+  "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+  "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+  "committed_at": "2012-08-24T10:32:10Z",
+  "author_name": "Sven Fuchs",
+  "author_email": "me@svenfuchs.com",
+  "committer_name": "Sven Fuchs",
+  "committer_email": "me@svenfuchs.com",
+  "matrix": [{
+    "id": 2224303,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.1",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "1.9.3",
+      "jdk": "oraclejdk7",
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 0,
+    "result": 0,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:35:19Z"
+  }, {
+    "id": 2224304,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.2",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "1.9.3",
+      "jdk": "openjdk6",
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 0,
+    "result": 0,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:34:59Z"
+  }, {
+    "id": 2224305,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.3",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "jruby-18mode",
+      "jdk": "oraclejdk7",
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 0,
+    "result": 0,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:36:46Z"
+  }, {
+    "id": 2224306,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.4",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "jruby-18mode",
+      "jdk": "openjdk6",
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 0,
+    "result": 0,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:37:03Z"
+  }, {
+    "id": 2224307,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.5",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "jruby-19mode",
+      "jdk": "oraclejdk7",
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 0,
+    "result": 0,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:36:58Z"
+  }, {
+    "id": 2224308,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.6",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "jruby-19mode",
+      "jdk": "openjdk6",
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 0,
+    "result": 0,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:39:14Z"
+  }, {
+    "id": 2224309,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.7",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "jruby-head",
+      "jdk": ["oraclejdk7", "openjdk6"],
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 1,
+    "result": 1,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:35:23Z"
+  }, {
+    "id": 2224310,
+    "repository_id": 3323,
+    "parent_id": 2224302,
+    "number": "1001.8",
+    "state": "finished",
+    "config": {
+      "language": "ruby",
+      "rvm": "jruby-head",
+      "jdk": ["oraclejdk7", "openjdk6"],
+      "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\"",
+      "matrix": {
+        "allow_failures": [{
+          "rvm": "jruby-head"
+        }],
+        "include": [{
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.9\""
+        }, {
+          "rvm": "jruby-head",
+          "env": "JRUBY_OPTS=\"--server -Xcext.enabled=false -Xcompile.invokedynamic=false --1.8\""
+        }]
+      },
+      "before_script": ["RAILS_ENV=test rake db:create db:schema:load --trace"],
+      "script": ["./build.sh"],
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      ".result": "configured"
+    },
+    "status": 0,
+    "result": 0,
+    "commit": "88b9261a886b35483ac468d0e9eabafff16efcf2",
+    "branch": "master",
+    "message": "Merge branch 'master' of github.com:travis-ci/travis-core",
+    "compare_url": "https://github.com/travis-ci/travis-core/compare/049aba026c62...88b9261a886b",
+    "committed_at": "2012-08-24T10:32:10Z",
+    "author_name": "Sven Fuchs",
+    "author_email": "me@svenfuchs.com",
+    "committer_name": "Sven Fuchs",
+    "committer_email": "me@svenfuchs.com",
+    "finished_at": "2012-08-24T10:38:57Z"
+  }]
+}
