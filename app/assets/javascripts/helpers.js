@@ -13,6 +13,12 @@ function multilineTrim(htmlString) {
    return htmlString.split("\n").map($.trim).filter(function(line) { return line != "" }).join(" ");
 }
 
+/**
+ * extend String to Uppercase first letter of a word
+ */
+String.prototype.capitalize = function(){
+	return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 /**
  * extend Date to determine equality

@@ -1,29 +1,48 @@
 <h1>Listing all builds for all repositories</h1>
 
+<div id="outContainer">
+    <div id="leftContainer">
+        <table class="table table-hover table-bordered">
+         <tr>
+            <th>Result</th>
+            <th>Amount</th>
+            <th>Percentage</th>
+          </tr>
+        <% @draw.each do |entry| %>
+          <tr class="ligthenTable <%= entry[0].gsub(/[ ]/,'_') %>Table">
+            <td><%= entry[0] %></td>
+            <td class="number"><%= entry[1] %></td>
+            <td class="number"><%= (((entry[1]*100.0/@amount)*10).round)/10.0 %></td>
+          </tr>
+        <% end %>
+        <tr class="ligthenTable totalTable">
+            <td>total</td>
+            <td class="number"><%= @amount %></td>
+            <td class="number">100.0</td>
+        </tr>   
+        </table>
+    </div>
+    <div id="rightContainer"></div>
+</div>
+
+<script type="text/javascript">
+pieChart(<%=raw @draw %>, "rightContainer", "Result in % of all builds", "result");
+</script>
+
 <table class="table table-striped table-bordered table-hover">
  <tr>
     <th>Id</th>
     <th>Repository</th>
-    <th>Number</th>
-    <th>Config</th>
-    <th>Request</th>
     <th>Finished</th>
-    <th>Owner</th>
     <th>Result</th>
-    <th>Previous result</th>
   </tr>
 
 <% @builds.each do |build| %>
   <tr>
     <td><%= build.id %></td>
     <td><%= build.repository_id %></td>
-    <td><%= build.number %></td>
-    <td><%= build.config %></td>
-    <td><%= build.request_id %></td>
     <td><%= build.finished_at %></td>
-    <td><%= build.owner_id %></td>
     <td><%= build.result %></td>
-    <td><%= build.previous_result %></td>
   </tr>
 <% end %>
 </table>

@@ -13,14 +13,14 @@
  */
 
 * {
-	margin: 0;
+	margin: 0 !important;
 }
 
 body{
-	border:	none;	
-	padding-top: 5px;
-	padding-left: 50px;
-	padding-right: 50px;
+	border:	none !important;	
+	padding-top: 5px !important;
+	padding-left: 50px !important;
+	padding-right: 50px !important;
   font-family: sans-serif !important;
 }
 h1 {
@@ -71,49 +71,36 @@ a {
 .content{
 	/*margin-right:150px;*/
 	/*margin-left: 150px;*/
-	text-align:justify;
+	text-align:justify !important;
 
 }
 
 .startContent{
-	text-align:center;
+	text-align:center !important;
 }
-
-
-
- .barfail {
-   stroke: white;
-   fill: #FF8E8E;
- }
-
-
- .barsuccess {
-   stroke: white;
-   fill: #93EEAA;
- }
 
 #dimensionTable {
 
   width: 700px !important;
 }
 
-.sum {
-  cursor: pointer;
-}
 
 .submitBtn {
-  margin-bottom: 12px;
+  margin-bottom: 12px !important;
 }
 
 .labelTag {
-  font-weight: bold;
-  margin-left: 5px;
+  font-weight: bold !important;
+  margin-left: 5px !important;
 }
 
 .labelTagHTML{
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .labelTagHTMLsmall{
- font-variant: small-caps;
+ font-variant: small-caps !important;
+}
+.item {
+  height: 70%;
 }

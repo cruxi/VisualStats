@@ -14,15 +14,17 @@
   <b>Url:</b>
   <%= @repository.url %>
 </p> 
+
+
 <div id="container">
 
 
 <%= javascript_tag do %>
  $(document).ready(function(){
 
- 	columnChart(<%=raw @draw %>, "container", "Time", "Result in %", "Build", "Comparison of succeeded and failed builds", "based on their result");
-
+ 	columnSplineChart(<%=raw @draw %>, "container", "Time", "Result in %", "build", "Comparison of succeeded and failed builds", "based on their result");
 
 });
 <%end%>
 </div>
+

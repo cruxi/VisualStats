@@ -3,6 +3,7 @@ var monthNames = [ "January", "February", "March", "April", "May", "June",
  
 
 var CHARTTYPE_COLUMN = 'column';
+var CHARTTYPE_SPLINECOLUMN = 'splinecolumn';
 var CHARTTYPE_LINE   = 'line';
 
 var CHARTLABEL_SUCCESS = 'success';
@@ -61,11 +62,31 @@ function SortByDateASC(a, b){
 }
 
 /**
+ * draws a splinecolumn chart of data at defined positionTag with title and subtitle
+ * @param {Object} data
+ * @param {Object} postionTag
+ * @param {Object} xAxisLable
+ * @param {Object} yAxisLable
+ * @param {Object} typeOfComparedObjects
+ * @param {Object} title
+ * @param {Object} subtitle
+ * @param {Object} yAxisOppositeLable
+ */
+function columnSplineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle, yAxisOppositeLable){
+
+	customChart(CHARTTYPE_SPLINECOLUMN, data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle, yAxisOppositeLable);
+}
+
+/**
  * draws a column chart of data at defined positionTag with title and subtitle
  * @param {Object} data
  * @param {Object} postionTag
+ * @param {Object} xAxisLable
+ * @param {Object} yAxisLable
+ * @param {Object} typeOfComparedObjects
  * @param {Object} title
  * @param {Object} subtitle
+ * @param {Object} yAxisOppositeLable
  */
 function columnChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
 
@@ -76,8 +97,12 @@ function columnChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObj
  * draws a line chart of data at defined positionTag with title and subtitle
  * @param {Object} data
  * @param {Object} postionTag
+ * @param {Object} xAxisLable
+ * @param {Object} yAxisLable
+ * @param {Object} typeOfComparedObjects
  * @param {Object} title
  * @param {Object} subtitle
+ * @param {Object} yAxisOppositeLable
  */
 function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
 
@@ -91,7 +116,7 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
  * @param {Object} title
  * @param {Object} subtitle
  */
-function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
+function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle, yAxisOppositeLable){
 	
 	// console.log(data);
 	var invalidDates = 0;
@@ -317,7 +342,7 @@ function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOf
 	 // console.log(categories); 
 	 // console.log(seriesByLang); 
 	
-	if(chartType == CHARTTYPE_COLUMN){
+	if(chartType == CHARTTYPE_COLUMN || chartType == CHARTTYPE_SPLINECOLUMN){
 		
 		seriesByLang[CHARTLABEL_SUCCESS].forEach(function(element, index, array){
 				
@@ -365,31 +390,214 @@ function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOf
 						total:   total
 					});
 	});
-	
-	var outseries = series;
-	
-	// console.log(outseries);
-	
-	function getSingleSeriesByName(name, array){
-		
-		var retObj = new Object;
-		
-		array.forEach(function(element, index, arr){
-			if(element.name==name)retObj=element;
-		});
-		
-		return retObj;
-	}
-// 	
+
 	if(invalidDates>0){
-		alert('Sourcedata contains '+invalidDates+' invalid DateTime-values!');
+		alert('Sourcedata contains ' + invalidDates + ' invalid DateTime-values!');
 	}
+
+	console.log(chartType);
+console.log(series);
+
+
     var chart;
+    switch(chartType){
+   	case CHARTTYPE_LINE:
+    	chart = drawLineChart(categories, series, getSingleSeriesByName, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle);
+    	break;
+    case CHARTTYPE_COLUMN:
+    	chart = drawColumnChart(categories, series, getSingleSeriesByName, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle);
+    	break;
+    case CHARTTYPE_SPLINECOLUMN:
+    	chart = drawColumSplineChart(categories, series, getSingleSeriesByName, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle, yAxisOppositeLable);
+    	break;
+    default:
+    	postionTag.html('Unknown chart-type "' + chartType + '"! <br />Please use var "CHARTTYPE_COLUMN", "CHARTTYPE_SPLINECOLUMN", "CHARTTYPE_LINE".');
+	}
+}
+
+
+function getSingleSeriesByName(name, array){
+	
+	var retObj = new Object;
+	
+	array.forEach(function(element, index, arr){
+		if(element.name==name)retObj=element;
+	});
+	
+	return retObj;
+}
+
+function drawColumSplineChart(categories, series, getSingleSeriesByName, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle, yAxisOppositeLable){
+
+		var splineType = "spline";    
+		series[0].type  = 'column';
+		series[1].type  = 'column';
+	
+		series.push({
+			data: series[0].total,
+			type: splineType,
+			name: typeOfComparedObjects + "s in total",
+			yAxis: 1
+		});
+
+		chart = new Highcharts.Chart({
+            chart: {
+                renderTo: postionTag,
+                marginRight: 165,
+                marginBottom: 45
+            },
+            title: {
+                text: title,
+                x: -20 //center
+            },
+            subtitle: {
+                text: subtitle,
+                x: -20
+            },
+            xAxis: {
+                title: {
+                    text: xAxisLable
+                },
+                categories: categories
+            },
+            yAxis: [{
+            	min: 0,
+            	max: 100,
+                title: {
+                    text: yAxisLable
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },{ // Secondary yAxis
+            	min: 0,
+            	max: series[2].data.max(),
+                title: {
+                    text: (yAxisOppositeLable == null)? "Number of " + typeOfComparedObjects.capitalize() + "s" : yAxisOppositeLable,
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    },
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+            	
+                formatter: function() {
+                		if(this.series.type==splineType){
+                			return '<b>'+ this.y +' ' + typeOfComparedObjects + 's in total</b>';
+                		}else{
+	                        return '<b>'+ this.series.name +'</b><br />'+
+	                        this.x +': '+ this.y+'%<br />'+
+	                        getSingleSeriesByName(this.series.name, series).success[categories.indexOf(this.x)] +' succeeded and <br />' +
+	                        getSingleSeriesByName(this.series.name, series).fail[categories.indexOf(this.x)] + ' failed of <br />' + 
+	                        getSingleSeriesByName(this.series.name, series).total[categories.indexOf(this.x)] + ' ' + typeOfComparedObjects + 's in total';
+                   		}
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: series,
+            
+            colors: [
+						'#FF8E8E',
+						'#93EEAA', 
+						'#4572A7', 
+						'#AA4643', 
+						'#89A54E', 
+						'#80699B', 
+						'#3D96AE', 
+						'#DB843D', 
+						'#92A8CD', 
+						'#A47D7C', 
+						'#B5CA92'				
+					]
+        });
+}
+
+
+function drawLineChart(categories, series, getSingleSeriesByName, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
     
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: postionTag,
-                type: chartType,
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 45
+            },
+            title: {
+                text: title,
+                x: -20 //center
+            },
+            subtitle: {
+                text: subtitle,
+                x: -20
+            },
+            xAxis: {
+                title: {
+                    text: xAxisLable
+                },
+                categories: categories
+            },
+            yAxis: {
+            	min: 0,
+            	max: 100,
+                title: {
+                    text: yAxisLable
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+            	
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br />'+
+                        this.x +': '+ this.y+'%<br />'+
+                        getSingleSeriesByName(this.series.name, series).success[categories.indexOf(this.x)] +' succeeded and <br />' +
+                        getSingleSeriesByName(this.series.name, series).fail[categories.indexOf(this.x)] + ' failed of <br />' + 
+                        getSingleSeriesByName(this.series.name, series).total[categories.indexOf(this.x)] + ' ' + typeOfComparedObjects + 's in total';
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: series
+        });
+}
+
+
+function drawColumnChart(categories, series, getSingleSeriesByName, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle){
+    
+		//console.log(series);
+
+
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: postionTag,
+                type: 'column',
                 marginRight: 130,
                 marginBottom: 45
             },
@@ -453,8 +661,59 @@ function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOf
 						'#B5CA92'				
 					]
         });
-        
 }
 
-
+function pieChart(data, container, title, share) {
+    var chart;
+      
+      // Radialize the colors
+    Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+        return {
+            radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, color],
+                [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+            ]
+        };
+    });
+    
+    // Build the chart
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: container,
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: title
+            },
+            tooltip: {
+              pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+              percentageDecimals: 1
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function() {
+                            return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage*10)/10.0 +' %';
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: share,
+                data: data
+            }],
+            color : ['#FF8E8E',
+                      '#93EEAA', 
+                      '#4572A7']
+        });
+}
 

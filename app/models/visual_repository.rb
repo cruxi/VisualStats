@@ -74,4 +74,16 @@ class VisualRepository < ActiveRecord::Base
 
   return data
   end
+
+  def self.getUser
+    owners =  VisualRepository.select(:owner_name).uniq.order(:owner_name)
+    user = Array.new
+
+    owners.each do |owner|
+      user << owner.owner_name
+      puts owner.owner_name
+    end 
+
+    return user
+  end 
 end
