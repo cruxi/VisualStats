@@ -649,8 +649,8 @@ function drawColumnChart(categories, series, getSingleSeriesByName, postionTag, 
             
             colors: [
 						'#FF8E8E',
-						'#93EEAA', 
 						'#4572A7', 
+						'#93EEAA', 
 						'#AA4643', 
 						'#89A54E', 
 						'#80699B', 
@@ -667,7 +667,7 @@ function pieChart(data, container, title, share) {
     var chart;
       
       // Radialize the colors
-    Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+    Highcharts.getOptions().colors = Highcharts.map(['#7f9b44','#a4403d','#345f94'], function(color) {
         return {
             radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
             stops: [
@@ -710,10 +710,7 @@ function pieChart(data, container, title, share) {
                 type: 'pie',
                 name: share,
                 data: data
-            }],
-            color : ['#FF8E8E',
-                      '#93EEAA', 
-                      '#4572A7']
+            }]
         });
 }
 

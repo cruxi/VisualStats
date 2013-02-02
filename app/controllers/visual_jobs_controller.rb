@@ -10,9 +10,9 @@ class VisualJobsController < ApplicationController
 	    success =  VisualJob.where(:result => 1).count()
 	    fail = VisualJob.where(:result => 0).count()
 		
-		@draw << ['no result', @amount-fail-success]
-	    @draw << ['fail', fail.to_i]
 	    @draw << ['success', success.to_i]
+	    @draw << ['fail', fail.to_i]
+		@draw << ['no result', @amount-fail-success]
 
 	    respond_to do |format|
 	      format.html # index.html.erb
