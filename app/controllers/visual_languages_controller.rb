@@ -6,7 +6,7 @@ class VisualLanguagesController < ApplicationController
 
 
 	def getLanguagesForSelect
-		VisualJob.select(:language).uniq.order(:language)
+		languages = VisualJob.select(:language).uniq.order(:language)
 	end
 
 
@@ -15,8 +15,13 @@ class VisualLanguagesController < ApplicationController
 
 		@languages = Array.new
 
+		reg = Regexp.new("^[a-zA-Z]")
+
 		languageJobs.each do |job|
-			@languages << [job.language, job.language]
+
+			if reg.match(job.language)
+				@languages << [job.language, job.language]
+			end
 		end
 
 		respond_to do |format|

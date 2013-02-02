@@ -32,6 +32,7 @@ function generateForm(){
 	var submitBtn = $('#submit_langs');
 	var form = $('#langForm');
 	form.empty();
+	// squish removes linebreaks
 	var options = '<%=raw options_for_select(@languages).squish %>';
 	var noOfLangs = $('#numberOfLangs').val();
 	
