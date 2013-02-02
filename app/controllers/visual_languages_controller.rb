@@ -15,7 +15,10 @@ class VisualLanguagesController < ApplicationController
 
 		@languages = Array.new
 
-		reg = Regexp.new("^[a-zA-Z]")
+		#regexp for checking if language is valid
+		#remove all languages that begin with ---
+		#maybe you could also ask for languages begin with a letter ^[a-zA-Z]
+		reg = Regexp.new("^[^- ]")
 
 		languageJobs.each do |job|
 
