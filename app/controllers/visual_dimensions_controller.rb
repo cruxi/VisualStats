@@ -66,5 +66,46 @@ class VisualDimensionsController < ApplicationController
 		end
 
 	end	
+
+
+	def getDim
+		VisualDimension.select(:key).select(:value).group(:key, :value)
+	end
+
+	def listDim
+		@dimensions = getDim
+
+		respond_to do |format|
+			format.html { render :layout => false} # listDimensions.html.erb
+			format.json { render json: @dimensions }
+		end
+	end
+
+	def getLangForDim
+		VisualJob.select(:language).group(:language)
+	end
+
+	def listForDim
+		languageJobs = getLangForDim 
+
+		@languages = Array.new
+
+		#regexp for checking if language is valid
+		#remove all languages that begin with ---
+		#maybe you could also ask for languages begin with a letter ^[a-zA-Z]
+		reg = Regexp.new("^[^- ]")
+
+		languageJobs.each do |job|
+
+			if reg.match(job.language)
+				@languages << job
+			end
+		end                       
+
+		respond_to do |format|
+			format.html { render :layout => false} # listDimensions.html.erb
+			format.json { render json: @languages }
+		end
+	end
 	
 end

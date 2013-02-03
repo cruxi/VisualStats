@@ -1,0 +1,120 @@
+<style>
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+</style>
+<%= javascript_tag do %>
+var margin = {top: 40, right: 200, bottom: 500, left: 90},
+    width = 960 - margin.left - margin.right,
+    height = 10000 - margin.top - margin.bottom;
+
+var tree = d3.layout.tree()
+    .size([height, width])
+    .children(function (d) {
+    return (!d.values || d.values.length === 0) ? null : d.values;
+});
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("listDim", function(dim) {
+
+var tempData = new Array();
+
+for(var i = 0; i< dim.length; i++){
+    if((dim[i].key == "gemfile")||(dim[i].key == "env")){
+    }
+    else{
+        tempData.push(dim[i]);
+    }
+}
+
+
+var nesteddata = d3.nest()
+    .key(function (d) {
+    return d.key;
+    })
+    .rollup(function (d) {
+    //console.log(d.map);
+    return d.map(function (dd) {
+        return nodeByName(dd.value)
+    })
+})
+    .entries(tempData);
+
+
+var hierarchy = {"key" : "Versions",
+                "values" :nesteddata};
+
+var nodes = tree.nodes(hierarchy); 
+
+var l = tree.links(nodes);
+
+    var link = svg.selectAll("g.link")
+        .data(l)
+        .enter().append("svg:path")
+        .attr("class", "link")
+        .attr("d", d3.svg.diagonal()
+        .projection(function (d) {
+        return [d.y, d.x];
+    }))
+
+    var node = svg.selectAll("g.node")
+        .data(nodes)
+        .enter().append("svg:g")
+        .attr("transform", function (d) {
+        return "translate(" + d.y + "," + d.x + ")";
+    })
+
+    // Add the dot at every node
+    node.append("circle")
+        .attr("class", "node")
+        .attr("r", 4.5)
+        .attr("cx", function (d,i) {
+        return d.x[i];
+    })
+        .attr("cy", function (d,i) {
+        return d.y[i];
+    });
+
+    node.append("svg:text")
+        .attr("dx", function (d) {
+        return d.value ? -8 : 8;
+    })
+
+
+        .attr("dy", 3)
+        .attr("text-anchor", function (d) {
+        return d.value ? "end" : "start";
+    })
+        .text(function (d) {
+        return d.key;
+    })
+
+function nodeByName(name) {
+    return {
+        key: name
+    };
+}
+
+});
+
+<% end %>

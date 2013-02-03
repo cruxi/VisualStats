@@ -583,7 +583,7 @@ function drawLineChart(categories, series, getSingleSeriesByName, postionTag, xA
                 x: -10,
                 y: 100,
                 borderWidth: 0
-            },
+           },
             series: series
         });
 }

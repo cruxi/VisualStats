@@ -26,6 +26,10 @@ VisualStats::Application.routes.draw do
 
 #TRAVIS
   match 'travis/about' => 'start#about', :as => :about
+
+  get 'travis/listDim' => 'visualDimensions#listDim', :as => :listDim
+  get 'travis/listForDim' => 'visualDimensions#listForDim', :as => :listForDim
+
   match 'repositories/builds' => 'visualBuilds#index' #shows all builds of all repositories
   match 'repositories/builds/jobs' => 'visualJobs#index' #shows all jobs of all builds of all repositories
   match 'repositories/builds/jobs/languages' => 'visualJobs#listLanguages' #shows all languages used in jobs
