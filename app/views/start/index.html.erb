@@ -43,8 +43,12 @@
 
 setup();
 
-  function setup(){
+function setup(){
 
-$('.carousel').carousel();
-
+  $('.carousel').carousel({
+    interval: 5000,
+    pause: "hover"
+  });
 };
+
+</script>
