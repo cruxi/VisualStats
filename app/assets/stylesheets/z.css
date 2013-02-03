@@ -24,7 +24,7 @@ h2, h3{
 
 
 a:hover{
-	background-color: transparent !important;
+	background-color: transparent;
 	text-decoration: none !important;
 }
 
@@ -131,8 +131,50 @@ a {
   background-color: #d2d2d2 !important;
 }
 
-
 .example_images {
+  margin-top: 20px !important;
   width: 80% !important;
   margin-left: 120px !important;
 }
+
+/*CAROUSEL CAPTION*/
+.my-carousel-caption {
+  margin-top: 50px !important;
+  /*position: absolute;*/
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  background: #222;
+  background: rgba(0,0,0,.75);
+}
+
+.my-carousel-caption h4,
+.my-carousel-caption p {
+  color: #FFFFFF;
+  /*line-height: @baseLineHeight;*/
+}
+.my-carousel-caption h4 {
+  margin: 0 0 5px;
+}
+.my-carousel-caption p {
+  margin-bottom: 0;
+}
+
+
+/*CAROUSEL*/
+
+#myCarousel {
+  margin-top: 60px !important;
+}
+
+#myCarousel a{
+  background-color: #222 !important;
+  text-decoration: none !important;
+}
+
+#myCarousel a:hover{
+  background-color: #888 !important;
+  text-decoration: none !important;
+}
+
