@@ -82,7 +82,7 @@ class VisualDimensionsController < ApplicationController
 	end
 
 	def getLangForDim
-		VisualJob.select(:language).group(:language)
+		VisualJob.select("lower(language) AS language").group(:language)
 	end
 
 	def listForDim

@@ -1,12 +1,28 @@
 class VisualLanguagesController < ApplicationController
 
 	def getLanguages
-		VisualJob.select(:language).group(:language).order("count_language desc").count()
+		#VisualJob.select(:language).group(:language).order("count_language desc").count()
+		languageJobs = VisualJob.select("lower(language)").group("lower(language)").order("count_lower_language desc").count()
+	
+		languages = Array.new
+
+		#regexp for checking if language is valid
+		#remove all languages that begin with ---
+		#maybe you could also ask for languages begin with a letter ^[a-zA-Z]
+		reg = Regexp.new("^[^- ]")
+
+		languageJobs.each do |job|
+			if reg.match(job[0])
+				languages << job
+			end
+		end
+
+		return languages
 	end
 
 
 	def getLanguagesForSelect
-		languages = VisualJob.select(:language).uniq.order(:language)
+		languages = VisualJob.select("lower(language) AS language").uniq.order(:language)
 	end
 
 
