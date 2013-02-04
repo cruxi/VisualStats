@@ -6,7 +6,11 @@
 
 <% dimensions.each do |dimension| %>
   <tr>
-    <td class="dimension"><%= dimension[0][0] %> <%= dimension[0][1] %></td>
+  	<% if dimension[0][1].to_s.length > 60 %>
+    	<td class="dimension" title="<%= dimension[0][1].to_s.gsub("\n"," ") %>"><%= dimension[0][0] %> <%= dimension[0][1][0, 60] %>...</td>
+    <% else %>
+    	<td class="dimension"><%= dimension[0][0] %> <%= dimension[0][1] %></td>
+    <% end %>
     <td><%= dimension[1] %></td>
   </tr>
 <% end %>

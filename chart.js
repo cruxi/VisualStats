@@ -140,7 +140,7 @@ function lineChart(data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjec
  */
 function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOfComparedObjects, title, subtitle, yAxisOppositeLable){
 	
-	// console.log(data);
+	console.log(data);
 
 	// console.log(data);
 	var invalidDates = 0;
@@ -322,8 +322,8 @@ function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOf
 			categories.push(monthNames[xMonth-1].substring(0,3) + " " + xYear.toString().substring(2));		// -1 to match monthNames array 0..11, because xMonth 1..12
 		});
 	});
-	 // console.log(categories); 
-	 // console.log(seriesByLang); 
+	 console.log(categories); 
+	 console.log(seriesByLang); 
 	
 	if(chartType == CHARTTYPE_COLUMN || chartType == CHARTTYPE_SPLINECOLUMN){
 		
@@ -380,8 +380,8 @@ function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOf
 		alert('Sourcedata contains ' + invalidDates + ' invalid DateTime-values!');
 	}
 
-	// console.log(chartType);
-	// console.log(series);
+	console.log(chartType);
+	console.log(series);
 
 
     var chart;

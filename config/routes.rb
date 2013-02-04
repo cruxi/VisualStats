@@ -60,10 +60,10 @@ VisualStats::Application.routes.draw do
   :constraints => { :language1 => /[^\/]+/ , :language2 => /[^\/]+/, :language3 => /[^\/]+/, :language4 => /[^\/]+/, :language5 => /[^\/]+/  } #shows all results of min two language -> visualization of success and fail
 
 #DIMENSION
-  match 'dimensions' => 'visualDimensions#listDimensions'
-  match 'dimensions/:language/:version1/:version2' => 'visualDimensions#listJobsForDimension',
-  :constraints => { :version1 => /[^\/]+/ , :version2 => /[^\/]+/ } #shows all results two versions of a language -> visualization of success and fail
-
+  #match 'dimensions' => 'visualDimensions#listDimensions'
+  match 'dimensions/:key/:value1/:value2' => 'visualDimensions#listJobsForDimension',
+  :constraints => { :value1 => /[^\/]+/ , :value2 => /[^\/]+/ } #shows all results two versions of a language -> visualization of success and fail
+  match 'dimensions/:key' => 'visualDimensions#listDimensionValues'
 ########
 
 

@@ -1,36 +1,84 @@
 <h1>Compare Dimensions</h1>
 
-<form id="dimensionsForm" action="return false;" onsubmit="">
-	<label class="labelTagHTML">language:</label>
-	<input id="language"></input>
-	<label class="labelTagHTMLsmall">dimension1:</label>
-	<input class="dimension"></input>
-	<label class="labelTagHTMLsmall">dimension2:</label>
-	<input class="dimension"></input>
-	<br />
-	<input type="submit" value="search" class="submitBtn"></input>
+<form id="dimensionKeyForm" action="return false;" onsubmit="">
+	<label class="labelTagHTML">Select what you want to compare:</label>
+	<select id="compareKey" onchange="generateForm()">
+		<option value='' selected="selected"></option>
+		<%= options_for_select(@dimensionKeys) %>
+	</select>
 </form>
 
+<form id="dimensionsForm" action="return false;" onsubmit="">
+	<%= submit_tag("Search",  :id => 'submit_dimensions', :class => "submitBtn")%>
+</form>
 
 <div id="showDimensionDetails">
 </div>
 
-	<script type="text/javascript">
+<script type="text/javascript">
+
+$('#submit_dimensions').hide();
+
+function generateForm(){
+
+	var maxStringLen = 40; // chars
+	
+	var jsonURL   = $('#compareKey').val();
+	var submitBtn = $('#submit_dimensions');
+	var keyForm   = $('#dimensionKeyForm');
+	var valueForm = $('#dimensionsForm');
+
+	valueForm.empty();
+	valueForm.append(submitBtn);
+	submitBtn.hide();
+	
+	if ($('#compareKey').val() == '') return;
+
+	// load gif
+	$('#dimensionKeyForm').append('<img src="/assets/ajax-loader-small.gif" id="ajaxLoadSmall" />');
+
+	$.getJSON(jsonURL, function(data){
+				
+				// remove load gif
+				$('#ajaxLoadSmall').remove();
+
+				var options = '';
+
+				$.each(data, function(index, value){
+										// limit visible text to max number of letters and add tooltip if necessary
+					if(value.length > maxStringLen){
+						options += '<option value="' + escapeHtml(value) + '" title="' + escapeHtml(value) + '">' + value.substring(0, maxStringLen-3) + '...</option>'
+					}else{
+						options += '<option value="' + escapeHtml(value) + '">' + value + '</option>'
+					}
+
+
+				});
+
+				submitBtn.remove();
+				valueForm.append('<label class="labelTagHTMLsmall">Value 1</label><select class="dimension" id="Value1">' + options + '</select>');
+				valueForm.append('<label class="labelTagHTMLsmall">Value 2</label><select class="dimension" id="Value2">' + options + '</select>');
+				valueForm.append('<br />');
+				valueForm.append(submitBtn);
+				submitBtn.show();
+			}).error(function(jqXHR, textStatus, errorThrown) {
+         		$('#dimensionKeyForm').append("<p id='errorText'>An error ("+errorThrown+") has occured! Text status: "+textStatus+"</p>");
+	          	$("#ajaxLoadSmall").remove();    
+    });
+}
 
 // pass formID, ID of div to display data and callback function to build route
 submitFormViaAjax('dimensionsForm', 'showDimensionDetails', function(form){
 
-	var url='/dimensions/'+$('#language').val()+'/';
+	var url='/dimensions/'+$('#compareKey').val()+'/';
 
 	// get all select-values of form
-    $('#dimensionsForm').children('input.dimension').each(function(){
+    $('#dimensionsForm').children('select.dimension').each(function(){
     
         url += $(this).val() + '/';
     });
 
  	url += '?ui=1'
-
- 	console.log(url)
 
   	form.attr('action', url);
 });
