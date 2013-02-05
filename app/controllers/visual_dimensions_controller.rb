@@ -104,6 +104,9 @@ class VisualDimensionsController < ApplicationController
 										WHERE dim2_val != DIM1_VAL AND job1_finished_at IS NOT NULL
 										ORDER BY Job1_build_id" )
 
+		#statt or bei jedem select -> zwei selects die jeweils nur die Jobs mit dem einem Value rausziehen
+		#das ergebnis der beiden dann joinen somit entfällt Bedingung -> job2.job2_id != job1.job1_id
+
 		@draw = Array.new
 		@draw[0] = Hash.new
 		@draw[1] = Hash.new
