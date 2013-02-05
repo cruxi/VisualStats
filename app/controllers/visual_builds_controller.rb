@@ -7,8 +7,8 @@ class VisualBuildsController < ApplicationController
 
 	    @amount =  VisualBuild.count()
 	    @amount.to_i
-	    success =  VisualBuild.where(:result => 1).count()
-	    fail = VisualBuild.where(:result => 0).count()
+	    success =  VisualBuild.where(:result => 0).count()
+	    fail = VisualBuild.where(:result => 1).count()
 		
 	    @draw << ['success', success.to_i]
 	    @draw << ['fail', fail.to_i]

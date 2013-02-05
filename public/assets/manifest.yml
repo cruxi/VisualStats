@@ -1,15 +1,96 @@
 ---
-glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
-glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
-glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
-glyphicons-halflings/index.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
-logo_visualStats.png: logo_visualStats-8a55a58537aab7e53a3ea497f9219505.png
-logo_visualStats/index.png: logo_visualStats-8a55a58537aab7e53a3ea497f9219505.png
-rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-373fc98b4d5765011d8bace150e89399.js
-application/index.js: application-373fc98b4d5765011d8bace150e89399.js
-application.css: application-0325f10adfea036bdcba478ce85ca38a.css
-application/index.css: application-0325f10adfea036bdcba478ce85ca38a.css
-jquery.min.map: jquery.min-959a5819c76e1508f5a8655c289c0de8.map
-jquery/index.min.map: jquery.min-959a5819c76e1508f5a8655c289c0de8.map
+!binary "YWpheC1sb2FkZXItc21hbGwuZ2lm": ajax-loader-small-7502eb63027df97a62974c25cbca3bfe.gif
+!binary "YWpheC1sb2FkZXItc21hbGwvaW5kZXguZ2lm": ajax-loader-small-7502eb63027df97a62974c25cbca3bfe.gif
+!binary "YWpheC1sb2FkZXIuZ2lm": ajax-loader-fca73d46a065d559019501ecff177ed0.gif
+!binary "YWpheC1sb2FkZXIvaW5kZXguZ2lm": ajax-loader-fca73d46a065d559019501ecff177ed0.gif
+!binary "ZXhhbXBsZV9jb2x1bW5fc3BsaW5lLnBuZw==": example_column_spline-6222604cfef6e96948f4fb0e26bde8be.png
+!binary "ZXhhbXBsZV9jb2x1bW5fc3BsaW5lL2luZGV4LnBuZw==": example_column_spline-6222604cfef6e96948f4fb0e26bde8be.png
+!binary "ZXhhbXBsZV9tdWx0aV9saW5lcy5wbmc=": example_multi_lines-86510dabb519e56bed4ded12570a65d4.png
+!binary "ZXhhbXBsZV9tdWx0aV9saW5lcy9pbmRleC5wbmc=": example_multi_lines-86510dabb519e56bed4ded12570a65d4.png
+!binary "ZXhhbXBsZV9waWUucG5n": example_pie-4bc00c2552fd2a7e64e1f54a2edd44d5.png
+!binary "ZXhhbXBsZV9waWUvaW5kZXgucG5n": example_pie-4bc00c2552fd2a7e64e1f54a2edd44d5.png
+!binary "Z2x5cGhpY29ucy1oYWxmbGluZ3Mtd2hpdGUucG5n": glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
+!binary "Z2x5cGhpY29ucy1oYWxmbGluZ3Mtd2hpdGUvaW5kZXgucG5n": glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
+!binary "Z2x5cGhpY29ucy1oYWxmbGluZ3MucG5n": glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
+!binary "Z2x5cGhpY29ucy1oYWxmbGluZ3MvaW5kZXgucG5n": glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
+!binary "bG9nb192aXN1YWxTdGF0cy5wbmc=": logo_visualStats-8a55a58537aab7e53a3ea497f9219505.png
+!binary "bG9nb192aXN1YWxTdGF0cy9pbmRleC5wbmc=": logo_visualStats-8a55a58537aab7e53a3ea497f9219505.png
+!binary "cmFpbHMucG5n": rails-a3386665c05a2d82f711a4aaa72d247c.png
+!binary "cmFpbHMvaW5kZXgucG5n": rails-a3386665c05a2d82f711a4aaa72d247c.png
+!binary "c2NyZWVuc2hvdF9iYWxrZW4ucG5n": screenshot_balken-05f32a799299e7ef5297cdd013e7dfce.png
+!binary "c2NyZWVuc2hvdF9iYWxrZW4vaW5kZXgucG5n": screenshot_balken-05f32a799299e7ef5297cdd013e7dfce.png
+!binary "c2NyZWVuc2hvdF9saW5lcy5wbmc=": screenshot_lines-c2c665b623a8f7d8262ee501ccaf789a.png
+!binary "c2NyZWVuc2hvdF9saW5lcy9pbmRleC5wbmc=": screenshot_lines-c2c665b623a8f7d8262ee501ccaf789a.png
+!binary "c2NyZWVuc2hvdF9waWUucG5n": screenshot_pie-4a2f5e5e48c64c97b503dc7e92da8675.png
+!binary "c2NyZWVuc2hvdF9waWUvaW5kZXgucG5n": screenshot_pie-4a2f5e5e48c64c97b503dc7e92da8675.png
+!binary "dWktYmdfZGlhZ29uYWxzLXRoaWNrXzE4X2I4MTkwMF80MHg0MC5wbmc=": ui-bg_diagonals-thick_18_b81900_40x40-1982ad87b557e2c36776f5fa8d6aeaab.png
+? !binary |-
+  dWktYmdfZGlhZ29uYWxzLXRoaWNrXzE4X2I4MTkwMF80MHg0MC9pbmRleC5w
+  bmc=
+: ui-bg_diagonals-thick_18_b81900_40x40-1982ad87b557e2c36776f5fa8d6aeaab.png
+!binary "dWktYmdfZGlhZ29uYWxzLXRoaWNrXzIwXzY2NjY2Nl80MHg0MC5wbmc=": ui-bg_diagonals-thick_20_666666_40x40-77de9705f966a3c9cc83be1b273945ce.png
+? !binary |-
+  dWktYmdfZGlhZ29uYWxzLXRoaWNrXzIwXzY2NjY2Nl80MHg0MC9pbmRleC5w
+  bmc=
+: ui-bg_diagonals-thick_20_666666_40x40-77de9705f966a3c9cc83be1b273945ce.png
+!binary "dWktYmdfZmxhdF8wX2FhYWFhYV80MHgxMDAucG5n": ui-bg_flat_0_aaaaaa_40x100-7d1197a52442bc56fcad60d0390f4b32.png
+!binary "dWktYmdfZmxhdF8wX2FhYWFhYV80MHgxMDAvaW5kZXgucG5n": ui-bg_flat_0_aaaaaa_40x100-7d1197a52442bc56fcad60d0390f4b32.png
+!binary "dWktYmdfZmxhdF8xMF8wMDAwMDBfNDB4MTAwLnBuZw==": ui-bg_flat_10_000000_40x100-78465ce5ef4ac9d3e6930674f9436470.png
+!binary "dWktYmdfZmxhdF8xMF8wMDAwMDBfNDB4MTAwL2luZGV4LnBuZw==": ui-bg_flat_10_000000_40x100-78465ce5ef4ac9d3e6930674f9436470.png
+!binary "dWktYmdfZmxhdF83NV9mZmZmZmZfNDB4MTAwLnBuZw==": ui-bg_flat_75_ffffff_40x100-3c4b974defa5e8bdaf8a603034c4435e.png
+!binary "dWktYmdfZmxhdF83NV9mZmZmZmZfNDB4MTAwL2luZGV4LnBuZw==": ui-bg_flat_75_ffffff_40x100-3c4b974defa5e8bdaf8a603034c4435e.png
+!binary "dWktYmdfZ2xhc3NfMTAwX2Y2ZjZmNl8xeDQwMC5wbmc=": ui-bg_glass_100_f6f6f6_1x400-859db442999996b8ffcf4609a0a39c5b.png
+!binary "dWktYmdfZ2xhc3NfMTAwX2Y2ZjZmNl8xeDQwMC9pbmRleC5wbmc=": ui-bg_glass_100_f6f6f6_1x400-859db442999996b8ffcf4609a0a39c5b.png
+!binary "dWktYmdfZ2xhc3NfMTAwX2ZkZjVjZV8xeDQwMC5wbmc=": ui-bg_glass_100_fdf5ce_1x400-355ca958e756e5ac92cfb32940855326.png
+!binary "dWktYmdfZ2xhc3NfMTAwX2ZkZjVjZV8xeDQwMC9pbmRleC5wbmc=": ui-bg_glass_100_fdf5ce_1x400-355ca958e756e5ac92cfb32940855326.png
+!binary "dWktYmdfZ2xhc3NfNTVfZmJmOWVlXzF4NDAwLnBuZw==": ui-bg_glass_55_fbf9ee_1x400-38c2dea4d046fd3f56cc3996e2e6018b.png
+!binary "dWktYmdfZ2xhc3NfNTVfZmJmOWVlXzF4NDAwL2luZGV4LnBuZw==": ui-bg_glass_55_fbf9ee_1x400-38c2dea4d046fd3f56cc3996e2e6018b.png
+!binary "dWktYmdfZ2xhc3NfNjVfZmZmZmZmXzF4NDAwLnBuZw==": ui-bg_glass_65_ffffff_1x400-ddb7ee7527bff283054406c50e597e1e.png
+!binary "dWktYmdfZ2xhc3NfNjVfZmZmZmZmXzF4NDAwL2luZGV4LnBuZw==": ui-bg_glass_65_ffffff_1x400-ddb7ee7527bff283054406c50e597e1e.png
+!binary "dWktYmdfZ2xhc3NfNzVfZGFkYWRhXzF4NDAwLnBuZw==": ui-bg_glass_75_dadada_1x400-d618461418b1ebc6b7996979f4c3dc92.png
+!binary "dWktYmdfZ2xhc3NfNzVfZGFkYWRhXzF4NDAwL2luZGV4LnBuZw==": ui-bg_glass_75_dadada_1x400-d618461418b1ebc6b7996979f4c3dc92.png
+!binary "dWktYmdfZ2xhc3NfNzVfZTZlNmU2XzF4NDAwLnBuZw==": ui-bg_glass_75_e6e6e6_1x400-48d8d545f708e5870a965ce9df8b0e38.png
+!binary "dWktYmdfZ2xhc3NfNzVfZTZlNmU2XzF4NDAwL2luZGV4LnBuZw==": ui-bg_glass_75_e6e6e6_1x400-48d8d545f708e5870a965ce9df8b0e38.png
+!binary "dWktYmdfZ2xhc3NfOTVfZmVmMWVjXzF4NDAwLnBuZw==": ui-bg_glass_95_fef1ec_1x400-f3526b8f82249928f0a6baf044204b15.png
+!binary "dWktYmdfZ2xhc3NfOTVfZmVmMWVjXzF4NDAwL2luZGV4LnBuZw==": ui-bg_glass_95_fef1ec_1x400-f3526b8f82249928f0a6baf044204b15.png
+!binary "dWktYmdfZ2xvc3Mtd2F2ZV8zNV9mNmE4MjhfNTAweDEwMC5wbmc=": ui-bg_gloss-wave_35_f6a828_500x100-480fa281118d7f09456af598ab51a1f2.png
+!binary "dWktYmdfZ2xvc3Mtd2F2ZV8zNV9mNmE4MjhfNTAweDEwMC9pbmRleC5wbmc=": ui-bg_gloss-wave_35_f6a828_500x100-480fa281118d7f09456af598ab51a1f2.png
+!binary "dWktYmdfaGlnaGxpZ2h0LXNvZnRfMTAwX2VlZWVlZV8xeDEwMC5wbmc=": ui-bg_highlight-soft_100_eeeeee_1x100-5a7d3304bb96c8ad8100ea9a931cdcdf.png
+? !binary |-
+  dWktYmdfaGlnaGxpZ2h0LXNvZnRfMTAwX2VlZWVlZV8xeDEwMC9pbmRleC5w
+  bmc=
+: ui-bg_highlight-soft_100_eeeeee_1x100-5a7d3304bb96c8ad8100ea9a931cdcdf.png
+!binary "dWktYmdfaGlnaGxpZ2h0LXNvZnRfNzVfY2NjY2NjXzF4MTAwLnBuZw==": ui-bg_highlight-soft_75_cccccc_1x100-cec5c56503b8480f834c3fce35dae8df.png
+? !binary |-
+  dWktYmdfaGlnaGxpZ2h0LXNvZnRfNzVfY2NjY2NjXzF4MTAwL2luZGV4LnBu
+  Zw==
+: ui-bg_highlight-soft_75_cccccc_1x100-cec5c56503b8480f834c3fce35dae8df.png
+!binary "dWktYmdfaGlnaGxpZ2h0LXNvZnRfNzVfZmZlNDVjXzF4MTAwLnBuZw==": ui-bg_highlight-soft_75_ffe45c_1x100-aaf4081ddd971a697570595018849906.png
+? !binary |-
+  dWktYmdfaGlnaGxpZ2h0LXNvZnRfNzVfZmZlNDVjXzF4MTAwL2luZGV4LnBu
+  Zw==
+: ui-bg_highlight-soft_75_ffe45c_1x100-aaf4081ddd971a697570595018849906.png
+!binary "dWktaWNvbnNfMjIyMjIyXzI1NngyNDAucG5n": ui-icons_222222_256x240-66e635a2f90b9f90675d402617630b24.png
+!binary "dWktaWNvbnNfMjIyMjIyXzI1NngyNDAvaW5kZXgucG5n": ui-icons_222222_256x240-66e635a2f90b9f90675d402617630b24.png
+!binary "dWktaWNvbnNfMjI4ZWYxXzI1NngyNDAucG5n": ui-icons_228ef1_256x240-7db292b26ad49bd8a7f22a5a33a233b4.png
+!binary "dWktaWNvbnNfMjI4ZWYxXzI1NngyNDAvaW5kZXgucG5n": ui-icons_228ef1_256x240-7db292b26ad49bd8a7f22a5a33a233b4.png
+!binary "dWktaWNvbnNfMmU4M2ZmXzI1NngyNDAucG5n": ui-icons_2e83ff_256x240-2ea4c160a75c1992daa2eeac86255b99.png
+!binary "dWktaWNvbnNfMmU4M2ZmXzI1NngyNDAvaW5kZXgucG5n": ui-icons_2e83ff_256x240-2ea4c160a75c1992daa2eeac86255b99.png
+!binary "dWktaWNvbnNfNDU0NTQ1XzI1NngyNDAucG5n": ui-icons_454545_256x240-5c7f12676bcead9cb2d4cb8f23f16e95.png
+!binary "dWktaWNvbnNfNDU0NTQ1XzI1NngyNDAvaW5kZXgucG5n": ui-icons_454545_256x240-5c7f12676bcead9cb2d4cb8f23f16e95.png
+!binary "dWktaWNvbnNfODg4ODg4XzI1NngyNDAucG5n": ui-icons_888888_256x240-da2fac9eef3a94a91bd95c6349ca0815.png
+!binary "dWktaWNvbnNfODg4ODg4XzI1NngyNDAvaW5kZXgucG5n": ui-icons_888888_256x240-da2fac9eef3a94a91bd95c6349ca0815.png
+!binary "dWktaWNvbnNfY2QwYTBhXzI1NngyNDAucG5n": ui-icons_cd0a0a_256x240-c0c1ec6a8bcf48fec40303e975a4dfa6.png
+!binary "dWktaWNvbnNfY2QwYTBhXzI1NngyNDAvaW5kZXgucG5n": ui-icons_cd0a0a_256x240-c0c1ec6a8bcf48fec40303e975a4dfa6.png
+!binary "dWktaWNvbnNfZWY4YzA4XzI1NngyNDAucG5n": ui-icons_ef8c08_256x240-1b0914f527f1e81a650df81cce8f599d.png
+!binary "dWktaWNvbnNfZWY4YzA4XzI1NngyNDAvaW5kZXgucG5n": ui-icons_ef8c08_256x240-1b0914f527f1e81a650df81cce8f599d.png
+!binary "dWktaWNvbnNfZmZkMjdhXzI1NngyNDAucG5n": ui-icons_ffd27a_256x240-801f6f4460a2b1783aef7caf7c6b95e5.png
+!binary "dWktaWNvbnNfZmZkMjdhXzI1NngyNDAvaW5kZXgucG5n": ui-icons_ffd27a_256x240-801f6f4460a2b1783aef7caf7c6b95e5.png
+!binary "dWktaWNvbnNfZmZmZmZmXzI1NngyNDAucG5n": ui-icons_ffffff_256x240-72e106fbaa40ef9c0f5f4376620a2a14.png
+!binary "dWktaWNvbnNfZmZmZmZmXzI1NngyNDAvaW5kZXgucG5n": ui-icons_ffffff_256x240-72e106fbaa40ef9c0f5f4376620a2a14.png
+!binary "YXBwbGljYXRpb24uanM=": application-2a9ddeeb9f85697e6bb22bc3ef28735a.js
+!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-2a9ddeeb9f85697e6bb22bc3ef28735a.js
+!binary "YXBwbGljYXRpb24uY3Nz": application-ea1ec29a118052f7d73644d87db873e9.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-ea1ec29a118052f7d73644d87db873e9.css
+!binary "anF1ZXJ5Lm1pbi5tYXA=": jquery.min-959a5819c76e1508f5a8655c289c0de8.map
+!binary "anF1ZXJ5L2luZGV4Lm1pbi5tYXA=": jquery.min-959a5819c76e1508f5a8655c289c0de8.map

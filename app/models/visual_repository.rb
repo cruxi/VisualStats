@@ -48,7 +48,7 @@ class VisualRepository < ActiveRecord::Base
   def self.getRepositoryDrawData(id)
   
   data = Array.new
-  names = ['fail', 'success']
+  names = ['success','fail']
 
   builds = VisualBuild.where(repository_id: id).where("finished_at IS NOT NULL").order(:finished_at)
   
@@ -61,8 +61,8 @@ class VisualRepository < ActiveRecord::Base
     finishedAtDateTimes = Array.new
     results             = Array.new
     builds.each do |build|
-      if build.result == i        # result 1 -> success
-        results << 1
+      if build.result == i        # result 0 -> success
+        results << 0
         finishedAtDateTimes << build.finished_at
       end
     end

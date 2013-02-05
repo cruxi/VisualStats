@@ -293,8 +293,9 @@ function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOf
 						if(currXMonth==xMonth && currXYear==xYear){
 							
 							 currSeriesTotal++;
-							 if(value.y[xIndex]==1) currSeriesPositiv++;
-							 else if(value.y[xIndex]==0) currSeriesNegativ++;
+							 // 0 -> success, 1 -> fail
+							 if(value.y[xIndex]==0) currSeriesPositiv++;
+							 else if(value.y[xIndex]==1) currSeriesNegativ++;
 						}
 						// console.log("--------------------------------");
 						// console.log(value.name + " name");
@@ -361,9 +362,12 @@ function customChart(chartType, data, postionTag, xAxisLable, yAxisLable, typeOf
 				success.push(element.success);
 				fail.push(element.fail);
 				successrate.push(Math.round(element.successrate));
-			// else push null to skip current month
+			// else push null or cero to skip current month
 			}else{
 				successrate.push(null);
+				total.push(0);
+				success.push(0);
+				fail.push(0);
 			}
 		});
 		
@@ -499,9 +503,8 @@ function drawColumSplineChart(categories, series, getSingleSeriesByName, postion
             },
             series: series,
             
-            colors: [
+            colors: [	'#93EEAA', 
 						'#FF8E8E',
-						'#93EEAA', 
 						'#4572A7', 
 						'#AA4643', 
 						'#89A54E', 

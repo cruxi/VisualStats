@@ -93,9 +93,9 @@ class VisualLanguagesController < ApplicationController
 			#stat['positiv'] = VisualJob.where("language = '#{lang}' AND result=1").count
 
 			#besser aufgrund von SQL injection!!
-			stat['positiv'] = VisualJob.where(language: lang).where(result: 1).order(:finished_at).count(:id)
+			stat['positiv'] = VisualJob.where(language: lang).where(result: 0).order(:finished_at).count(:id)
 
-			stat['negativ'] = VisualJob.where(language: lang).where(result: 0).order(:finished_at).count(:id)
+			stat['negativ'] = VisualJob.where(language: lang).where(result: 1).order(:finished_at).count(:id)
 			stat['total'] = VisualJob.where(language: lang).order(:finished_at).count(:id)
 			if stat['total'] > 0 
 				stat['percentage'] = (stat['positiv']*100.0/stat['total']).round(2)

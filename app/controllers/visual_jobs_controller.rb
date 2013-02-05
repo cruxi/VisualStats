@@ -7,8 +7,8 @@ class VisualJobsController < ApplicationController
 
 	    @amount =  VisualJob.count()
 	    @amount.to_i
-	    success =  VisualJob.where(:result => 1).count()
-	    fail = VisualJob.where(:result => 0).count()
+	    success =  VisualJob.where(:result => 0).count()
+	    fail = VisualJob.where(:result => 1).count()
 		
 	    @draw << ['success', success.to_i]
 	    @draw << ['fail', fail.to_i]
